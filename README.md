@@ -89,3 +89,15 @@ GET /users/:id () => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', ema
 PATCH /users/:id ( { email: 'me@changed.ie' } ) => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', email: 'me@changed.ie' }
 
 GET /users/:id/contributions () => { userID: 1, name: 'Joe', contributions: [ { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }, … ] }
+
+
+===============
+Models
+===============
+
+- Gifts => has users(contributers) through contributions, belongs to users(as organizers)
+- Users => has many gifts(as contributers and organizers)
+- Contributions => belongs to gifts and belongs to users
+
+
+

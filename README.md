@@ -6,14 +6,28 @@ Project Outline (as understood by the team before talking to client)
 ===============
 
 ```
-As a caring and efficient friend
-So that I can co-buy presents with other people
-I want an app that automatically buys presents once everybody's paid in
+As an efficient friend
+So that I don't end up over paying
+I want an app that encourages a group to contribute
 
-As a finance-aware buyer
+As the assigned buyer
 So that I can only make a purchase when all funds are received
 I want to be notified when we reach our target
 
+As the group coordinator
+So that I can split the cost evenly
+I want to be able to add the present and the cost
+
+As a secretive member of the present-buying community
+So that the recipient is not aware of our plans
+I want to restrict access to my present-buying page
+```
+
+
+Extended features
+-----------------
+
+```
 As a good friend
 So that I can cover part of the cost of a present for my friend
 I want to add an arbitrary sum to the pool
@@ -21,10 +35,6 @@ I want to add an arbitrary sum to the pool
 As a time-limited friend
 So that I don’t have to deal with the complexity
 I want the app to be able to manage purchase including postage
-
-As a secretive member of the present-buying community
-So that the recipient is not aware of our plans
-I want to restrict access to my present-buying page
 ```
 
 ===============

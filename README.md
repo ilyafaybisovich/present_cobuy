@@ -1,3 +1,6 @@
+## «Present Cobuy» ##
+#### Make present headaches a thing of the past! ####
+
 ===============
 Project Outline (as understood by the team before talking to client)
 ===============
@@ -50,3 +53,29 @@ Overview
 
 * Wireframe! Get a rough idea of what the user will want to do and how they’re going to do it before we attempt to start building feature tests and adding functionality.
 * Defining the API early on is essential as this allows the project to be split up and worked on separately with full understanding of how the parts will interact. Required to integrate the parts later on without headaches.
+
+===============
+API Routes
+===============
+
+GET /gifts () => { gifts: [ giftID: 1, items: [ { amazonID: 1, cost: 3.00 }, … ], title: 'Dan’s 30th Birthday', costCovered: 1.00, recipient: 'Dan', organizer: 'Rob', contributers: [ contributionID: 1, … ], … ] }
+
+POST /gifts ( { items: [ { amazonID: 1, cost: 3.00 }, … ], title: 'Dan’s 30th Birthday', costCovered: 1.00, recipient: 'Dan', organizer: 'Rob', contributers: [ { userId: 1, amount: 1.00, token: 'jhjdsgfhsjdgfsdjhs' }, … ] } ) => { giftID: 2 }
+
+GET /gifts/:id () => { giftID: 1, items: [ { amazonID: 1, cost: 3.00 }, … ], title: 'Dan’s 30th Birthday', costCovered: 1.00, recipient: 'Dan', organizer: 'Rob', contributers: [ contributionID: 1, … ] }
+
+POST /contributions ( { giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 1.00 } ) => { contributionID: 1 }
+
+GET /contributions/:id () => { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }
+
+PATCH /contributions/:id ( { giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 } ) => { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }
+
+GET /users () => { users: [ { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', email: 'me@us.ie' }, … ] }
+
+POST /users ( { name: 'Rob', passwordDigest: 'fjkdshgfkj', email: 'me@us.ie' } ) => { userID: 2 }
+
+GET /users/:id () => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', email:'me@us.ie' }
+
+PATCH /users/:id ( { email: 'me@changed.ie' } ) => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', email: 'me@changed.ie' }
+
+GET /users/:id/contributions () => { userID: 1, name: 'Joe', contributions: [ { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }, … ] }

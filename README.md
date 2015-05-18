@@ -28,9 +28,11 @@ I want to restrict access to my present-buying page
 Questions for the client
 ===============
 
-* Is the cost split evenly or is the contribution amount arbitrary?
-* Final payment options: use Zinc.io or trust one of the group with the money?
 * How is the present chosen? Does it come from a wishlist, a search, and so on?
+* How do you want to invite people?
+* Do you want the process to be hidden from the recipient?
+* Is the cost split evenly or is the contribution amount arbitrary?
+* Final payment options: use Zinc.io (automated purchase) or trust one of the group with the money (with a possible voting process to decide who to trust)?
 
 ===============
 Technologies

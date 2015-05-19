@@ -26,24 +26,15 @@ class GiftsController < ApplicationController
 
   def format_search(response_hash)
     items = response_hash['ItemSearchResponse']['Items']['Item']
-    p items[7]['ASIN']
-    p items[7]['MediumImage']['URL']
-    p items[7]['DetailPageURL']
-    p items[7]['ItemAttributes']['Title']
-    p items[7]['OfferSummary']['LowestNewPrice']['FormattedPrice']
     results = []
     items.each do |value|
-      result = { asin: value.has_key?('ASIN') ? value['ASIN'] : nil,
-                 image: value.has_key?('MediumImage']['URL'] ? value.'MediumImage']['URL'] : nil,
-                 url_path: value.has_key?('DetailPageURL') ? value['DetailPageURL'] : nil,
-                 title: value.has_key?()  ? value['ItemAttributes']['Title'] : nil,
-                 price: value.has_key?() ? value['OfferSummary']['LowestNewPrice']['FormattedPrice'] : nil
+      result = { asin: (value.key?('ASIN') ? value['ASIN'] : nil),
+                 image: ((h = value['MediumImage']) && h['URL']),
+                 url_path: (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil),
+                 title: ((h = value['ItemAttributes']) && (h['Title'])),
+                 price: ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice']))
                }
-      # p value
-      if value.has_key?('ASIN')
-        results << result
-      else
-      return results if results.count == 7
+      results << result
     end
   end
 end

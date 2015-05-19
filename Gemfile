@@ -18,4 +18,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'puffing-billy'
+  gem 'poltergeist'
 end

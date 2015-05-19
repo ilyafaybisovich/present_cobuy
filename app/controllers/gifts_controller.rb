@@ -5,6 +5,22 @@ class GiftsController < ApplicationController
     @gift = Gift.new
   end
 
+  def create
+    @gift = Gift.create gift_params
+    redirect_to '/gifts'
+  end
+
+  def gift_params
+    params.require(:gift).permit(:title,
+                                 :recipient,
+                                 :recipient_address,
+                                 :delivery_date)
+  end
+
+  def index
+    @gifts = Gift.all
+  end
+
   def search
 
   end
@@ -26,15 +42,13 @@ class GiftsController < ApplicationController
 
   def format_search(response_hash)
     items = response_hash['ItemSearchResponse']['Items']['Item']
-    results = []
-    items.each do |value|
-      result = { asin: (value.key?('ASIN') ? value['ASIN'] : nil),
+    items.inject([]) do |array, value|
+      array << { asin: (value.key?('ASIN') ? value['ASIN'] : nil),
                  image: ((h = value['MediumImage']) && h['URL']),
                  url_path: (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil),
                  title: ((h = value['ItemAttributes']) && (h['Title'])),
                  price: ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice']))
                }
-      results << result
     end
   end
 end

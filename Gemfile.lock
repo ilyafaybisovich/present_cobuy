@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
@@ -57,6 +58,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    cookiejar (0.3.2)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -66,10 +68,23 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    em-http-request (1.1.2)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
+    em-synchrony (1.0.4)
+      eventmachine (>= 1.0.0.beta.1)
     erubis (2.7.0)
+    eventmachine (1.0.7)
+    eventmachine_httpserver (0.2.1)
     execjs (2.5.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
@@ -91,6 +106,14 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.2)
+    puffing-billy (0.5.1)
+      addressable
+      em-http-request (~> 1.1.0)
+      em-synchrony
+      eventmachine
+      eventmachine_httpserver
+      http_parser.rb (~> 0.6.0)
+      multi_json
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -187,6 +210,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  puffing-billy
   rails (= 4.2.1)
   rspec-rails
   sass-rails (~> 5.0)

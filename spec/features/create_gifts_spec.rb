@@ -22,8 +22,8 @@ feature 'create gifts' do
       click_link 'Create gift'
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
-      fill_in 'Recipient Address', with: '1 Station Parade, Liversedge'
-      fill_in 'Delivery Date', with: '15th June'
+      fill_in 'Recipient address', with: '1 Station Parade, Liversedge'
+      fill_in 'Delivery date', with: '15th June'
       click_button 'Create gift'
       expect(page).to have_content 'History of Liversedge'
     end

@@ -5,6 +5,16 @@
 Project Outline (as understood by the team before talking to client)
 ===============
 
+===============
+Roadmap
+===============
+
+- Sign up & sign in
+- Create a gift
+- Invite contributors
+- Contributors can contribute
+- Purchase actioned on last contribution (MVP1)
+
 ```
 As an efficient friend
 So that I don't end up over paying
@@ -98,6 +108,3 @@ Models
 - Gifts => has users(contributers) through contributions, belongs to users(as organizers)
 - Users => has many gifts(as contributers and organizers)
 - Contributions => belongs to gifts and belongs to users
-
-
-

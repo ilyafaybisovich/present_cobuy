@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'adds a gift' do
+feature 'adds a gift', js: true do
   context 'searching for an amazon product' do
     scenario 'fetch product from amazon' do
       proxy.stub('/gift/search')

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     end
   end
   resources :gifts
-  get 'gifts/search/:keyword' => "gifts#search"
+  get 'gifts/search/:keyword' => 'gifts#search'
+  get 'users' => 'users#list'
 end

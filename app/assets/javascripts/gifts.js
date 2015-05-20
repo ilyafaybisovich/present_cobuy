@@ -14,7 +14,7 @@ function loaddata(data){
 }
 
 $(document).ready(function(){
-  $('#amazon_search').click(function(){   
+  $('#amazon_search').click(function(){
     $.ajax({
       type: 'GET',
       url: "/gifts/search",

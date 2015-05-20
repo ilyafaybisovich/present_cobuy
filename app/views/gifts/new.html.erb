@@ -1,35 +1,3 @@
-<!-- <form> -->
-  <label>Search a Gift</label>
-  <input type="text" name="search_keyword" id="search_keyword"/>
-  <button id="amazon_search">Search</button>
-<!-- </form> -->
-<div id="products">
-  <div class="product--1">
-    <a href="" class="product__link--1">
-      <h2 class="product__title--1">A Product Title</h2>
-      <img src="" class="product__image--1"/>
-      <p class="product__price--1">£3.99</p>
-    </a>
-  </div>
-  <div class="product--2">
-    <a href="" class="product__link--2">
-      <h2 class="product__title--2">A Product Title</h2>
-      <img src="" class="product__image--2"/>
-      <p class="product__price--2">£3.99</p>
-    </a>
-  </div>
-  <div class="product--3">
-    <a href="" class="product__link--3">
-      <h2 class="product__title--3">A Product Title</h2>
-      <img src="" class="product__image--3"/>
-      <p class="product__price--3">£3.99</p>
-    </a>
-  </div>
-</div>
-<div class="amazon_error">
-  <p></p>
-</div>
-
 <%= form_for @gift do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -41,3 +9,31 @@
   <%= f.text_field :delivery_date %>
   <%= f.submit 'Create gift' %>
 <% end %>
+
+<label>Search a Gift</label>
+<input type="text" name="search_keyword" id="search_keyword"/>
+<button id="amazon_search">Search</button>
+
+<table id="products" class="table table-bordered">
+  <tr>
+    <td class="col-md-4"><a href="" class="link-center col-center product__link--1 product__title--1">Title 1</a></td>
+    <td class="col-md-4"><a href="" class="text-center col-center product__link--2 product__title--2">Title 2</a></td>
+    <td class="col-md-4"><a href="" class="text-center col-center product__link--3 product__title--3">Title 3</a></td>
+  </tr>
+  <tr>
+    <td><img src="" class="center-block product__image--1"/></td>
+    <td><img src="" class="center-block product__image--2"/></td>
+    <td><img src="" class="center-block product__image--3"/></td>
+  </tr>
+  <tr>
+    <td><p class="text-center product__price--1">Price 1</p></td>
+    <td><p class="text-center product__price--2">Price 2</p></td>
+    <td><p class="text-center product__price--3">Price 3</p></td>
+  </tr>
+</table>
+
+<div class="amazon_error">
+  <p></p>
+</div>
+
+

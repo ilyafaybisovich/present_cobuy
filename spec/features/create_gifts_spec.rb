@@ -15,6 +15,8 @@ feature 'create gifts' do
     scenario 'user can create a gift' do
       visit '/'
       click_link 'Create gift'
+      expect(page).to have_link 'Add contributors'
+      expect(page).not_to have_content 'Contributors'
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
       fill_in 'Recipient address', with: '1 Station Parade, Liversedge'

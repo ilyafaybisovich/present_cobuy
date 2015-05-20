@@ -11,6 +11,7 @@ feature 'Invite Contributors' do
       click_link 'Add contributors'
       expect(page).to have_content 'Contributors'
       expect(page).to have_content 'contributor1@prezzy.ie'
+      expect(page).to have_content 'Creating a new prezzy'
     end
   end
 end

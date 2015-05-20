@@ -14,8 +14,7 @@ function loaddata(data){
 }
 
 $(document).ready(function(){
-  $('#amazon_search').click(function(){
-    console.log("clicked")
+  $('#amazon_search').click(function(){   
     $.ajax({
       type: 'GET',
       url: "/gifts/search",
@@ -23,7 +22,6 @@ $(document).ready(function(){
         keyword: $('#search_keyword').val()
       },
       success: function(data){
-        console.log(data)
         loaddata(data);
       },
       error: function(){

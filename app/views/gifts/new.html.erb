@@ -1,15 +1,3 @@
-<%= form_for @gift do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :recipient %>
-  <%= f.text_field :recipient %>
-  <%= f.label :recipient_address %>
-  <%= f.text_field :recipient_address %>
-  <%= f.label :delivery_date %>
-  <%= f.text_field :delivery_date %>
-  <%= f.submit 'Create gift' %>
-<% end %>
-
 <!-- <form> -->
   <label>Search a Gift</label>
   <input type="text" name="search_keyword" id="search_keyword"/>
@@ -41,3 +29,15 @@
 <div class="amazon_error">
   <p></p>
 </div>
+
+<%= form_for @gift do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :recipient %>
+  <%= f.text_field :recipient %>
+  <%= f.label :recipient_address %>
+  <%= f.text_field :recipient_address %>
+  <%= f.label :delivery_date %>
+  <%= f.text_field :delivery_date %>
+  <%= f.submit 'Create gift' %>
+<% end %>

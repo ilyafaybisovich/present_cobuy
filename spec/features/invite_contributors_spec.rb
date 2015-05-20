@@ -1,3 +1,5 @@
+require 'delay_helper'
+
 feature 'Invite Contributors' do
   context 'when logged in and with a prezzy being made' do
     before do
@@ -7,11 +9,11 @@ feature 'Invite Contributors' do
       prepare_prezzy
     end
 
-    scenario 'user can invite contributors' do
-      click_link 'Add contributors'
-      expect(page).to have_content 'Contributors'
-      # expect(page).to have_content 'contributor1@prezzy.ie'
-      expect(page).to have_content 'Creating a new prezzy'
+    scenario 'user can invite contributors', :js => true do
+      visit '/gifts/new'
+      click_button 'Add contributors'
+      wait_for_ajax
+      expect(page).to have_css('#contributor_1[name="contributor_email"]')
     end
   end
 end

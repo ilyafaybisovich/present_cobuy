@@ -34,9 +34,8 @@ $(document).ready(function(){
   });
 
   // =================== add input box ===============================
-  $('#contributor_1').hide();
   $('#add_contributors').click(function(){
-    $('#contributor_1').show();
+    $('#contributor').append("<input type='text' id='contributor_1' name='contributor_email'>");
   });
 });
 

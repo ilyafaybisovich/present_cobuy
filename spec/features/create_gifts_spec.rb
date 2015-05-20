@@ -20,7 +20,7 @@ feature 'create gifts' do
       visit '/'
       click_link 'Create gift'
       expect(page).to have_button 'Add contributors'
-      expect(page).not_to have_css('input#contributor_1')
+      expect(page).not_to have_css('input[id="contributor_1"]')
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
       fill_in 'Recipient address', with: '1 Station Parade, Liversedge'

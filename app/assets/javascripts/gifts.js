@@ -25,7 +25,7 @@ $(document).ready(function(){
         loaddata(data);
       },
       error: function(){
-        // $(".amazon_error p").text("No Products Found")
+        $(".amazon_error p").text("No Response from Amazon. Try Again.")
       }
     });
   });

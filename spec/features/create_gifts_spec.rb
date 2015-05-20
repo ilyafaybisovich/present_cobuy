@@ -1,15 +1,12 @@
+require_relative '../login_helper'
+
 feature 'create gifts' do
   xcontext 'when user is not signed in' do
   end
 
   context 'when user is signed in' do
     before do
-      visit '/'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'sample@something.ie'
-      fill_in 'Password', with: 'moomoocow'
-      fill_in 'Password confirmation', with: 'moomoocow'
-      click_button 'Sign up'
+      user_signup
     end
 
     scenario 'user can see the create gift link' do

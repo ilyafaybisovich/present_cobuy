@@ -1,3 +1,5 @@
+require_relative '../login_helper'
+
 feature 'a new user can sign up' do
   scenario 'user can see homepage' do
     visit '/'
@@ -19,12 +21,7 @@ feature 'a new user can sign up' do
 
   context 'when user is signed in and on the home page' do
     before do
-      visit '/'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'sample@something.ie'
-      fill_in 'Password', with: 'moomoocow'
-      fill_in 'Password confirmation', with: 'moomoocow'
-      click_button 'Sign up'
+      user_signup
     end
 
     scenario 'user should not see sign in or sign up buttons' do

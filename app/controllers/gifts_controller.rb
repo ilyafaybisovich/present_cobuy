@@ -1,4 +1,5 @@
 require 'vacuum'
+require 'json'
 
 class GiftsController < ApplicationController
   def new
@@ -22,7 +23,8 @@ class GiftsController < ApplicationController
   end
 
   def search
-
+    p params[:keyword]
+    render :json => format_search(amazon_search_results(params[:keyword]))
   end
 
   def amazon_search_results(keyword)
@@ -41,14 +43,18 @@ class GiftsController < ApplicationController
   end
 
   def format_search(response_hash)
-    items = response_hash['ItemSearchResponse']['Items']['Item']
-    items.inject([]) do |array, value|
-      array << { asin: (value.key?('ASIN') ? value['ASIN'] : nil),
-                 image: ((h = value['MediumImage']) && h['URL']),
-                 url_path: (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil),
-                 title: ((h = value['ItemAttributes']) && (h['Title'])),
-                 price: ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice']))
-               }
+    if response_hash['ItemSearchResponse']['Items'].key?('Item')
+      items = response_hash['ItemSearchResponse']['Items']['Item']
+      return items.inject([]) do |array, value|
+               array << { "asin": (value.key?('ASIN') ? value['ASIN'] : nil).to_s,
+                           "image": ((h = value['MediumImage']) && h['URL']).to_s,
+                           "url_path": (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil).to_s,
+                           "title": ((h = value['ItemAttributes']) && (h['Title'])).to_s,
+                           "price": ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice'])).to_s
+                         }
+             end
+    else
+      return {}
     end
   end
 end

@@ -1,5 +1,7 @@
 feature 'create gifts' do
-  xcontext 'when user is not signed in' do
+  context 'when user is not signed in' do
+    visit '/'
+    expect(page).not_to have_link 'Create gift'
   end
 
   context 'when user is signed in' do
@@ -15,6 +17,7 @@ feature 'create gifts' do
     scenario 'user can create a gift' do
       visit '/'
       click_link 'Create gift'
+      expect(page).to have_content 'Creating a new prezzy'
       expect(page).to have_link 'Add contributors'
       expect(page).not_to have_content 'Contributors'
       fill_in 'Title', with: 'History of Liversedge'

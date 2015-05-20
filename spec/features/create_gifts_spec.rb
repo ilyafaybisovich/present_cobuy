@@ -1,7 +1,9 @@
 feature 'create gifts' do
   context 'when user is not signed in' do
-    visit '/'
-    expect(page).not_to have_link 'Create gift'
+    scenario 'user cannot create a gift' do
+      visit '/'
+      expect(page).not_to have_link 'Create gift'
+    end
   end
 
   context 'when user is signed in' do
@@ -17,9 +19,8 @@ feature 'create gifts' do
     scenario 'user can create a gift' do
       visit '/'
       click_link 'Create gift'
-      expect(page).to have_content 'Creating a new prezzy'
-      expect(page).to have_link 'Add contributors'
-      expect(page).not_to have_content 'Contributors'
+      expect(page).to have_button 'Add contributors'
+      expect(page).not_to have_css('input#contributor_1')
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
       fill_in 'Recipient address', with: '1 Station Parade, Liversedge'

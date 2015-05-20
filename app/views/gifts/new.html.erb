@@ -7,9 +7,11 @@
   <%= f.text_field :recipient_address %>
   <%= f.label :delivery_date %>
   <%= f.text_field :delivery_date %>
-  <%= link_to 'Add contributors', '/users' %>
   <%= f.submit 'Create gift' %>
 <% end %>
+
+<button id="add_contributors">Add contributors</button>
+<input type='text' id="contributor_1" name="contributor_email">
 
 <!-- <form> -->
   <label>Search a Gift</label>
@@ -19,23 +21,23 @@
 <div id="products">
   <div class="product--1">
     <a href="" class="product__link--1">
-      <h2 class="product__title--1">A Product Title</h2>
+      <h2 class="product__title--1"></h2>
       <img src="" class="product__image--1"/>
-      <p class="product__price--1">£3.99</p>
+      <p class="product__price--1"></p>
     </a>
   </div>
   <div class="product--2">
     <a href="" class="product__link--2">
-      <h2 class="product__title--2">A Product Title</h2>
+      <h2 class="product__title--2"></h2>
       <img src="" class="product__image--2"/>
-      <p class="product__price--2">£3.99</p>
+      <p class="product__price--2"></p>
     </a>
   </div>
   <div class="product--3">
     <a href="" class="product__link--3">
-      <h2 class="product__title--3">A Product Title</h2>
+      <h2 class="product__title--3"></h2>
       <img src="" class="product__image--3"/>
-      <p class="product__price--3">£3.99</p>
+      <p class="product__price--3"></p>
     </a>
   </div>
 </div>

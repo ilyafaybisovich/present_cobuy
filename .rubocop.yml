@@ -70,3 +70,12 @@ Style/Semicolon:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
   Enabled: false
   AllowAsExpressionSeparator: false
+
+AllCops:
+  Include:
+    - 'config/routes.rb'
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'spec/mock_helper.rb'

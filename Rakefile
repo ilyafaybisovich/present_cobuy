@@ -2,7 +2,11 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
+require 'rubocop/rake_task'
 
+# RuboCop::RakeTask.new :cop
+#
+# task default: [:cop]
 Rails.application.load_tasks
 
-#for jasmine CI use rake jasmine:ci
+# for jasmine CI use rake jasmine:ci

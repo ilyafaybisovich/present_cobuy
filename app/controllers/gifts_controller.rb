@@ -22,7 +22,6 @@ class GiftsController < ApplicationController
   end
 
   def search
-
   end
 
   def amazon_search_results(keyword)

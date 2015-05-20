@@ -1,15 +1,12 @@
 before_install:
   - sudo apt-get update
   - sudo apt-get install postgresql postgresql-server-dev-9.3 libpq-dev
-before_script:
-  - rake db:create
-  - rake db:create RAILS_ENV=test
-  - rake db:migrate
-  - rake db:migrate RAILS_ENV=test
 language: ruby
 cache: bundler
 rvm: '2.2.1'
 script:
+  - RAILS_ENV=test bundle exec rake db:create
+  - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rspec spec
 addons:
   postgresql: "9.3"

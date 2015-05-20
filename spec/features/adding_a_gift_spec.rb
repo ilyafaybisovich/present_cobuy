@@ -13,12 +13,13 @@ feature 'adds a gift', js: true do
     end
 
     scenario 'no product returned from amazon' do
-      # proxy.stub('/gifts/search')
-      #   .and_return(json: FORMATTED_RETURN)
+      proxy.stub('/gifts/search')
+        .and_return(json: FORMATTED_RETURN)
       visit '/gifts/new'
       fill_in 'search_keyword', with: 'fejiowfjFwjeopfjewfjP'
       click_button('Search')
       expect(page).to have_content('No Products Found')
+      expect(page).not_to have_content('MacBook')
     end
   end
 end

@@ -1,7 +1,9 @@
 function loaddata(data){
   if(jQuery.isEmptyObject(data)) {
+    $('#products').hide();
     $(".amazon_error p").text("No Products Found");
   } else {
+    $('#products').show();
     for(var i = 0; i < 3; i++) {
       $('.product__title--' + (i+1)).text(data[i].title);
       $('.product__link--' + (i+1)).attr("href", data[i].url_path);

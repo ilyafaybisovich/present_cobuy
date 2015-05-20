@@ -1,11 +1,18 @@
 require 'mock_helper'
 
 RSpec.describe GiftsController, type: :controller do
-  it'has to return a hash with a list of products' do
-    expect(subject.amazon_search_results('macbook pro')).to be_a Hash
-  end
 
   context 'recieves a response from amazon' do
+    it'has to return a hash with a list of products' do
+      expect(subject.amazon_search_results('macbook pro')).to be_a Hash
+    end
+
+    it'has to return a hash with no products' do
+      expect(subject.amazon_search_results('fejiowfjFwjeopfjewfjP')).to be_a Hash
+    end
+  end
+
+  context 'formats response from amazon' do
 
     it 'returns the correct number of items' do
       formatted_result = subject.format_search(AMAZON_SEARCH_HASH)
@@ -44,7 +51,7 @@ RSpec.describe GiftsController, type: :controller do
 
     it 'returns nil when a key is not available in the amazon return' do
       formatted_result = subject.format_search(AMAZON_SEARCH_HASH)
-      expect(formatted_result[7][:price]).to be_nil
+      expect(formatted_result[7][:price]).to eq ""
     end
   end
 end

@@ -9,14 +9,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'vacuum'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-end
-
-group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'puffing-billy'
+  gem 'poltergeist'
 end

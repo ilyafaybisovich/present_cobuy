@@ -1,5 +1,3 @@
-require_relative '../login_helper'
-
 feature 'create gifts' do
   xcontext 'when user is not signed in' do
   end

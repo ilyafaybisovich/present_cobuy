@@ -20,4 +20,10 @@ group :development, :test do
   gem 'capybara'
   gem 'puffing-billy'
   gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'coveralls', require: false
+  gem 'simplecov'
+  gem 'simplecov-json', require: false
 end

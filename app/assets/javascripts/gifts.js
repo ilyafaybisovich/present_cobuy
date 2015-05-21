@@ -10,10 +10,11 @@ function loaddata(data){
       $('.product__image--' + (i+1)).attr("src", data[i].image);
       $('.product__price--' + (i+1)).text(data[i].price);
     }
-  };
+  }
 }
 
 $(document).ready(function(){
+  // =================== amazon search ==============================
   $('#amazon_search').click(function(){
     $.ajax({
       type: 'GET',
@@ -25,8 +26,17 @@ $(document).ready(function(){
         loaddata(data);
       },
       error: function(){
-        $(".amazon_error p").text("No Response from Amazon. Try Again.")
+        $(".amazon_error p").text("No Response from Amazon. Try Again.");
       }
     });
+  });
+
+  // =================== add input box ===============================
+  var numberOfInputs = 0;
+  $('#add_contributors').click(function(){
+    ++numberOfInputs;
+    $('#contributor').append(
+      "<input type='email' id='contributor_" + numberOfInputs + "' name='contributor_" + numberOfInputs + "_email'>"
+    );
   });
 });

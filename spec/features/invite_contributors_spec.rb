@@ -7,24 +7,11 @@ feature 'Invite Contributors' do
       prepare_prezzy
     end
 
-    scenario 'page initially has no contributor slots' do
+    scenario 'add a contributor' do
       visit '/gifts/new'
-      expect(page).not_to have_css 'input#contributor_1'
-    end
-
-    scenario 'user can invite 1 contributor', js: true do
-      visit '/gifts/new'
-      click_button 'Add contributors'
-      expect(page).to have_css 'input#contributor_1'
-      expect(page).not_to have_css 'input#contributor_2'
-    end
-
-    scenario 'user can invite 2 contributors', js: true do
-      visit '/gifts/new'
-      click_button 'Add contributors'
-      expect(page).to have_css 'input#contributor_1'
-      click_button 'Add contributors'
-      expect(page).to have_css 'input#contributor_2'
+      fill_in 'contributor_email', with: 'contributor@prezzy.ie'
+      click_button 'Add contributor'
+      expect(page).to have_content 'contributor@prezzy.ie'
     end
   end
 end

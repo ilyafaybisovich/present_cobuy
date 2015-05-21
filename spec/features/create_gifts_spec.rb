@@ -16,11 +16,11 @@ feature 'create gifts' do
       expect(page).to have_link 'Create gift'
     end
 
-    scenario 'user can create a gift', js: true do
+    scenario 'user can create a gift' do
       visit '/'
       click_link 'Create gift'
-      expect(page).to have_button 'Add contributors'
-      expect(page).not_to have_css 'input#contributor_1'
+      expect(page).to have_css 'input#contributor'
+      expect(page).to have_button 'Add contributor'
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
       fill_in 'Recipient address', with: '1 Station Parade, Liversedge'

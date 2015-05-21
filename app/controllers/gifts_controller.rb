@@ -15,7 +15,11 @@ class GiftsController < ApplicationController
     params.require(:gift).permit(:title,
                                  :recipient,
                                  :recipient_address,
-                                 :delivery_date)
+                                 :delivery_date,
+                                 :contributor)
+  end
+
+  def email
   end
 
   def index

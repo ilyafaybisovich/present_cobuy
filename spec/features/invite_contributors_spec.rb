@@ -1,17 +1,33 @@
 feature 'Invite Contributors' do
-  context 'when logged in and with a prezzy being made' do
+  context 'user is signed in' do
     before do
       user_signup 'contributor1@prezzy.ie'
       click_link 'Sign out'
       user_signup
-      prepare_prezzy
     end
 
-    scenario 'add a contributor' do
+    scenario 'user can see the create gift page' do
       visit '/gifts/new'
-      fill_in 'contributor_email', with: 'contributor@prezzy.ie'
-      click_button 'Add contributor'
-      expect(page).to have_content 'contributor@prezzy.ie'
+      expect(page).to have_link 'Add a contributor'
+      click_link 'Add a contributor'
+    end
+
+    context 'add' do
+      before do
+        visit '/gifts/new'
+        click_link 'Add a contributor'
+      end
+
+      scenario 'one contributor' do
+        expect(page).to have_css('input#add_contributor')
+        expect(page).to have_link 'Remove this contributor'
+      end
+
+      scenario 'more than one contributor' do
+        click_link 'Add a contributor'
+        expect(page).to have_css('input[type="email"]', :count => 2)
+        expect(page).to have_css('a[class="remove_nested_fields"]', :count => 2)
+      end
     end
   end
 end

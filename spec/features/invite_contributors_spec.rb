@@ -7,6 +7,11 @@ feature 'Invite Contributors' do
       prepare_prezzy
     end
 
+    scenario 'page initially has no contributor slots' do
+      visit '/gifts/new'
+      expect(page).not_to have_css 'input#contributor_1'
+    end
+
     scenario 'user can invite 1 contributor', js: true do
       visit '/gifts/new'
       click_button 'Add contributors'

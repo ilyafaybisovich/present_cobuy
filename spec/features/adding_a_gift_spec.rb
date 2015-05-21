@@ -21,4 +21,11 @@ feature 'adds a gift', js: true do
       expect(page).not_to have_content('MacBook')
     end
   end
+
+  context 'before a search' do
+    scenario 'does not display products' do
+      visit '/gifts/new'
+      expect(page).not_to have_content 'A Product Title'
+    end
+  end
 end

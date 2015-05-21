@@ -2,6 +2,5 @@
 /log/*
 !/log/.keep
 /tmp
-/Gemfile.lock
 /config/initializers/vacuum.rb
 /coverage

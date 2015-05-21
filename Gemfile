@@ -19,4 +19,5 @@ group :development, :test do
   gem 'capybara'
   gem 'puffing-billy'
   gem 'poltergeist'
+  gem 'database_cleaner'
 end

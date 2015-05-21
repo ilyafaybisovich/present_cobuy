@@ -1,4 +1,3 @@
-require 'rails_helper'
 require 'mock_helper'
 
 feature 'adds a gift', js: true do

@@ -1,15 +1,14 @@
 feature 'create gifts' do
-  xcontext 'when user is not signed in' do
+  context 'when user is not signed in' do
+    scenario 'user cannot create a gift' do
+      visit '/'
+      expect(page).not_to have_link 'Create gift'
+    end
   end
 
   context 'when user is signed in' do
     before do
-      visit '/'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'sample@something.ie'
-      fill_in 'Password', with: 'moomoocow'
-      fill_in 'Password confirmation', with: 'moomoocow'
-      click_button 'Sign up'
+      user_signup
     end
 
     scenario 'user can see the create gift link' do
@@ -17,9 +16,11 @@ feature 'create gifts' do
       expect(page).to have_link 'Create gift'
     end
 
-    scenario 'user can create a gift' do
+    scenario 'user can create a gift', js: true do
       visit '/'
       click_link 'Create gift'
+      expect(page).to have_button 'Add contributors'
+      expect(page).not_to have_css 'input#contributor_1'
       fill_in 'Title', with: 'History of Liversedge'
       fill_in 'Recipient', with: 'Joe'
       fill_in 'Recipient address', with: '1 Station Parade, Liversedge'

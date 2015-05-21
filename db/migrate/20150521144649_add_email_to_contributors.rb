@@ -1,5 +1,5 @@
 class AddEmailToContributors < ActiveRecord::Migration
   def change
-    # add_column :contributors, :email, :string
+    add_column :contributors, :email, :string
   end
 end

@@ -36,7 +36,7 @@ $(document).ready(function(){
   $('#add_contributors').click(function(){
     ++numberOfInputs;
     $('#contributor').append(
-      "<input type='text' id='contributor_" + numberOfInputs + "' name='contributor_" + numberOfInputs + "_email'>"
+      "<input type='email' id='contributor_" + numberOfInputs + "' name='contributor_" + numberOfInputs + "_email'>"
     );
   });
 });

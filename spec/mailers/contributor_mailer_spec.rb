@@ -5,7 +5,7 @@ RSpec.describe ContributorMailer, type: :mailer do
   describe "invited" do
 
     let(:item) { double(:item, title: "A Birthday Gift") }
-    let(:gift) { double(:gift, item: item, title: "Dads Birthday", organiser: "Rob") }
+    let(:gift) { double(:gift, item: item, title: "Dads Birthday", organiser: "Rob", description: "") }
     let(:contributor) { double(:contributor, email: "rob@rbgeomatics.co.uk") }
     let(:mail) { described_class.invited(gift, contributor) }
 

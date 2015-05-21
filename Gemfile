@@ -2,7 +2,7 @@ ruby '2.2.0'
 
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

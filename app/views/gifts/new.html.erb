@@ -13,7 +13,7 @@
       <%= contributor_form.email_field :email %>
       <%= contributor_form.link_to_remove "Remove this contributor" %>
     <% end %>
-    <p><%= f.link_to_add "Add a contributor", :contributors, id: 'add_contributor' %></p>
+    <p><%= f.link_to_add "Add a contributor", :contributors, class: 'add_contributor' %></p>
   <% end %>
 
   <%= f.submit 'Create gift' %>

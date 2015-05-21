@@ -9,10 +9,9 @@ feature 'Invite Contributors' do
     scenario 'user can see the create gift page' do
       visit '/gifts/new'
       expect(page).to have_link 'Add a contributor'
-      click_link 'Add a contributor'
     end
 
-    context 'add' do
+    context 'add', js: true do
       before do
         visit '/gifts/new'
         click_link 'Add a contributor'

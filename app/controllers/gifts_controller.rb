@@ -19,9 +19,6 @@ class GiftsController < ApplicationController
                                  :contributor)
   end
 
-  def email
-  end
-
   def index
     @gifts = Gift.all
   end
@@ -29,10 +26,6 @@ class GiftsController < ApplicationController
   def search
     p params[:keyword]
     render json: format_search(amazon_search_results(params[:keyword]))
-  end
-
-  def add_contributor
-    params[:contributor]
   end
 
   def amazon_search_results(keyword)

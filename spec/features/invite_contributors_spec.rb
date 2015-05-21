@@ -7,10 +7,13 @@ feature 'Invite Contributors' do
       prepare_prezzy
     end
 
-    scenario 'user can invite contributors', js: true do
+    scenario 'user can invite 1 contributor', js: true do
       visit '/gifts/new'
       click_button 'Add contributors'
-      expect(page).to have_css 'input[id="contributor_1"]'
+      expect(page).to have_css 'input#contributor_1'
+      expect(page).not_to have_css 'input#contributor_2'
     end
+
+    xscenario 'user can invite 2 contributors'
   end
 end

@@ -14,6 +14,12 @@ feature 'Invite Contributors' do
       expect(page).not_to have_css 'input#contributor_2'
     end
 
-    xscenario 'user can invite 2 contributors'
+    scenario 'user can invite 2 contributors', js: true do
+      visit '/gifts/new'
+      click_button 'Add contributors'
+      expect(page).to have_css 'input#contributor_1'
+      click_button 'Add contributors'
+      expect(page).to have_css 'input#contributor_2'
+    end
   end
 end

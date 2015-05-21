@@ -30,13 +30,4 @@ $(document).ready(function(){
       }
     });
   });
-
-  // =================== add input box ===============================
-  var numberOfInputs = 0;
-  $('#add_contributors').click(function(){
-    ++numberOfInputs;
-    $('#contributor').append(
-      "<input type='email' id='contributor_" + numberOfInputs + "' name='contributor_" + numberOfInputs + "_email'>"
-    );
-  });
 });

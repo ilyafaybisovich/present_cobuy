@@ -15,7 +15,11 @@ class GiftsController < ApplicationController
     params.require(:gift).permit(:title,
                                  :recipient,
                                  :recipient_address,
-                                 :delivery_date)
+                                 :delivery_date,
+                                 :contributor)
+  end
+
+  def email
   end
 
   def index
@@ -24,7 +28,11 @@ class GiftsController < ApplicationController
 
   def search
     p params[:keyword]
-    render :json => format_search(amazon_search_results(params[:keyword]))
+    render json: format_search(amazon_search_results(params[:keyword]))
+  end
+
+  def add_contributor
+    params[:contributor]
   end
 
   def amazon_search_results(keyword)

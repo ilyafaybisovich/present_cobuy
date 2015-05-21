@@ -18,13 +18,10 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.rbgeomatics.co.uk',
-    port: 587,
+    address: 'smtp.rbgwomatics.co.uk',
     domain: 'rbgeomatics.co.uk',
     user_name: 'makers_academy_test@rbgeomatics.co.uk',
     password: ENV['EMAIL_SECRET'],
-    authentication: 'plain',
-    enable_starttls_auto: true
   }
 
   # Print deprecation notices to the Rails logger.

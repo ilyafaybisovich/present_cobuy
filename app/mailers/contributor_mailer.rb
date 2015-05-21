@@ -7,7 +7,6 @@ class ContributorMailer < ApplicationMailer
   #
   def invited(gift, contributor)
     @gift = gift
-    @item = @gift.item
     email = contributor.email
 
     mail to: email, subject: "#{@gift.title} - You can make this happen!"

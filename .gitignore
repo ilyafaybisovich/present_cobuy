@@ -3,4 +3,5 @@
 !/log/.keep
 /tmp
 /config/initializers/vacuum.rb
+/config/initializers/email.rb
 /coverage

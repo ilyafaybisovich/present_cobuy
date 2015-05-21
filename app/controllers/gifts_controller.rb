@@ -46,11 +46,11 @@ class GiftsController < ApplicationController
     if response_hash['ItemSearchResponse']['Items'].key?('Item')
       items = response_hash['ItemSearchResponse']['Items']['Item']
       return items.inject([]) do |array, value|
-               array << { "asin" => (value.key?('ASIN') ? value['ASIN'] : nil).to_s,
-                          "image" => ((h = value['MediumImage']) && h['URL']).to_s,
-                          "url_path" => (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil).to_s,
-                          "title" => ((h = value['ItemAttributes']) && (h['Title'])).to_s,
-                          "price" => ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice'])).to_s
+               array << { "asin": (value.key?('ASIN') ? value['ASIN'] : nil).to_s,
+                          "image": ((h = value['MediumImage']) && h['URL']).to_s,
+                          "url_path": (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil).to_s,
+                          "title": ((h = value['ItemAttributes']) && (h['Title'])).to_s,
+                          "price": ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice'])).to_s
                          }
              end
     else

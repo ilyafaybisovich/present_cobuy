@@ -284,6 +284,7 @@ DEPENDENCIES
   poltergeist
   puffing-billy
   rails (= 4.2.1)
+  rspec-mocks
   rspec-rails
   rubocop
   rubocop-rspec

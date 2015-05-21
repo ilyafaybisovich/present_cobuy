@@ -26,4 +26,5 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'simplecov-json', require: false
+  gem 'rspec-mocks'
 end

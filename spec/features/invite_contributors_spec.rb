@@ -11,21 +11,25 @@ feature 'Invite Contributors' do
       expect(page).to have_link 'Add a contributor'
     end
 
-    context 'add', js: true do
+    context 'add and remove', js: true do
       before do
         visit '/gifts/new'
         click_link 'Add a contributor'
       end
 
       scenario 'one contributor' do
-        expect(page).to have_css('input#add_contributor')
+        expect(page).to have_css('.add_contributor')
         expect(page).to have_link 'Remove this contributor'
+      end
+
+      scenario 'contributor can be remove' do
+        click_link 'Remove this contributor'
+        expect(page).not_to have_link 'Remove this contributor'
       end
 
       scenario 'more than one contributor' do
         click_link 'Add a contributor'
-        expect(page).to have_css('input[type="email"]', :count => 2)
-        expect(page).to have_css('a[class="remove_nested_fields"]', :count => 2)
+        expect(page).to have_css('.remove_contributor', :count => 2)
       end
     end
   end

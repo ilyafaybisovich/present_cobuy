@@ -11,7 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'vacuum'
 gem 'bootstrap-sass'
-gem 'nested_form'
+gem 'cocoon'
 
 group :development, :test do
   gem 'byebug'
@@ -27,4 +27,5 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'simplecov-json', require: false
+  gem 'shoulda-matchers'
 end

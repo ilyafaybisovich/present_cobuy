@@ -16,7 +16,7 @@ class GiftsController < ApplicationController
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
-                                 :contributor)
+                                 contributors_attributes:[:id, :email, :_destroy])
   end
 
   def index

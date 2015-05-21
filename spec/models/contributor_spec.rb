@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe Contributor, type: :model do
-  it { should belong_to :gift }
+  it { is_expected.to belong_to :gift }
 end

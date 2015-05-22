@@ -25,6 +25,12 @@ feature 'create gifts' do
     scenario 'user can create a gift', focus: true do
       create_prezzy
       expect(page).to have_content 'History of Liversedge'
+      expect(page).to have_content 'Joe'
+      expect(page).to have_content '1 Station Parade, Liversedge'
+      expect(page).to have_content '2015-06-15'
+      expect(page).to have_content 'test@prezzy.ie'
     end
+
+    xscenario 'ensure organiser is also a contributor'
   end
 end

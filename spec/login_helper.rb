@@ -10,7 +10,7 @@ end
 def create_prezzy title = 'History of Liversedge',
                   recipient = 'Joe',
                   address = '1 Station Parade, Liversedge',
-                  delivery_date = '15th June',
+                  delivery_date = '15/06/2015',
                   search_term = 'macbook pro'
   visit '/'
   click_link 'Create gift'

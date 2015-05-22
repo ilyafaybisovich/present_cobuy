@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519152917) do
+ActiveRecord::Schema.define(version: 20150521162940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contributors", force: :cascade do |t|
+    t.integer  "gift_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "email"
+  end
+
+  add_index "contributors", ["gift_id"], name: "index_contributors_on_gift_id", using: :btree
 
   create_table "gifts", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150519152917) do
     t.date     "delivery_date"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "contributor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +53,5 @@ ActiveRecord::Schema.define(version: 20150519152917) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "contributors", "gifts"
 end

@@ -20,6 +20,16 @@ feature 'adds a gift', js: true do
       expect(page).to have_content('No Products Found')
       expect(page).not_to have_content('MacBook')
     end
+
+    scenario 'can select a product for the gift' do
+      proxy.stub('/gifts/search')
+        .and_return(json: FORMATTED_RETURN)
+      visit '/gifts/new'
+      fill_in 'search_keyword', with: 'Macbook Pro'
+      click_button('Search')
+      click_button("product_1")
+      expect(page).to have_content('Added a Gift:')
+    end
   end
 
   context 'before a search' do

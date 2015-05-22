@@ -3,12 +3,14 @@ function loaddata(data){
     $('#products').hide();
     $(".amazon_error p").text("No Products Found");
   } else {
-    $('#products').show();
+    $('#products').fadeIn(200);
     for(var i = 0; i < 3; i++) {
       $('.product__title--' + (i+1)).text(data[i].title);
       $('.product__link--' + (i+1)).attr("href", data[i].url_path);
       $('.product__image--' + (i+1)).attr("src", data[i].image);
       $('.product__price--' + (i+1)).text(data[i].price);
+      $('#product-asin-' + (i+1)).text(data[i].asin);
+      if(data[i].price === "") { $('#product_' + (i+1)).hide(); };
     }
   }
 }
@@ -28,6 +30,42 @@ $(document).ready(function(){
       error: function(){
         $(".amazon_error p").text("No Response from Amazon. Try Again.");
       }
+    });
+  });
+  // =================== select product 1 ==============================
+  $('#product_1').click(function(){
+    $('#gift_item').val($('#product-asin-1').text());
+    $('#gift_item_price').val($('.product__price--1').text());
+    $('#gift_description').val($('.product__title--1').text());
+    $('#gift_item_url').val($('.product__link--1').attr("href"));
+    $('#gift_item_image').val($('.product__image--1').attr("src"));
+    $('.added').text('Added a Gift: '+ $('.product__title--1').text());
+    $('#products').fadeOut(200, function(){
+      $('.added').fadeIn(400);
+    });
+  });
+  // =================== select product 2 ==============================
+  $('#product_2').click(function(){
+    $('#gift_item').val($('#product-asin-2').text());
+    $('#gift_item_price').val($('.product__price--2').text());
+    $('#gift_description').val($('.product__title--2').text());
+    $('#gift_item_url').val($('.product__link--2').attr("href"));
+    $('#gift_item_image').val($('.product__image--2').attr("src"));
+    $('.added').text('Added a Gift: '+ $('.product__title--2').text());
+    $('#products').fadeOut(200, function(){
+      $('.added').fadeIn(400);
+    });
+  });
+  // =================== select product 3 ==============================
+  $('#product_1').click(function(){
+    $('#gift_item').val($('#product-asin-3').text());
+    $('#gift_item_price').val($('.product__price--3').text());
+    $('#gift_description').val($('.product__title--3').text());
+    $('#gift_item_url').val($('.product__link--3').attr("href"));
+    $('#gift_item_image').val($('.product__image--3').attr("src"));
+    $('.added').text('Added a Gift: '+ $('.product__title--3').text());
+    $('#products').fadeOut(200, function(){
+      $('.added').fadeIn(400);
     });
   });
 });

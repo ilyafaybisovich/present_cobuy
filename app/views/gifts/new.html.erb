@@ -4,6 +4,10 @@
 <input type="text" name="search_keyword" id="search_keyword"/>
 <button id="amazon_search">Search</button>
 
+<div>
+  <p class="added"></p>
+</div>
+
 <table id="products" class="table table-bordered">
   <tr>
     <td class="col-md-4"><a href="" class="link-center col-center product__link--1 product__title--1">Title 1</a></td>
@@ -20,7 +24,18 @@
     <td><p class="text-center product__price--2">Price 2</p></td>
     <td><p class="text-center product__price--3">Price 3</p></td>
   </tr>
+  <tr>
+    <td><button id="product_1">Select</button></td>
+    <td><button id="product_2">Select</button></td>
+    <td><button id="product_3">Select</button></td>
+  </tr>
 </table>
+
+<div class="hidden">
+  <p class="hidden" id="product-asin-1"></p>
+  <p class="hidden" id="product-asin-2"></p>
+  <p class="hidden" id="product-asin-3"></p>
+</div>
 
 <div class="amazon_error">
   <p></p>

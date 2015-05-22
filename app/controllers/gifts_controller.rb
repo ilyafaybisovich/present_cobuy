@@ -11,16 +11,21 @@ class GiftsController < ApplicationController
     redirect_to '/gifts'
   end
 
+  def index
+    @gifts = Gift.all
+  end
+
+  def show
+    @gift = Gift.find(params[:id])
+    @contributors = @gift.contributors
+  end
+
   def gift_params
     params.require(:gift).permit(:title,
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
                                  contributors_attributes:[:id, :email, :_destroy])
-  end
-
-  def index
-    @gifts = Gift.all
   end
 
   def search

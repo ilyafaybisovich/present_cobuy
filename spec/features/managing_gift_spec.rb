@@ -8,7 +8,6 @@ feature 'managing a gift', js: true do
                          item: '12345',
                          item_price: '£750',
                          description: 'MacBook Pro',
-                         split_price: '£110',
                          item_image: 'http://prezzy.com/macbook.jpg',
                          item_url: 'http://amazon.co.uk/macbook'
                         )
@@ -31,7 +30,10 @@ feature 'managing a gift', js: true do
     end
 
     scenario 'page to have a split cost' do
-      expect(page).to have_content '£110'
+      gift.contributors.create(gift_id: 2,
+                               email: 'test2@test.com'
+                              )
+      expect(page).to have_content '£375'
     end
 
     scenario 'page to have an item image' do

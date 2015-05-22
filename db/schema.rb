@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522071417) do
+ActiveRecord::Schema.define(version: 20150522152134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contributors", force: :cascade do |t|
     t.integer  "gift_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "email"
+    t.float    "split_price"
   end
 
   add_index "contributors", ["gift_id"], name: "index_contributors_on_gift_id", using: :btree

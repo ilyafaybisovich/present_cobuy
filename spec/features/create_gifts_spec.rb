@@ -1,8 +1,14 @@
 feature 'create gifts' do
   context 'when user is not signed in' do
-    scenario 'user cannot create a gift' do
+    scenario 'user cannot create a gift via homepage' do
       visit '/'
       expect(page).not_to have_link 'Create gift'
+    end
+
+    scenario 'user cannot create a gift via URL' do
+      visit '/gifts/new'
+      expect(page).not_to have_button 'Create gift'
+      expect(page).to have_content 'Please sign in to create a gift'
     end
   end
 

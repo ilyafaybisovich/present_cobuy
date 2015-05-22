@@ -6,9 +6,9 @@ feature 'Invite Contributors' do
       user_signup
     end
 
-    scenario 'organiser is automatically added' do
+    scenario 'organiser is automatically added', focus: true do
       visit '/gifts/new'
-      expect(page).to have_field 'organiser', with: 'test@prezzy.ie'
+      expect(page).to have_field 'gift[user_id]'
     end
 
     scenario 'user can see the button to add contributors' do

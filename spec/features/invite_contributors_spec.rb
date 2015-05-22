@@ -22,17 +22,17 @@ feature 'Invite Contributors' do
         click_link 'Add a contributor'
       end
 
-      scenario 'one contributor' do
+      scenario 'one contributor can be added' do
         expect(page).to have_css '.add_contributor'
         expect(page).to have_link 'Remove this contributor'
       end
 
-      scenario 'contributor can be remove' do
+      scenario 'contributor can be removed' do
         click_link 'Remove this contributor'
         expect(page).not_to have_link 'Remove this contributor'
       end
 
-      scenario 'more than one contributor' do
+      scenario 'more than one contributor can be added' do
         click_link 'Add a contributor'
         expect(page).to have_css '.remove_contributor', count: 2
       end

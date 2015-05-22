@@ -22,15 +22,8 @@ feature 'create gifts' do
       expect(page).to have_link 'Create gift'
     end
 
-    xscenario 'user can create a gift' do
-      visit '/'
-      click_link 'Create gift'
-      expect(page).to have_link 'Add a contributor'
-      fill_in 'Title', with: 'History of Liversedge'
-      fill_in 'Recipient', with: 'Joe'
-      fill_in 'Recipient address', with: '1 Station Parade, Liversedge'
-      fill_in 'Delivery date', with: '15th June'
-      click_button 'Create gift'
+    scenario 'user can create a gift', focus: true do
+      create_prezzy
       expect(page).to have_content 'History of Liversedge'
     end
   end

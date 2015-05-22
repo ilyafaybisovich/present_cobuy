@@ -10,7 +10,7 @@ function loaddata(data){
       $('.product__image--' + (i+1)).attr("src", data[i].image);
       $('.product__price--' + (i+1)).text(data[i].price);
       $('#product-asin-' + (i+1)).text(data[i].asin);
-      if(data[i].price === "") { $('#product_' + (i+1)).hide(); };
+      if(data[i].price === "") { $('#product_' + (i+1)).hide(); }
     }
   }
 }

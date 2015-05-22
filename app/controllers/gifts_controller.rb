@@ -7,8 +7,12 @@ class GiftsController < ApplicationController
   end
 
   def create
-    @gift = Gift.create gift_params
-    redirect_to '/gifts'
+    new_params = gift_params
+    new_params[:user_id] = current_user.id
+    @gift = Gift.create new_params
+    @gift.contributors.create(gift_id: @gift.id, email: current_user.email)
+
+    redirect_to "/gifts/#{@gift.id}"
   end
 
   def index
@@ -21,7 +25,7 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:title,
+    params.require(:gift).permit :title,
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
@@ -30,7 +34,11 @@ class GiftsController < ApplicationController
                                  :description,
                                  :item_image,
                                  :item_url,
-                                 contributors_attributes:[:id, :email, :_destroy])
+                                 contributors_attributes: [
+                                   :id,
+                                   :email,
+                                   :_destroy
+                                 ]
   end
 
   def search

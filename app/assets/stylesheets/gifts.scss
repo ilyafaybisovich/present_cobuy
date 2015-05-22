@@ -9,3 +9,15 @@
 .hidden {
   display: none;
 }
+
+#contributors ul{
+  display: block;
+}
+
+#contributors ul li{
+  list-style: none;
+  float: left;
+  clear: right;
+  margin-right: 1.5em;
+}
+

@@ -16,16 +16,15 @@ def create_prezzy title = 'History of Liversedge',
                   search_term = 'macbook pro'
   proxy.stub('/gifts/search')
     .and_return(json: FORMATTED_RETURN)
-  visit '/'
-  click_link 'Create gift'
+  visit '/gifts/new'
   fill_in 'Title', with: title
   fill_in 'Recipient', with: recipient
   fill_in 'Recipient address', with: address
   fill_in 'Delivery date', with: delivery_date
   fill_in 'search_keyword', with: search_term
   click_button 'Search'
-  expect(page).to have_content("Apple 13-inch MacBook Pro (Intel Dual Core i5 2.5GHz, 4GB RAM, 500GB HDD, HD Graphics 4000, OS X Yosemite)")
-  click_button 'product_1'
-  expect(page).to have_content("Added:")
+  wait_for_ajax
+  find("#products").click_button("product_1")
+  wait_for_ajax
   click_button 'Create gift'
 end

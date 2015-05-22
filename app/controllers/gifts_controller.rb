@@ -25,11 +25,15 @@ class GiftsController < ApplicationController
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
+                                 :item,
+                                 :item_price,
+                                 :description,
+                                 :item_image,
+                                 :item_url,
                                  contributors_attributes:[:id, :email, :_destroy])
   end
 
   def search
-    p params[:keyword]
     render json: format_search(amazon_search_results(params[:keyword]))
   end
 

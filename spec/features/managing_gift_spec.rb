@@ -41,5 +41,11 @@ feature 'managing a gift', js: true do
     scenario 'page to have a contributor' do
       expect(page).to have_content 'test@test.com'
     end
+
+    scenario 'page to have a progress bar' do
+      expect(page).to have_css('.progress-bar')
+      expect(page).to have_css('.progress-bar[style="width:70%"]')
+      expect(page).to have_content '70%'
+    end
   end
 end

@@ -37,8 +37,6 @@ $(document).ready(function(){
     });
   });
 
-  "£200.50"
-  200.50
   // =================== select product 1 ==============================
   $('#product_1').click(function(){
     $('#gift_item').val($('#product-asin-1').text());
@@ -64,7 +62,7 @@ $(document).ready(function(){
     });
   });
   // =================== select product 3 ==============================
-  $('#product_1').click(function(){
+  $('#product_3').click(function(){
     $('#gift_item').val($('#product-asin-3').text());
     $('#gift_item_price').val(currencyToFloat($('.product__price--3').text()));
     $('#gift_description').val($('.product__title--3').text());

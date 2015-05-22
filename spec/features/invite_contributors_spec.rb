@@ -6,7 +6,12 @@ feature 'Invite Contributors' do
       user_signup
     end
 
-    scenario 'user can see the create gift page' do
+    scenario 'organiser is automatically added' do
+      visit '/gifts/new'
+      expect(page).to have_field 'organiser', with: 'test@prezzy.ie'
+    end
+
+    scenario 'user can see the button to add contributors' do
       visit '/gifts/new'
       expect(page).to have_link 'Add a contributor'
     end
@@ -18,7 +23,7 @@ feature 'Invite Contributors' do
       end
 
       scenario 'one contributor' do
-        expect(page).to have_css('.add_contributor')
+        expect(page).to have_css '.add_contributor'
         expect(page).to have_link 'Remove this contributor'
       end
 
@@ -29,7 +34,7 @@ feature 'Invite Contributors' do
 
       scenario 'more than one contributor' do
         click_link 'Add a contributor'
-        expect(page).to have_css('.remove_contributor', :count => 2)
+        expect(page).to have_css '.remove_contributor', count: 2
       end
     end
   end

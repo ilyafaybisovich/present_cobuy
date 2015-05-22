@@ -1,4 +1,4 @@
-def user_signup email = 'sample@something.ie', password = 'moomoocow'
+def user_signup email = 'test@prezzy.ie', password = 'moomoocow'
   visit '/'
   click_link 'Sign up'
   fill_in 'Email', with: email

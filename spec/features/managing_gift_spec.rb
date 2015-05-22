@@ -6,7 +6,7 @@ feature 'managing a gift', js: true do
                          recipient_address: '15 Ada House, E2 2BB',
                          delivery_date: 'June 15',
                          item: '12345',
-                         item_price: '£750',
+                         item_price: 750.0,
                          description: 'MacBook Pro',
                          item_image: 'http://prezzy.com/macbook.jpg',
                          item_url: 'http://amazon.co.uk/macbook'
@@ -30,10 +30,12 @@ feature 'managing a gift', js: true do
     end
 
     scenario 'page to have a split cost' do
-      gift.contributors.create(gift_id: 2,
+      gift = Gift.first
+      gift.contributors.create(gift_id: 1,
                                email: 'test2@test.com'
                               )
-      expect(page).to have_content '£375'
+      visit '/gifts/1'
+      expect(page).to have_content '375'
     end
 
     scenario 'page to have an item image' do

@@ -12,6 +12,7 @@ feature 'adds a gift', js: true do
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'Macbook Pro'
       click_button('Search')
+      wait_for_ajax
       expect(page).to have_content('MacBook Pro')
     end
 
@@ -20,6 +21,7 @@ feature 'adds a gift', js: true do
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'fejiowfjFwjeopfjewfjP'
       click_button('Search')
+      wait_for_ajax
       expect(page).to have_content('No Products Found')
       expect(page).not_to have_content('MacBook')
     end
@@ -29,7 +31,9 @@ feature 'adds a gift', js: true do
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'Macbook Pro'
       click_button('Search')
+      wait_for_ajax
       click_button("product_1")
+      wait_for_ajax
       expect(page).to have_content('Added a Gift:')
     end
   end

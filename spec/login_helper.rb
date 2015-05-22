@@ -24,6 +24,8 @@ def create_prezzy title = 'History of Liversedge',
   fill_in 'Delivery date', with: delivery_date
   fill_in 'search_keyword', with: search_term
   click_button 'Search'
+  expect(page).to have_content("Apple 13-inch MacBook Pro (Intel Dual Core i5 2.5GHz, 4GB RAM, 500GB HDD, HD Graphics 4000, OS X Yosemite)")
   click_button 'product_1'
+  expect(page).to have_content("Added:")
   click_button 'Create gift'
 end

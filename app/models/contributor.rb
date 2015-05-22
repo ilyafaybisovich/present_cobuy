@@ -2,6 +2,7 @@ class Contributor < ActiveRecord::Base
   belongs_to :gift
 
   after_create :split_cost
+  after_destroy :split_cost
 
   def split_cost
     gift = Gift.find(self.gift_id)

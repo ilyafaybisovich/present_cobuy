@@ -1,5 +1,8 @@
+ruby '2.2.0'
+
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
+# gem 'rails_12factor'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,5 +30,6 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'simplecov-json', require: false
+  gem 'rspec-mocks'
   gem 'shoulda-matchers'
 end

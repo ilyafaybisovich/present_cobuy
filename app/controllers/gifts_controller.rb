@@ -8,7 +8,8 @@ class GiftsController < ApplicationController
 
   def create
     @gift = Gift.create gift_params
-    redirect_to '/gifts'
+    p @gift
+    redirect_to "/gifts/#{@gift.id}"
   end
 
   def index
@@ -21,16 +22,21 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:title,
+    params.require(:gift).permit :title,
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
+                                 :user_id,
                                  :item,
                                  :item_price,
                                  :description,
                                  :item_image,
                                  :item_url,
-                                 contributors_attributes:[:id, :email, :_destroy])
+                                 contributors_attributes: [
+                                   :id,
+                                   :email,
+                                   :_destroy
+                                 ]
   end
 
   def search

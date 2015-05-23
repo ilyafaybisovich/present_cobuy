@@ -7,6 +7,8 @@
   <%= f.text_field :recipient_address %>
   <%= f.label :delivery_date %>
   <%= f.text_field :delivery_date %>
+  <!-- Hidden Fields -->
+  <%= f.text_field :user_id, with: current_user.id, class: "hidden" %>
   <%= f.text_field :item, class: "hidden" %>
   <%= f.text_field :item_price, class: "hidden"%>
   <%= f.text_field :description, class: "hidden" %>

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150522152134) do
+=======
+ActiveRecord::Schema.define(version: 20150522132926) do
+>>>>>>> mark/user_session
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +44,10 @@ ActiveRecord::Schema.define(version: 20150522152134) do
     t.string   "split_price"
     t.string   "item_image"
     t.text     "item_url"
+    t.integer  "user_id"
   end
+
+  add_index "gifts", ["user_id"], name: "index_gifts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -61,4 +68,5 @@ ActiveRecord::Schema.define(version: 20150522152134) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "contributors", "gifts"
+  add_foreign_key "gifts", "users"
 end

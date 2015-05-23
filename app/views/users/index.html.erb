@@ -1,8 +1,16 @@
-<p>Welcome to Prezzy!</p>
+<div class="headline">
+  <h1>New way to buy a present</h1>
+</div>
+<div class="description">
+  Make present headaches a thing of the past
+</div>
 <% if user_signed_in? %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   <%= link_to 'Create gift', new_gift_path %>
 <% else %>
-  <%= link_to 'Sign up', new_user_registration_path %>
-  <%= link_to 'Sign in', new_user_session_path %>
+<div class="user-sign">
+  <%= link_to 'Sign up', new_user_registration_path, :class => 'button dark-blue'%>
+  <%= link_to 'Sign in', new_user_session_path, :class => 'button dark-blue' %>
+</div>
 <% end %>
+

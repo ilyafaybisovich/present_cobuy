@@ -1,1 +1,131 @@
- url("/images/noise.png"),-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, color-stop(0%, rgba(0, 210, 190, 0.5)), color-stop(100%, rgba(0, 190, 210, 0.5)));
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+html, body {
+  font-family: "freight-text-pro","Georgia","Times","Times New Roman",serif;
+  font-size: 100%;
+  color: #282828;
+}
+
+h1, h2, h3, h4, .headline {
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  text-align: left;
+  line-height: 90%;
+  letter-spacing: -0.05em;
+  font-size: 4.6rem;
+  text-wrap: balanced;
+}
+
+p {
+  margin: 1em 0;
+  line-height: 140%;
+}
+
+button, .button {
+  position: relative;
+  padding: 1em 1.2em;
+  margin: 0.6em 0.6em 0.6em 0;
+  display: block;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  line-height: 150%;
+  font-size: 1rem;
+  border-radius: 0.3em;
+}
+
+button, .button.blue {
+  background: #00c8c8;
+  color: #faf8f6;
+}
+
+button, .button.dark-blue {
+  background: #006464;
+  color: #faf8f6;
+}
+
+a:link, a:visited, a:active {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.button {
+  margin-top: 2em;
+  margin-right: 0;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+a:hover.button{
+  background-color: #003232;
+}
+
+.left {
+  text-align: left;
+}
+
+#wrap {
+  width: 100%;
+  height: 1000px;
+  background-color: #00c8c8;
+  background-image: url("noise.png"),-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, color-stop(0%, rgba(0, 210, 190, 0.5)), color-stop(100%, rgba(0, 190, 210, 0.5)));
+}
+
+#wrap section {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#wrap #content-area{
+  width: 90%;
+  margin: 2em auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+}
+
+#wrap .blurb {
+  width: 75%;
+  margin-top: -2em;
+}
+
+#wrap img {
+  width: 100%;
+}
+
+#wrap .logo.left {
+  left: -1.5em;
+}
+
+#wrap .logo{
+  display: block;
+  width: 12em;
+  position: relative;
+}
+
+#wrap .headline{
+  font-size: 4.6rem;
+}
+

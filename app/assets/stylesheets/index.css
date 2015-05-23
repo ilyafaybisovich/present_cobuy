@@ -1,0 +1,32 @@
+#wrap #content-area.homepage{
+  margin: 10em auto;
+}
+
+#wrap .headline {
+  padding: 20px 0;
+}
+
+#wrap .description{
+  position: static;
+  display: block;
+  float: none;
+  white-space: normal;
+  color: #faf8f6;
+}
+
+#wrap .user-sign {
+  width:12em;
+  overflow: hidden;
+}
+
+#wrap .user-sign a{
+  float: left;
+}
+
+#wrap .user-sign a:last-child{
+  float: right;
+}
+
+#wrap a.button.wide {
+  max-width: 28em;
+}

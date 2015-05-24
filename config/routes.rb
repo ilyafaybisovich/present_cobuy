@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :gifts
   get 'gifts/search/:keyword' => 'gifts#search'
   get 'users' => 'users#list'
+  get 'users/:id' => 'users#show'
 end

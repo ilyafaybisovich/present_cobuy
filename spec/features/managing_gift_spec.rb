@@ -1,5 +1,4 @@
 feature 'managing a gift', js: true do
-  context 'gift displays on loading page' do
     before do
       gift = Gift.create(title: "Mum's birthday",
                          recipient: "Mary",
@@ -16,6 +15,8 @@ feature 'managing a gift', js: true do
                               )
       visit '/gifts/1'
     end
+
+  context 'gift displays on loading page' do
 
     scenario 'page to have a title' do
       expect(page).to have_content "Mum's birthday"
@@ -48,8 +49,19 @@ feature 'managing a gift', js: true do
 
     scenario 'page to have a progress bar' do
       expect(page).to have_css('.progress-bar')
-      expect(page).to have_css('.progress-bar[style="width:70%"]')
-      expect(page).to have_content '70%'
+      expect(page).to have_css('.progress-bar[style="width:0%"]')
+      expect(page).to have_content '0%'
+    end
+  end
+
+  context 'contributors make payment' do
+    scenario 'progress bar at 0% before any payments' do
+      expect(page).to have_css('.progress-bar[style="width:0%"]')
+      expect(page.find('div.progress-bar').text).to eq '0%'
+    end
+    xscenario 'progress bar updates on payment' do
+      click_button('Pay £750.00')
+      expect(page).to have_content('100%')
     end
   end
 end

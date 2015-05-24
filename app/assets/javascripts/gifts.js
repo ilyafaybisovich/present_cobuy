@@ -36,6 +36,7 @@ $(document).ready(function(){
       }
     });
   });
+
   // =================== select product 1 ==============================
   $('#product_1').click(function(){
     $('#gift_item').val($('#product-asin-1').text());

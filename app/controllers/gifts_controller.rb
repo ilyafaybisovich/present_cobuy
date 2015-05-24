@@ -7,8 +7,11 @@ class GiftsController < ApplicationController
   end
 
   def create
-    @gift = Gift.create gift_params
-    p @gift
+    new_params = gift_params
+    new_params[:user_id] = current_user.id
+    @gift = Gift.create new_params
+    @gift.contributors.create(gift_id: @gift.id, email: current_user.email)
+
     redirect_to "/gifts/#{@gift.id}"
   end
 
@@ -26,7 +29,6 @@ class GiftsController < ApplicationController
                                  :recipient,
                                  :recipient_address,
                                  :delivery_date,
-                                 :user_id,
                                  :item,
                                  :item_price,
                                  :description,

@@ -1,4 +1,6 @@
-feature 'create gifts' do
+require 'mock_helper'
+
+feature 'create gifts', js: true do
   context 'when user is not signed in' do
     scenario 'user cannot create a gift via homepage' do
       visit '/'
@@ -22,8 +24,9 @@ feature 'create gifts' do
       expect(page).to have_link 'Create gift'
     end
 
-    scenario 'user can create a gift', focus: true do
+    scenario 'user can create a gift', js: true do
       create_prezzy
+      wait_for_ajax
       expect(page).to have_content 'History of Liversedge'
       expect(page).to have_content 'Joe'
       expect(page).to have_content '1 Station Parade, Liversedge'

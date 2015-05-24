@@ -18,6 +18,11 @@
     </ul>
   </div>
 
+  <% @contributors.each do |contributor| %>
+  <% div_for contributor do %>
+  <% end %>
+  <% end %>
+
   <section class="row">
     <article id="recipient" class="col-md-6">
       <h2><%= @gift.recipient %></h2>

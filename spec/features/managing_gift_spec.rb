@@ -59,7 +59,7 @@ feature 'managing a gift', js: true do
       expect(page).to have_css('.progress-bar[style="width:0%"]')
       expect(page.find('div.progress-bar').text).to eq '0%'
     end
-    xscenario 'progress bar updates on payment' do
+    scenario 'progress bar updates on payment' do
       click_button('Pay £750.00')
       expect(page).to have_content('100%')
     end

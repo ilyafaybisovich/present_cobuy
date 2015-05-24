@@ -1,17 +1,18 @@
 require 'mock_helper'
 
 RSpec.describe GiftsController, type: :controller do
-  context 'recieves a response from amazon' do
-    it'has to return a hash with a list of products' do
+  context 'receives a response from Amazon' do
+    it 'has to return a hash with a list of products' do
       expect(subject.amazon_search_results('macbook pro')).to be_a Hash
     end
 
-    it'has to return a hash with no products' do
-      expect(subject.amazon_search_results('fejiowfjFwjeopfjewfjP')).to be_a Hash
+    it 'has to return a hash with no products' do
+      expect(subject.amazon_search_results('fejiowfjFwjeopfjewfjP'))
+        .to be_a Hash
     end
   end
 
-  context 'formats response from amazon' do
+  context 'formats response from Amazon' do
 
     it 'returns the correct number of items' do
       formatted_result = subject.format_search(AMAZON_SEARCH_HASH)

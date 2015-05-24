@@ -7,24 +7,41 @@ class GiftsController < ApplicationController
   end
 
   def create
-    @gift = Gift.create gift_params
-    redirect_to '/gifts'
-  end
+    new_params = gift_params
+    new_params[:user_id] = current_user.id
+    @gift = Gift.create new_params
+    @gift.contributors.create(gift_id: @gift.id, email: current_user.email)
 
-  def gift_params
-    params.require(:gift).permit(:title,
-                                 :recipient,
-                                 :recipient_address,
-                                 :delivery_date,
-                                 contributors_attributes:[:id, :email, :_destroy])
+    redirect_to "/gifts/#{@gift.id}"
   end
 
   def index
     @gifts = Gift.all
   end
 
+  def show
+    @gift = Gift.find(params[:id])
+    @contributors = @gift.contributors
+  end
+
+  def gift_params
+    params.require(:gift).permit :title,
+                                 :recipient,
+                                 :recipient_address,
+                                 :delivery_date,
+                                 :item,
+                                 :item_price,
+                                 :description,
+                                 :item_image,
+                                 :item_url,
+                                 contributors_attributes: [
+                                   :id,
+                                   :email,
+                                   :_destroy
+                                 ]
+  end
+
   def search
-    p params[:keyword]
     render json: format_search(amazon_search_results(params[:keyword]))
   end
 

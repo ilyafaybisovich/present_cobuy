@@ -8,5 +8,4 @@ class Gift < ActiveRecord::Base
       ContributorMailer.invited(self, contributor).deliver
     end
   end
-
 end

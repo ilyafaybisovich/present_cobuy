@@ -1,8 +1,16 @@
-feature 'create gifts' do
+require 'mock_helper'
+
+feature 'create gifts', js: true do
   context 'when user is not signed in' do
-    scenario 'user cannot create a gift' do
+    scenario 'user cannot create a gift via homepage' do
       visit '/'
       expect(page).not_to have_link 'Create gift'
+    end
+
+    scenario 'user cannot create a gift via URL' do
+      visit '/gifts/new'
+      expect(page).not_to have_button 'Create gift'
+      expect(page).to have_content 'Please sign in to create a gift'
     end
   end
 
@@ -16,16 +24,16 @@ feature 'create gifts' do
       expect(page).to have_link 'Create gift'
     end
 
-    xscenario 'user can create a gift' do
-      visit '/'
-      click_link 'Create gift'
-      expect(page).to have_link 'Add a contributor'
-      fill_in 'Title', with: 'History of Liversedge'
-      fill_in 'Recipient', with: 'Joe'
-      fill_in 'Recipient address', with: '1 Station Parade, Liversedge'
-      fill_in 'Delivery date', with: '15th June'
-      click_button 'Create gift'
+    scenario 'user can create a gift', js: true do
+      create_prezzy
+      wait_for_ajax
       expect(page).to have_content 'History of Liversedge'
+      expect(page).to have_content 'Joe'
+      expect(page).to have_content '1 Station Parade, Liversedge'
+      expect(page).to have_content '2015-06-15'
+      expect(page).to have_content 'test@prezzy.ie'
     end
+
+    xscenario 'ensure organiser is also a contributor'
   end
 end

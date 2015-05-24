@@ -1,11 +1,11 @@
 ENV['RAILS_ENV'] ||= 'test'
-require 'spec_helper'
-require File.expand_path('../../config/environment', __FILE__)
+
+require File.expand_path('../../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'billy/rspec'
 require 'capybara/poltergeist'
-require 'wait_for_ajax'
+
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.default_wait_time = 5
 Capybara.javascript_driver = :poltergeist_billy

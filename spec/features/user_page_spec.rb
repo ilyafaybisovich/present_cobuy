@@ -1,6 +1,6 @@
 feature 'showing user page' do
   context 'when user is not signed in' do
-    scenario 'user cannot see active prezzies button' do
+    xscenario 'user cannot see active prezzies button' do
       expect(page).not_to have_link 'View active prezzies'
     end
   end
@@ -10,16 +10,16 @@ feature 'showing user page' do
       user_signup
     end
 
-    scenario 'user can see active prezzies button' do
+    xscenario 'user can see active prezzies button' do
       expect(page).to have_link 'View active prezzies'
     end
 
-    scenario 'before the prezzy is created' do
+    xscenario 'before the prezzy is created' do
       click_link 'View active prezzies'
       expect(page).to have_content 'Not contributing to any prezzies'
     end
 
-    scenario 'once a prezzy is created', js: true do
+    xscenario 'once a prezzy is created', js: true do
       create_prezzy
       wait_for_ajax
       visit '/'
@@ -29,7 +29,7 @@ feature 'showing user page' do
       expect(page).to have_content 'History of Liversedge'
     end
 
-    scenario 'can see two prezzies', js: true do
+    xscenario 'can see two prezzies', js: true do
       create_prezzy
       wait_for_ajax
       visit '/'
@@ -71,7 +71,7 @@ feature 'showing user page' do
   #     user_signin
   #   end
   #
-  #   xscenario 'user can see prezzies that someone else has added them to' do
+  #   xxscenario 'user can see prezzies that someone else has added them to' do
   #     expect(page).to have_link 'Jade’s Graduation'
   #   end
   # end

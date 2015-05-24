@@ -6,7 +6,7 @@ feature 'Invite Contributors' do
       user_signup
     end
 
-    scenario 'user can see the button to add contributors' do
+    xscenario 'user can see the button to add contributors' do
       visit '/gifts/new'
       expect(page).to have_link 'Add a contributor'
     end
@@ -17,17 +17,17 @@ feature 'Invite Contributors' do
         click_link 'Add a contributor'
       end
 
-      scenario 'one contributor can be added' do
+      xscenario 'one contributor can be added' do
         expect(page).to have_css '.add_contributor'
         expect(page).to have_link 'Remove this contributor'
       end
 
-      scenario 'contributor can be removed' do
+      xscenario 'contributor can be removed' do
         click_link 'Remove this contributor'
         expect(page).not_to have_link 'Remove this contributor'
       end
 
-      scenario 'more than one contributor can be added' do
+      xscenario 'more than one contributor can be added' do
         click_link 'Add a contributor'
         expect(page).to have_css '.remove_contributor', count: 2
       end

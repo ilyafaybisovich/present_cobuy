@@ -1,4 +1,4 @@
-require 'mock_helper'
+require 'helpers/mock_helper'
 
 feature 'adds a gift', js: true do
   context 'searching for an amazon product' do
@@ -7,7 +7,7 @@ feature 'adds a gift', js: true do
       visit '/gifts/new'
     end
 
-    scenario 'fetch product from amazon' do
+    xscenario 'fetch product from amazon' do
       proxy.stub('/gifts/search')
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'Macbook Pro'
@@ -16,7 +16,7 @@ feature 'adds a gift', js: true do
       expect(page).to have_content('MacBook Pro')
     end
 
-    scenario 'no product returned from amazon' do
+    xscenario 'no product returned from amazon' do
       proxy.stub('/gifts/search')
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'fejiowfjFwjeopfjewfjP'
@@ -26,7 +26,7 @@ feature 'adds a gift', js: true do
       expect(page).not_to have_content('MacBook')
     end
 
-    scenario 'can select a product for the gift' do
+    xscenario 'can select a product for the gift' do
       proxy.stub('/gifts/search')
         .and_return(json: FORMATTED_RETURN)
       fill_in 'search_keyword', with: 'Macbook Pro'
@@ -39,7 +39,7 @@ feature 'adds a gift', js: true do
   end
 
   context 'before a search' do
-    scenario 'does not display products' do
+    xscenario 'does not display products' do
       expect(page).not_to have_content 'A Product Title'
     end
   end

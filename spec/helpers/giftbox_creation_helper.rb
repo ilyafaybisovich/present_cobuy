@@ -1,21 +1,4 @@
-require 'mock_helper'
-
-def user_signup email = 'test@prezzy.ie', password = 'moomoocow'
-  visit '/'
-  click_link 'Sign up'
-  fill_in 'Email', with: email
-  fill_in 'Password', with: password
-  fill_in 'Password confirmation', with: password
-  click_button 'Sign up'
-end
-
-def user_signin email = 'test@prezzy.ie', password = 'moomoocow'
-  visit '/'
-  click_link 'Sign in'
-  fill_in 'Email', with: email
-  fill_in 'Password', with: password
-  click_button 'Log in'
-end
+require 'helpers/mock_helper'
 
 def create_prezzy title = 'History of Liversedge',
                   recipient = 'Joe',

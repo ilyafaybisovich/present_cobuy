@@ -32,5 +32,14 @@ feature 'a new user can sign up' do
       visit '/'
       expect(page).to have_link 'Sign out'
     end
+
+    scenario 'user should be able to sign out and back in again' do
+      visit '/'
+      click_link 'Sign out'
+      user_signin
+      expect(page).not_to have_link 'Sign in'
+      expect(page).not_to have_link 'Sign up'
+      expect(page).to have_link 'Sign out'
+    end
   end
 end

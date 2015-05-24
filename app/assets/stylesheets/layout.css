@@ -72,7 +72,7 @@ a:hover.button{
 
 #wrap {
   width: 100%;
-  height: 1000px;
+  max-height: 800px;
   background-color: #00c8c8;
   background-image: url("noise.png"),-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, color-stop(0%, rgba(0, 210, 190, 0.5)), color-stop(100%, rgba(0, 190, 210, 0.5)));
 }
@@ -113,6 +113,40 @@ a:hover.button{
 
 #wrap img {
   width: 100%;
+}
+
+#wrap form {
+  font-family: "BrandonText","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 22em;
+}
+
+form input, form select {
+  width: 100%;
+  max-width: 22em;
+  position: relative;
+  padding: 0.96rem 1.6rem;
+  margin: 0.3rem 0.6rem 0.3rem 0;
+  display: block;
+  border: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: left;
+  border-radius: 0.3em;
+  color: #282828;
+  background-color: #faf8f6;
+}
+
+
+#wrap form input {
+  display: inline-block;
+  padding-top: 0.66em;
+  margin-right: 0.3em;
+}
+
+#wrap form input[type="email"] {
+  border: 1px solid rgba(40, 40, 40, 0.2);
 }
 
 #wrap .logo.left {

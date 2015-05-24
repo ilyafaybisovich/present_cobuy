@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'users#index'
+  devise_for :user
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   resources :gifts do
     collection do
       get 'search'

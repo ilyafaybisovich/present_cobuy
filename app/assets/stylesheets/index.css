@@ -1,6 +1,3 @@
-#wrap #content-area.homepage{
-  margin: 10em auto;
-}
 
 #wrap .headline {
   padding: 20px 0;
@@ -10,23 +7,26 @@
   position: static;
   display: block;
   float: none;
+  margin: 1em 0;
   white-space: normal;
   color: #faf8f6;
 }
 
 #wrap .user-sign {
-  width:12em;
-  overflow: hidden;
+  padding-bottom: 1em;
 }
 
 #wrap .user-sign a{
   float: left;
 }
 
-#wrap .user-sign a:last-child{
-  float: right;
+#wrap a.secondary-link, p.secondary-text {
+  font-family: "BrandonText","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 1em;
+  line-height: 1.8em;
 }
 
-#wrap a.button.wide {
-  max-width: 28em;
+#wrap a:hover.secondary-link, #wrap p:hover.secondary-text, #wrap .remember label:hover {
+  border-bottom: 1px solid #EFF6F4;
 }
+

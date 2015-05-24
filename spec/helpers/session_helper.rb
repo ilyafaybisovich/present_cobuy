@@ -11,7 +11,6 @@ end
 
 def user_signin email = DEFAULT_EMAIL, password = DEFAULT_PASSWORD
   visit '/'
-  click_link 'Sign in'
   fill_in 'Email', with: email
   fill_in 'Password', with: password
   click_button 'Log in'

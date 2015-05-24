@@ -10,4 +10,5 @@ class Contributor < ActiveRecord::Base
     gift.split_price = gift.item_price / count
     gift.save
   end
+
 end

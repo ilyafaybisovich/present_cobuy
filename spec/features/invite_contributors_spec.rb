@@ -11,7 +11,7 @@ feature 'Invite Contributors' do
       expect(page).to have_link 'Add a contributor'
     end
 
-    context 'add and remove', js: true do
+  context 'add and remove', js: true do
       before do
         visit '/gifts/new'
         click_link 'Add a contributor'

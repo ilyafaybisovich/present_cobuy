@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div id="contributors" class="row" >
+<!--   <div id="contributors" class="row" >
     <ul>
       <% @contributors.each do |contributor| %>
           <li>
@@ -16,12 +16,15 @@
           </li>
       <% end %>
     </ul>
-  </div>
-
+  </div> -->
+  <div id="contributors" class="row" >
   <% @contributors.each do |contributor| %>
-  <% div_for contributor do %>
+    <%= div_for contributor do %>
+      <p><%= contributor.email %></p>
+      <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %>
+    <% end %>
   <% end %>
-  <% end %>
+  </div>
 
   <section class="row">
     <article id="recipient" class="col-md-6">

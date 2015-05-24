@@ -1,2 +1,0 @@
-module ContributersHelper
-end

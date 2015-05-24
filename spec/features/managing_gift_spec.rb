@@ -1,14 +1,16 @@
 feature 'managing a gift', js: true do
     before do
+      user_signup
       gift = Gift.create(title: "Mum's birthday",
                          recipient: "Mary",
                          recipient_address: '15 Ada House, E2 2BB',
                          delivery_date: 'June 15',
                          item: '12345',
-                         item_price: 750.0,
+                         item_price: 600.0,
                          description: 'MacBook Pro',
                          item_image: 'http://prezzy.com/macbook.jpg',
-                         item_url: 'http://amazon.co.uk/macbook'
+                         item_url: 'http://amazon.co.uk/macbook',
+                         user_id: 1
                         )
       gift.contributors.create(gift_id: 1,
                                email: 'test@test.com'
@@ -35,8 +37,10 @@ feature 'managing a gift', js: true do
       gift.contributors.create(gift_id: 1,
                                email: 'test2@test.com'
                               )
+      p Gift.first
+      p Gift.first.contributors
       visit '/gifts/1'
-      expect(page).to have_content '375'
+      expect(page).to have_xpath('//input[@value="Pay £300.00"]')
     end
 
     scenario 'page to have an item image' do
@@ -60,7 +64,7 @@ feature 'managing a gift', js: true do
       expect(page.find('div.progress-bar').text).to eq '0%'
     end
     scenario 'progress bar updates on payment' do
-      click_button('Pay £750.00')
+      click_button('Pay £600.00')
       expect(page).to have_content('100%')
     end
   end

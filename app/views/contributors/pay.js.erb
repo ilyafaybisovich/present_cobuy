@@ -1,6 +1,6 @@
 $('.progress-bar').attr("style", "width:<%= @gift.percentage_complete %>%");
-$('.progress-bar').attr("aria-valuenow", "100");
-$('.progress-bar').text("100%");
-$('.button_to :submit').fadeOut(200, function(){
-  $('#paid').toggleClass("hidden");
+$('.progress-bar').attr("aria-valuenow", "<%= @gift.percentage_complete %>");
+$('.progress-bar').text("<%= @gift.percentage_complete %>%");
+$('#<%= dom_id(@contributor) %> :submit').fadeOut(200, function(){
+  $('#<%= dom_id(@contributor) %>').find('#paid').toggleClass("hidden");
 })

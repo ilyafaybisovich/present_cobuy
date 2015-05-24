@@ -37,10 +37,9 @@ feature 'managing a gift', js: true do
       gift.contributors.create(gift_id: 1,
                                email: 'test2@test.com'
                               )
-      p Gift.first
-      p Gift.first.contributors
       visit '/gifts/1'
       expect(page).to have_xpath('//input[@value="Pay £300.00"]')
+      expect(page).not_to have_content('Paid')
     end
 
     scenario 'page to have an item image' do
@@ -66,6 +65,11 @@ feature 'managing a gift', js: true do
     scenario 'progress bar updates on payment' do
       click_button('Pay £600.00')
       expect(page).to have_content('100%')
+    end
+    scenario 'progress bar updates on payment' do
+      click_button('Pay £600.00')
+      expect(page).not_to have_xpath('//input[@value="Pay £600.00"]')
+      expect(page).to have_content('Paid')
     end
   end
 end

@@ -19,4 +19,20 @@ RSpec.describe Gift, type: :model do
     gift = described_class.first
     expect(gift.split_price).to eq '200.0'
   end
+
+  it 'can calculte the number of paid contributers' do
+    gift = described_class.create(item_price: 200.0)
+    gift.contributors.create(email: 'test@test.com', token: "ffndjfnrjfgnw")
+    gift.contributors.create(email: 'test2@test.com')
+    gift = described_class.first
+    expect(gift.paid_contributors).to eq 1
+  end
+
+  it 'can calculate the % contribution' do
+    gift = described_class.create(item_price: 200.0)
+    gift.contributors.create(email: 'test@test.com', token: "ffndjfnrjfgnw")
+    gift.contributors.create(email: 'test2@test.com')
+    gift = described_class.first
+    expect(gift.percentage_complete).to eq 50
+  end
 end

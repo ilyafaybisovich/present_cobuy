@@ -33,7 +33,5 @@ feature 'create gifts', js: true do
       expect(page).to have_content '2015-06-15'
       expect(page).to have_content 'test@prezzy.ie'
     end
-
-    xscenario 'ensure organiser is also a contributor'
   end
 end

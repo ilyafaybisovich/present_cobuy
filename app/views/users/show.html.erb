@@ -1,0 +1,17 @@
+<h1><%= @user.email %></h1>
+
+<div class="container">
+  <div id="prezzies" class="row">
+    <% if @gifts.empty? %>
+      <p>Not contributing to any prezzies</p>
+    <% else %>
+      <ul>
+        <% @gifts.each do |gift| %>
+          <li>
+            <p><%= link_to gift.title, gift %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -9,6 +9,14 @@ def user_signup email = 'test@prezzy.ie', password = 'moomoocow'
   click_button 'Sign up'
 end
 
+def user_signin email = 'test@prezzy.ie', password = 'moomoocow'
+  visit '/'
+  click_link 'Sign in'
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  click_button 'Log in'
+end
+
 def create_prezzy title = 'History of Liversedge',
                   recipient = 'Joe',
                   address = '1 Station Parade, Liversedge',

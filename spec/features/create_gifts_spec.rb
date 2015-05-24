@@ -34,6 +34,16 @@ feature 'create gifts', js: true do
       expect(page).to have_content 'test@prezzy.ie'
     end
 
-    xscenario 'ensure organiser is also a contributor'
+    scenario 'ensure organiser is also a contributor' do
+      create_prezzy
+      wait_for_ajax
+      expect(page).to have_css 'div#contributors', text: 'test@prezzy.ie'
+    end
+
+    xscenario 'additional contributors can be added to prezzy' do
+      create_prezzy
+      wait_for_ajax
+      expect(page).to have_css 'div#contributors', text: 'test@prezzy.ie'
+    end
   end
 end

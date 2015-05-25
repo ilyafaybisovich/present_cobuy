@@ -1,5 +1,5 @@
 <%= form_for @gift do |f| %>
-  <div class="form-group">
+  <div class="form">
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: "Mum's birthsday" %>
     <%= f.label :recipient%>
@@ -17,10 +17,12 @@
     <%= f.fields_for :contributors do |contributor_form| %>
       <%= render 'contributor_fields', f: contributor_form  %>
     <% end %>
-    <div id="Contributors" class="gift-block">
-      <h3><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor underline' %></h3>
+
+    <div id="contributors" class="gift-block">
+      <h3>Contributors</h3>
+      <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor' %></h4>
     </div>
 
-    <%= f.submit 'Create gift', class: 'button dark-blue btn btn-default'%>
+    <%= f.submit 'Create gift', class: 'button dark-blue' %>
   </div>
 <% end %>

@@ -1,0 +1,74 @@
+#new-gift{
+}
+
+#new-gift label {
+  display: block;
+  margin-top: 1em;
+}
+
+#new-gift h3{
+  margin-bottom: .8em;
+}
+
+#products {
+	display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.gift-block {
+  padding: 2em 0;
+  margin-top: 2em;
+  border-top: 2px solid #12b4b4;
+}
+
+#contributors {
+  position: relative;
+}
+
+#contributors h4 {
+  position: absolute;
+  top: 5em;
+}
+
+#contributors .nested-fields{
+  margin-bottom: 1.5em;
+}
+
+#contributors .nested-fields:nth-of-type(1) {
+  padding-top: 1em;
+}
+
+#products {
+  letter-spacing: -0.05em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(40, 40, 40);
+  font-family: freight-text-pro, Georgia, Times, 'Times New Roman', serif;
+  font-weight: normal;
+}
+
+#products .title {
+    display: block;
+  min-height: 3em;
+}
+
+#products .col-md-4{
+  padding: 0 1em;
+  border-right: 2px solid #12b4b4;
+  text-align: center;
+}
+
+#products .last{
+  border: none;
+}
+
+
+#event .progress{
+  display: block;
+  margin: 3em 0;
+}
+
+

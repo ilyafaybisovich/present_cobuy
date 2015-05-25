@@ -3,10 +3,9 @@
   <%= link_to 'Home', root_path, class: 'button dark-blue' %>
   <% if user_signed_in? %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'button dark-blue' %>
-    <%= link_to 'Create gift', new_gift_path, class: 'button dark-blue' %>
+    <%= link_to 'Create a giftbox', new_gift_path, class: 'button dark-blue' %>
     <%= link_to 'Active prezzies', "/users/#{current_user.id}", class: 'button dark-blue' %>
   <% else %>
     <%= link_to 'Sign up', new_user_registration_path, class: 'button dark-blue'%>
-    <%= link_to 'Sign in', new_user_session_path, class: 'button dark-blue' %>
   <% end %>
 </div>

@@ -44,7 +44,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--1').text());
     $('#gift_item_url').val($('.product__link--1').attr("href"));
     $('#gift_item_image').val($('.product__image--1').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--1').text());
+    $('.added').text('Added a gift: '+ $('.product__title--1').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     });
@@ -56,7 +56,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--2').text());
     $('#gift_item_url').val($('.product__link--2').attr("href"));
     $('#gift_item_image').val($('.product__image--2').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--2').text());
+    $('.added').text('Added a gift: '+ $('.product__title--2').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     });
@@ -68,7 +68,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--3').text());
     $('#gift_item_url').val($('.product__link--3').attr("href"));
     $('#gift_item_image').val($('.product__image--3').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--3').text());
+    $('.added').text('Added a gift: '+ $('.product__title--3').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     });

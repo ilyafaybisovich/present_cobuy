@@ -4,7 +4,7 @@ DEFAULT_TITLE = 'Joe’s Stag Do'
 DEFAULT_RECIPIENT = 'Joe'
 DEFAULT_ADDRESS = '12 Main Street, Dunroamin'
 DEFAULT_DATE = '16/05/2027'
-DEFAULT_SEARCH = 'macbook pro'
+DEFAULT_SEARCH = 'russian standard'
 DEFAULT_CONTRIBUTORS = []
 DEFAULT_GIFTBOX = {
   title: DEFAULT_TITLE,

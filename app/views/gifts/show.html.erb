@@ -14,6 +14,12 @@
       <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %>
       <p id="paid" class="hidden">Paid<p>
     <% end %>
+    <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Prezzy Contribution"
+              data-amount="<%= ((number_with_precision(@gift.split_price.to_f, precision: 2)) * 100) %>"></script>
+      <% end %>
   <% end %>
   </div>
 

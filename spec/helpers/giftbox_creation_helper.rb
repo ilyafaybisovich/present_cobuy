@@ -1,21 +1,49 @@
 require 'helpers/mock_helper'
 
-def create_prezzy title = 'History of Liversedge',
-                  recipient = 'Joe',
-                  address = '1 Station Parade, Liversedge',
-                  delivery_date = '15/06/2015',
-                  search_term = 'macbook pro'
-  proxy.stub('/gifts/search')
-    .and_return(json: FORMATTED_RETURN)
+DEFAULT_TITLE = 'Joe’s Stag Do'
+DEFAULT_RECIPIENT = 'Joe'
+DEFAULT_ADDRESS = '12 Main Street, Dunroamin'
+DEFAULT_DATE = '16/05/2027'
+DEFAULT_SEARCH = 'macbook pro'
+DEFAULT_CONTRIBUTORS = []
+DEFAULT_GIFTBOX = {
+  title: DEFAULT_TITLE,
+  recipient: DEFAULT_RECIPIENT,
+  address: DEFAULT_ADDRESS,
+  delivery_date: DEFAULT_DATE,
+  search_term: DEFAULT_SEARCH,
+  contributors: DEFAULT_CONTRIBUTORS
+}
+
+def create_giftbox giftbox_hash = DEFAULT_GIFTBOX
+  proxy.stub('/gifts/search').and_return(json: FORMATTED_RETURN)
   visit '/gifts/new'
-  fill_in 'Title', with: title
-  fill_in 'Recipient', with: recipient
-  fill_in 'Recipient address', with: address
-  fill_in 'Delivery date', with: delivery_date
-  fill_in 'search_keyword', with: search_term
+  fill_in_fields giftbox_hash
+  select_product
+  add_contributors giftbox_hash[:contributors]
+  click_button 'Create a giftbox'
+end
+
+private
+
+def fill_in_fields giftbox_hash
+  fill_in 'Title', with: giftbox_hash[:title]
+  fill_in 'Recipient', with: giftbox_hash[:recipient]
+  fill_in 'Recipient address', with: giftbox_hash[:address]
+  fill_in 'Delivery date', with: giftbox_hash[:delivery_date]
+  fill_in 'search_keyword', with: giftbox_hash[:search_term]
+end
+
+def select_product
   click_button 'Search'
   wait_for_ajax
   find("#products").click_button("product_1")
   wait_for_ajax
-  click_button 'Create gift'
+end
+
+def add_contributors contributors
+  contributors.each do |contributor|
+    click_link 'Add a contributor'
+    fill_in 'Email', with: contributor
+  end
 end

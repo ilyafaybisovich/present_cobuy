@@ -20,8 +20,9 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = Gift.find(params[:id])
+    @gift = Gift.find params[:id]
     @contributors = @gift.contributors
+    @organiser = User.find(@gift.user_id).email
   end
 
   def gift_params

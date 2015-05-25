@@ -20,8 +20,9 @@
   <section class="row">
     <article id="recipient" class="col-md-6">
       <h2><%= @gift.recipient %></h2>
-      <p><%= @gift.recipient_address %></p>
-      <p><%= @gift.delivery_date %></p>
+      <p id="address"><%= @gift.recipient_address %></p>
+      <p id="delivery_date"><%= @gift.delivery_date %></p>
+      <p id="organiser"><%= @organiser %></p>
     </article>
 
     <article id="item" class="col-md-6">

@@ -1,1 +1,11 @@
 <%# add navigation links to this file %>
+<% if user_signed_in? %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'Create gift', new_gift_path %>
+  <%= link_to 'Active prezzies', "/users/#{current_user.id}" %>
+<% else %>
+<div class="user-sign">
+  <%= link_to 'Sign up', new_user_registration_path, :class => 'button dark-blue'%>
+  <%= link_to 'Sign in', new_user_session_path, :class => 'button dark-blue' %>
+</div>
+<% end %>

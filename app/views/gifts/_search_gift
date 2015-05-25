@@ -1,0 +1,45 @@
+<div id="search-gift" class="gift-block">
+  <label><h3>Search a Gift</h3></label>
+  <input type="text" name="search_keyword" id="search_keyword"/>
+  <button id="amazon_search">Search</button>
+
+  <div>
+    <p class="added"></p>
+  </div>
+
+  <div id="products">
+    <div class="row">
+      <div class="col-md-4">
+        <ul>
+          <li><a href="" class="link-center col-center product__link--1 product__title--1 underline"><h4>Title 1</h4></a></li>
+          <li><img src="" class="center-block product__image--1"/></li>
+          <li><p class="text-center product__price--1">Price 1</p></li>
+          <li><button id="product_1">Select</button></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4"></div>
+        <a href="" class="text-center col-center product__link--2 product__title--2 underline">Title 2</a>
+        <img src="" class="center-block product__image--2"/>
+        <p class="text-center product__price--2">Price 2</p>
+        <button id="product_2">Select</button>
+      </div>
+
+      <div class="col-md-4">
+        <a href="" class="text-center col-center product__link--3 product__title--3 underline">Title 3</a>
+        <img src="" class="center-block product__image--3"/>
+        <p class="text-center product__price--3">Price 3</p>
+        <button id="product_3">Select</button>
+      </div>
+    </div>
+  </div>
+  <div class="hidden">
+    <p class="hidden" id="product-asin-1"></p>
+    <p class="hidden" id="product-asin-2"></p>
+    <p class="hidden" id="product-asin-3"></p>
+  </div>
+
+  <div class="amazon_error">
+    <p></p>
+  </div>
+ </div>

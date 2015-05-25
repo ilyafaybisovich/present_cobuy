@@ -17,6 +17,14 @@ h1, h2, h3, h4, .headline {
   text-wrap: balanced;
 }
 
+h3 {
+  font-size: 2rem;
+}
+
+h4{
+  font-size: 1rem;
+}
+
 p {
   margin: 1em 0;
   line-height: 140%;
@@ -54,6 +62,10 @@ a:link, a:visited, a:active {
   color: inherit;
   cursor: pointer;
   text-decoration: none;
+}
+
+a:hover.underline {
+  border-bottom: 1px solid #EFF6F4;
 }
 
 a.button {
@@ -135,7 +147,7 @@ form input, form select {
   margin-top: -2em;
 }
 
-#wrap img {
+#wrap .logo img, footer img {
   width: 100%;
 }
 
@@ -155,5 +167,24 @@ form input, form select {
 
 #wrap .headline{
   font-size: 4.6rem;
+}
+
+#wrap #menu {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+   -webkit-align-items: lef;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 

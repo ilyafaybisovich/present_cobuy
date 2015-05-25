@@ -1,25 +1,26 @@
 <%= form_for @gift do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: "Mum's birthsday" %>
-  <%= f.label :recipient%>
-  <%= f.text_field :recipient, placeholder: "Bea Smith" %>
-  <%= f.label :recipient_address %>
-  <%= f.text_field :recipient_address, placeholder: "street, postcode, city, country" %>
-  <%= f.label :delivery_date %>
-  <%= f.text_field :delivery_date, placeholder: "dd/mm/yyyy" %>
-  <!-- Hidden Fields -->
-  <%= f.text_field :item, class: "hidden" %>
-  <%= f.text_field :item_price, class: "hidden"%>
-  <%= f.text_field :description, class: "hidden" %>
-  <%= f.text_field :item_image, class: "hidden" %>
-  <%= f.text_field :item_url, class: "hidden" %>
-  <%= f.fields_for :contributors do |contributor_form| %>
-    <%= render 'contributor_fields', f: contributor_form  %>
-  <% end %>
-  <div id="Contributors" class="gift-block">
-    <h3><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor underline' %></h3>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Mum's birthsday" %>
+    <%= f.label :recipient%>
+    <%= f.text_field :recipient, placeholder: "Bea Smith" %>
+    <%= f.label :recipient_address %>
+    <%= f.text_field :recipient_address, placeholder: "street, postcode, city, country" %>
+    <%= f.label :delivery_date %>
+    <%= f.text_field :delivery_date, placeholder: "dd/mm/yyyy" %>
+    <!-- Hidden Fields -->
+    <%= f.text_field :item, class: "hidden" %>
+    <%= f.text_field :item_price, class: "hidden"%>
+    <%= f.text_field :description, class: "hidden" %>
+    <%= f.text_field :item_image, class: "hidden" %>
+    <%= f.text_field :item_url, class: "hidden" %>
+    <%= f.fields_for :contributors do |contributor_form| %>
+      <%= render 'contributor_fields', f: contributor_form  %>
+    <% end %>
+    <div id="Contributors" class="gift-block">
+      <h3><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor underline' %></h3>
+    </div>
+
+    <%= f.submit 'Create gift', class: 'button dark-blue btn btn-default'%>
   </div>
-
-
-   <%= f.submit 'Create gift', class: 'button dark-blue'%>
 <% end %>

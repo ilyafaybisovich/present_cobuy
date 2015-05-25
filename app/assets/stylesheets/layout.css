@@ -30,6 +30,33 @@ p {
   line-height: 140%;
 }
 
+form {
+  margin-top: 2em;
+  font-family: "BrandonText","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 1rem;
+}
+
+.form {
+  width: 60%;
+  margin-bottom: 2em;
+  padding: 0;
+}
+
+form input, form select {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: 0.96rem 0 0.96rem 1rem;
+  margin: 0.3rem 0.3rem 0.3rem 0;
+  border: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: left;
+  border-radius: 0.3em;
+  color: #282828;
+  background-color: #faf8f6;
+}
+
 button, .button {
   display: block;
   position: relative;
@@ -55,7 +82,15 @@ button, .button.blue {
 button, .button.dark-blue {
   background: #006464;
   color: #faf8f6;
-  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.button input{
+  width: 100%;
+}
+
+input[type="checkbox"]{
+  width: 1em;
 }
 
 a:link, a:visited, a:active {
@@ -64,7 +99,7 @@ a:link, a:visited, a:active {
   text-decoration: none;
 }
 
-a:hover.underline {
+a:hover{
   border-bottom: 1px solid #EFF6F4;
 }
 
@@ -79,26 +114,6 @@ a:hover.button, .button:hover {
   background-color: #003232;
 }
 
-form {
-  margin-top: 2em;
-  font-family: "BrandonText","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
-  font-size: 1rem;
-}
-
-form input, form select {
-  position: relative;
-  display: inline-block;
-  padding: 0.96rem 5rem 0.96rem 1rem;
-  margin: 0.3rem 0.3rem 0.3rem 0;
-  border: none;
-  font-size: 1.2em;
-  font-weight: 500;
-  text-align: left;
-  border-radius: 0.3em;
-  color: #282828;
-  background-color: #faf8f6;
-}
-
 .left {
   text-align: left;
 }
@@ -107,7 +122,7 @@ form input, form select {
   display: none;
 }
 
-#wrap {
+#wrap, #wrap .navbar {
   width: 100%;
   background-color: #00c8c8;
   background-image: url("noise.png"),-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, color-stop(0%, rgba(0, 210, 190, 0.5)), color-stop(100%, rgba(0, 190, 210, 0.5)));
@@ -169,22 +184,5 @@ form input, form select {
   font-size: 4.6rem;
 }
 
-#wrap #menu {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-   -webkit-align-items: lef;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
+
 

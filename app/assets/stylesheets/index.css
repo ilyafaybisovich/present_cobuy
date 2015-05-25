@@ -17,16 +17,16 @@
 }
 
 #wrap .user-sign a{
-  float: left;
 }
 
-#wrap a.secondary-link, p.secondary-text {
-  font-family: "BrandonText","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
-  font-size: 1em;
-  line-height: 1.8em;
+#wrap #secondary-link{
+  width: 30%;
 }
 
-#wrap a:hover.secondary-link, #wrap p:hover.secondary-text, #wrap .remember label:hover {
-  border-bottom: 1px solid #EFF6F4;
+#wrap #secondary-link a {
+  display: block;
+  margin-bottom: 1em;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
+
 

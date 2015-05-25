@@ -17,7 +17,7 @@
     <%= render 'contributor_fields', f: contributor_form  %>
   <% end %>
   <div id="Contributors" class="gift-block">
-    <h3><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor underline' %></h3>
+    <%= link_to_add_association "Add a contributor", f, :contributors, class: 'button dark-blue' %>
   </div>
 
    <%= f.submit 'Create a giftbox', class: 'button dark-blue'%>

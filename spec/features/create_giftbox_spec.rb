@@ -49,11 +49,11 @@ feature 'Create Giftbox' do
         expect(page).to have_css 'div#contributors', text: 'user1@giftbox.ie'
       end
 
-      xscenario 'additional contributors can be added to giftbox', js: true do
+      scenario 'additional contributors can be added to giftbox', js: true do
         giftbox_hash = DEFAULT_GIFTBOX
         giftbox_hash[:contributors] =
           %w(contributor1@giftbox.ie contributor2@giftbox.ie)
-        create_giftbox
+        create_giftbox giftbox_hash
         wait_for_ajax
         expect(page).to have_content 'contributor1@giftbox.ie'
         expect(page).to have_content 'contributor2@giftbox.ie'

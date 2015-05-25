@@ -43,7 +43,7 @@ end
 
 def add_contributors contributors
   contributors.each do |contributor|
-    click_link 'Add a contributor'
-    fill_in 'Email', with: contributor
+    find('div#Contributors a').trigger 'click'
+    all(:css, 'div.nested-fields input[type="email"]').last.set contributor
   end
 end

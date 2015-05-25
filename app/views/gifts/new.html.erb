@@ -1,49 +1,10 @@
-<% if user_signed_in? %>
-  <h1>Create a giftbox</h1>
-  <%= render 'form' %>
-
-  <label>Search for a gift</label>
-  <input type="text" name="search_keyword" id="search_keyword"/>
-  <button id="amazon_search">Search</button>
-
-  <div>
-    <p class="added"></p>
-  </div>
-
-  <table id="products" class="table table-bordered">
-    <tr>
-      <td class="col-md-4"><a href="" class="link-center col-center product__link--1 product__title--1">Title 1</a></td>
-      <td class="col-md-4"><a href="" class="text-center col-center product__link--2 product__title--2">Title 2</a></td>
-      <td class="col-md-4"><a href="" class="text-center col-center product__link--3 product__title--3">Title 3</a></td>
-    </tr>
-    <tr>
-      <td><img src="" class="center-block product__image--1"/></td>
-      <td><img src="" class="center-block product__image--2"/></td>
-      <td><img src="" class="center-block product__image--3"/></td>
-    </tr>
-    <tr>
-      <td><p class="text-center product__price--1">Price 1</p></td>
-      <td><p class="text-center product__price--2">Price 2</p></td>
-      <td><p class="text-center product__price--3">Price 3</p></td>
-    </tr>
-    <tr>
-      <td><button id="product_1">Select</button></td>
-      <td><button id="product_2">Select</button></td>
-      <td><button id="product_3">Select</button></td>
-    </tr>
-  </table>
-
-  <div class="hidden">
-    <p class="hidden" id="product-asin-1"></p>
-    <p class="hidden" id="product-asin-2"></p>
-    <p class="hidden" id="product-asin-3"></p>
-  </div>
-
-  <div class="amazon_error">
-    <p></p>
-  </div>
-<% else %>
-  <p>Please sign in to create a giftbox</p>
-  <%= link_to 'Sign in', new_user_session_path %>
-  <%= link_to 'Home', root_path %>
-<% end %>
+<div id="new-gift" class="container">
+  <% if user_signed_in? %>
+    <%= render 'form' %>
+    <%= render 'search_gift'%>
+  <% else %>
+    <p>Please sign in to create a gift</p>
+    <%= link_to 'Sign in', new_user_session_path %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+</div>

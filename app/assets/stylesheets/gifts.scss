@@ -1,5 +1,17 @@
+#new-gift label {
+  display: block;
+  margin-top: 1em;
+}
+
+#new-gift h3{
+  margin-bottom: .8em;
+}
+
 #products {
 	display: none;
+}
+
+#products a{
 }
 
 .col-center{
@@ -8,6 +20,12 @@
 
 .hidden {
   display: none;
+}
+
+.gift-block{
+  padding: 2em 0;
+  margin-top: 2em;
+  border-top: 2px solid #00c8c8;
 }
 
 #contributors ul{

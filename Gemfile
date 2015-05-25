@@ -14,7 +14,7 @@ gem 'vacuum'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'cocoon'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug'
@@ -27,6 +27,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'rails-erb-lint'
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'simplecov-json', require: false

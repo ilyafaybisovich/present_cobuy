@@ -76,7 +76,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    colorize (0.7.7)
     columnize (0.9.0)
     cookiejar (0.3.2)
     coveralls (0.8.1)
@@ -113,7 +112,6 @@ GEM
     eventmachine_httpserver (0.2.1)
     excon (0.45.3)
     execjs (2.5.2)
-    gli (2.13.1)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     http-cookie (1.0.2)
@@ -134,7 +132,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.5)
+    mime-types (2.6)
     mini_portile (0.6.2)
     minitest (5.6.1)
     multi_json (1.11.0)
@@ -180,10 +178,6 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-erb-lint (1.1.4)
-      actionpack (~> 4.0)
-      colorize
-      gli (~> 2.0)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails_layout (1.0.26)
@@ -303,7 +297,6 @@ DEPENDENCIES
   poltergeist
   puffing-billy
   rails (= 4.2.1)
-  rails-erb-lint
   rails_layout
   rspec-mocks
   rspec-rails

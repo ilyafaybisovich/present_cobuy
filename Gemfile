@@ -27,7 +27,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rubocop'
   gem 'rubocop-rspec'
-  gem 'rails-erb-lint'
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'simplecov-json', require: false

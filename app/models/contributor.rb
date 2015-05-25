@@ -11,4 +11,8 @@ class Contributor < ActiveRecord::Base
     gift.save
   end
 
+  def current_user?(current_user)
+    self.email == current_user.email
+  end
+
 end

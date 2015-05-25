@@ -65,6 +65,7 @@ feature 'managing a gift', js: true do
 
     scenario 'progress bar updates on payment' do
       stripe_payment
+      visit '/gifts/1'
       expect(page).to have_content('100%')
       expect(page).to have_content('Paid')
       expect(page).not_to have_css('.stripe-button-el')
@@ -72,7 +73,9 @@ feature 'managing a gift', js: true do
 
     scenario 'action zinc.io payment' do
       stripe_payment
-      expect(page).to have_content 'Place order'
+      visit '/gifts/1'
+      click_button('Place order')
+      expect(page).to have_content 'Your Amazon Order has been placed.'
     end
   end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    redirect_to "/users/#{current_user.id}" if user_signed_in?
   end
 
   def list

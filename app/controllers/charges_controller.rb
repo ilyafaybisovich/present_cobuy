@@ -14,7 +14,8 @@ class ChargesController < ApplicationController
       email: 'example@stripe.com',
       card: params[:stripeToken])
 
-    # contributor.token = params[:stripeToken]
+    contributor.token = params[:stripeToken]
+    contributor.save
     # contributor.purchase_amount = @amount
 
     charge = Stripe::Charge.create(

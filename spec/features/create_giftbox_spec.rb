@@ -58,6 +58,18 @@ feature 'Create Giftbox' do
         expect(page).to have_content 'contributor1@giftbox.ie'
         expect(page).to have_content 'contributor2@giftbox.ie'
       end
+
+      scenario 'contributors can be removed from giftbox', js: true do
+        giftbox_hash = DEFAULT_GIFTBOX
+        giftbox_hash[:contributors] =
+          %w(mistake@giftbox.ie contributor2@giftbox.ie)
+        prepare_giftbox giftbox_hash
+        first('div.nested-fields a').trigger 'click'
+        click_button 'Create a giftbox'
+        wait_for_ajax
+        expect(page).not_to have_content 'mistake@giftbox.ie'
+        expect(page).to have_content 'contributor2@giftbox.ie'
+      end
     end
   end
 end

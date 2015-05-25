@@ -16,12 +16,16 @@ DEFAULT_GIFTBOX = {
 }
 
 def create_giftbox giftbox_hash = DEFAULT_GIFTBOX
+  prepare_giftbox giftbox_hash
+  click_button 'Create a giftbox'
+end
+
+def prepare_giftbox giftbox_hash = DEFAULT_GIFTBOX
   proxy.stub('/gifts/search').and_return(json: FORMATTED_RETURN)
   visit '/gifts/new'
   fill_in_fields giftbox_hash
   select_product
   add_contributors giftbox_hash[:contributors]
-  click_button 'Create a giftbox'
 end
 
 private

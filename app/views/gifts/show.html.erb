@@ -2,19 +2,29 @@
 
 <div class="container">
   <div class="progress" class="row">
-    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-      0%
+    <div class="progress-bar" role="progressbar" aria-valuenow="<%= @gift.percentage_complete %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= @gift.percentage_complete %>%">
+      <%= @gift.percentage_complete %>%
     </div>
   </div>
 
   <div id="contributors" class="row" >
-  <% @contributors.each do |contributor| %>
-    <%= div_for contributor do %>
-      <p><%= contributor.email %></p>
-      <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %>
-      <p id="paid" class="hidden">Paid<p>
+    <% @contributors.each do |contributor| %>
+      <%= div_for contributor do %>
+        <p><%= contributor.email %></p>
+        <!-- <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %> -->
+        <p id="paid">
+        <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid"%>
+        <p>
+      <% end %>
+      <div class="<%= "hidden" unless contributor.token.nil? && contributor.current_user?(current_user) %>">
+        <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Prezzy Contribution"
+              data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"></script>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
   </div>
 
   <section class="row">

@@ -14,6 +14,7 @@ gem 'vacuum'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug'

@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    return unless user_signed_in?
+    @user = User.find params[:id]
     @gifts = Gift.where user_id: @user.id
   end
 end

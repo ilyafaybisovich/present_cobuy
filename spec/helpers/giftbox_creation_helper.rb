@@ -17,7 +17,7 @@ DEFAULT_GIFTBOX = {
 
 def create_giftbox giftbox_hash = DEFAULT_GIFTBOX
   prepare_giftbox giftbox_hash
-  click_button 'Create a giftbox'
+  find('input[type="submit"]').trigger 'click'
 end
 
 def prepare_giftbox giftbox_hash = DEFAULT_GIFTBOX
@@ -41,7 +41,7 @@ end
 def select_product
   click_button 'Search'
   wait_for_ajax
-  find("#products").click_button("product_1")
+  find('#products').click_button 'product_1'
   wait_for_ajax
 end
 

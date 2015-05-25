@@ -16,18 +16,14 @@ feature 'Create Giftbox' do
   context 'When user is signed in –' do
     background { user_signup }
 
-    context 'user navigates to the home page –' do
-      background { visit '/' }
+    scenario 'user sees button to create a giftbox' do
+      expect(page).to have_link 'Create a giftbox'
+    end
 
-      scenario 'user sees button to create a giftbox' do
-        expect(page).to have_link 'Create a giftbox'
-      end
-
-      scenario 'user can navigate to create a giftbox page' do
-        click_link 'Create a giftbox'
-        expect(page).to have_content 'Create a giftbox'
-        expect(page).to have_css 'form#new_gift'
-      end
+    scenario 'user can navigate to the giftbox creation page' do
+      click_link 'Create a giftbox'
+      expect(page).to have_content 'Create a giftbox'
+      expect(page).to have_css 'form#new_gift'
     end
 
     context 'user navigates to the giftbox creation page –' do

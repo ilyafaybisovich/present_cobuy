@@ -1,11 +1,11 @@
 <%# add navigation links to this file %>
-<div class="user-sign">
+<div class="navigation">
   <%= link_to 'Home', root_path, class: 'button dark-blue' %>
   <% if user_signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'button dark-blue' %>
-    <%= link_to 'Create a giftbox', new_gift_path, class: 'button dark-blue' %>
-    <%= link_to 'Active prezzies', "/users/#{current_user.id}", class: 'button dark-blue' %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'button dark-blue', id: 'sign_out' %>
+    <%= link_to 'Create a giftbox', new_gift_path, class: 'button dark-blue', id: 'create_giftbox' %>
+    <%= link_to 'View profile', "/users/#{current_user.id}", class: 'button dark-blue', id: 'view_profile' %>
   <% else %>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'button dark-blue'%>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'button dark-blue', id: 'sign_up'%>
   <% end %>
 </div>

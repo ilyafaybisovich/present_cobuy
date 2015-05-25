@@ -13,6 +13,7 @@ gem 'devise'
 gem 'vacuum'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug'

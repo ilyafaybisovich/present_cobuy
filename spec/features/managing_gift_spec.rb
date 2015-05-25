@@ -71,5 +71,17 @@ feature 'managing a gift', js: true do
       expect(page).not_to have_xpath('//input[@value="Pay £600.00"]')
       expect(page).to have_content('Paid')
     end
+    scenario 'make payment by stripe' do
+      page.find('.stripe-button-el').click
+      stripe = all('iframe[name=stripe_checkout_app]').last
+      page.within_frame stripe do
+        fill_in 'email', with: 'test@test.com'
+        fill_in 'card_number', with: '4242 4242 4242 4242'
+        fill_in 'cc-exp', with: '12/18'
+        fill_in 'cc-csc', with: '123'
+        page.find('#submitButton').click
+      end
+      expect(page).not_to have_css('.stripe-button-el')
+    end
   end
 end

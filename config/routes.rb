@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users' => 'users#list'
   get 'users/:id' => 'users#show'
   root to: 'users#index'
 end

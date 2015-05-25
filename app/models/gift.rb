@@ -5,7 +5,7 @@ class Gift < ActiveRecord::Base
 
   def notify_contributors
     self.contributors.each do |contributor|
-      ContributorMailer.invited(self, contributor).deliver
+      ContributorMailer.invited(self, contributor).deliver_later
     end
   end
 

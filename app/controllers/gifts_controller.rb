@@ -54,9 +54,12 @@ class GiftsController < ApplicationController
   private
 
   def gift_params
-    params.require(:gift).permit :title, :recipient, :recipient_address,
+    params.require(:gift).permit :title, :recipient,
                                  :delivery_date, :item, :item_price,
                                  :description, :item_image, :item_url,
+                                 :ship_name, :ship_surname, :ship_add1,
+                                 :ship_add2, :ship_city, :ship_county,
+                                 :ship_pcode,
                                  contributors_attributes: [
                                    :id, :email, :_destroy
                                  ]

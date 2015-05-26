@@ -1,13 +1,28 @@
 <%= form_for @gift do |f| %>
   <div class="form">
-    <%= f.label :title %>
+    <%= f.label :occasion %>
     <%= f.text_field :title, placeholder: "Mum's birthsday" %>
     <%= f.label :recipient%>
     <%= f.text_field :recipient, placeholder: "Bea Smith" %>
-    <%= f.label :recipient_address %>
-    <%= f.text_field :recipient_address, placeholder: "street, postcode, city, country" %>
-    <%= f.label :delivery_date %>
-    <%= f.text_field :delivery_date, placeholder: "dd/mm/yyyy" %>
+     <%= f.label :delivery_date %>
+    <%= f.date_field :delivery_date %>
+    <div id="addresss">
+      <h3>Delivery Details</h3>
+      <%= f.label :name %>
+      <%= f.text_field :ship_name, placeholder: "John" %>
+      <%= f.label :surname %>
+      <%= f.text_field :ship_surname, placeholder: "Smith" %>
+      <%= f.label :address %>
+      <%= f.text_field :ship_add1, placeholder: "1, London Road" %>
+      <%= f.text_field :ship_add2, placeholder: "Moordown" %>
+      <%= f.label :city %>
+      <%= f.text_field :ship_city, placeholder: "Reading" %>
+      <%= f.label :county %>
+      <%= f.text_field :ship_county, placeholder: "Berkshire" %>
+      <%= f.label :postcode %>
+      <%= f.text_field :ship_pcode, placeholder: "RG2 3GB" %>
+    </div>
+
     <!-- Hidden Fields -->
     <%= f.text_field :item, class: "hidden" %>
     <%= f.text_field :item_price, class: "hidden"%>
@@ -20,10 +35,10 @@
 
     <div id="contributors" class="gift-block">
       <h3>Contributors</h3>
-      <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor' %></h4>
+      <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor button dark-blue' %></h4>
     </div>
   </div>
   <div class="clearfix"></div>
   <%= render 'search_gift'%>
-    <%= f.submit 'Create a giftbox', class: 'button dark-blue' %>
+  <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

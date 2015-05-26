@@ -49,6 +49,7 @@ $(document).ready(function(){
     $('.added').text('Added a gift: '+ $('.product__title--1').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
   // =================== select product 2 ==============================
@@ -62,6 +63,7 @@ $(document).ready(function(){
     $('.added').text('Added a gift: '+ $('.product__title--2').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
   // =================== select product 3 ==============================
@@ -75,6 +77,7 @@ $(document).ready(function(){
     $('.added').text('Added a gift: '+ $('.product__title--3').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
 });

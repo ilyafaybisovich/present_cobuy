@@ -10,7 +10,9 @@
   <section class="row">
     <article id="recipient" class="col-md-6">
       <h3><%= @gift.recipient %></h3>
-      <p id="address"><%= @gift.recipient_address %></p>
+      <h4>Shipping Details</h4>
+      <h4><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></h4>
+      <p><%= "#{@gift.ship_add1}, #{@gift.ship_add2}, #{@gift.ship_city}, #{@gift.ship_county}, #{@gift.ship_pcode}" %></p>
       <p id="delivery_date"><%= @gift.delivery_date %></p>
       <p id="organiser"><%= @organiser %></p>
       <p><%= "Your Amazon Order has been placed." unless @gift.purchase_token.nil? %><p>
@@ -28,7 +30,7 @@
       <% @contributors.each do |contributor| %>
         <%= div_for contributor do %>
           <p><%= contributor.email %></p>
-          <!-- <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %> -->
+          <%= image_tag "#{rand(1...4)}.png" %>
           <p id="paid">
           <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid"%>
           <p>

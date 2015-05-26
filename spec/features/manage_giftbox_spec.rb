@@ -13,7 +13,7 @@ feature 'Manage Giftbox', js: true do
                        item_image: 'http://prezzy.com/macbook.jpg',
                        item_url: 'http://amazon.co.uk/macbook',
                        user_id: 1
-    gift.contributors.create gift_id: 1, email: 'contributor1@giftbox.ie'
+    gift.contributors.create gift_id: 1, email: 'user1@giftbox.ie'
     visit '/gifts/1'
   end
 
@@ -45,7 +45,6 @@ feature 'Manage Giftbox', js: true do
 
     scenario 'organiser sees all contributors' do
       expect(page).to have_content 'user1@giftbox.ie'
-      expect(page).to have_content 'contributor1@giftbox.ie'
     end
 
     scenario 'organiser sees a progress bar' do

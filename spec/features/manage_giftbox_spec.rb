@@ -17,7 +17,7 @@ feature 'Manage Giftbox', js: true do
     visit '/gifts/1'
   end
 
-  context 'Organiser creates a gift –' do
+  context 'Organiser creates a giftbox –' do
 
     scenario 'organiser sees the giftbox title' do
       expect(page).to have_content "Mum's Birthday"

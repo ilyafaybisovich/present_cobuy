@@ -1,6 +1,6 @@
 require 'helpers/session_helper'
 
-feature 'Giftbox Management', js: true do
+feature 'Manage Giftbox', js: true do
   background do
     user_signup
     gift = Gift.create title: "Mum's Birthday",

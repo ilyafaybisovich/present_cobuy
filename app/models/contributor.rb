@@ -1,6 +1,5 @@
 class Contributor < ActiveRecord::Base
   belongs_to :gift
-
   after_create :split_cost
   after_destroy :split_cost
 
@@ -14,5 +13,4 @@ class Contributor < ActiveRecord::Base
   def current_user?(current_user)
     self.email == current_user.email
   end
-
 end

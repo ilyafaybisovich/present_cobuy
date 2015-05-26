@@ -1,12 +1,10 @@
 class ChargesController < ApplicationController
-
   def new
   end
 
   def create
-
-    gift = Gift.find(params[:gift_id])
-    contributor = Contributor.find(params[:contributor_id])
+    gift = Gift.find params[:gift_id]
+    contributor = Contributor.find params[:contributor_id]
 
     @amount = 500
 

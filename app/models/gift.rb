@@ -1,6 +1,8 @@
 class Gift < ActiveRecord::Base
   has_many :contributors
-  accepts_nested_attributes_for :contributors, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :contributors,
+                                reject_if: :all_blank,
+                                allow_destroy: true
   after_create :notify_contributors
 
   def notify_contributors
@@ -10,9 +12,8 @@ class Gift < ActiveRecord::Base
   end
 
   def paid_contributors
-    self.contributors.inject(0) do |sum, contributor|
-      (sum += 1) unless contributor.token.nil?
-      sum
+    self.contributors.inject 0 do |sum, contributor|
+      contributor.token.nil? ? sum : sum + 1
     end
   end
 

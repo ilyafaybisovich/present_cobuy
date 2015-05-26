@@ -3,12 +3,13 @@ class UsersController < ApplicationController
     redirect_to "/users/#{current_user.id}" if user_signed_in?
   end
 
-  def list
-    @users = User.all
-  end
-
   def show
-    @user = User.find(params[:id])
-    @gifts = Gift.where user_id: @user.id
+    return unless user_signed_in?
+    @user = User.find current_user.id
+    contributors = Contributor.where email: @user.email
+    @gifts = []
+    contributors.each do |contributor|
+      @gifts << Gift.find(contributor.gift_id)
+    end
   end
 end

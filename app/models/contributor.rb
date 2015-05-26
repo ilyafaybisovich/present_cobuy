@@ -1,6 +1,5 @@
 class Contributor < ActiveRecord::Base
   belongs_to :gift
-
   after_create :split_cost
   after_destroy :split_cost
 
@@ -9,5 +8,9 @@ class Contributor < ActiveRecord::Base
     count = gift.contributors.count
     gift.split_price = gift.item_price / count
     gift.save
+  end
+
+  def current_user?(current_user)
+    self.email == current_user.email
   end
 end

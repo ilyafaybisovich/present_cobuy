@@ -22,7 +22,8 @@
       <h3>Contributors</h3>
       <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor' %></h4>
     </div>
-
-    <%= f.submit 'Create gift', class: 'button dark-blue' %>
   </div>
+  <div class="clearfix"></div>
+  <%= render 'search_gift'%>
+    <%= f.submit 'Create gift', class: 'button dark-blue' %>
 <% end %>

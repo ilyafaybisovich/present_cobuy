@@ -1,78 +1,108 @@
-feature 'showing user page' do
-  context 'when user is not signed in' do
-    scenario 'user cannot see active prezzies button' do
-      expect(page).not_to have_link 'View active prezzies'
-    end
-  end
+require 'helpers/session_helper'
+require 'helpers/giftbox_creation_helper'
+require 'helpers/wait_for_ajax_helper'
 
-  context 'when user is signed in' do
-    before do
+feature 'User Page' do
+  context 'When user is not signed in –' do
+    scenario 'user cannot see any profile page' do
+      visit '/'
+      expect(page).not_to have_link 'View account'
       user_signup
-    end
-
-    scenario 'user can see active prezzies button' do
-      expect(page).to have_link 'View active prezzies'
-    end
-
-    scenario 'before the prezzy is created' do
-      click_link 'View active prezzies'
-      expect(page).to have_content 'Not contributing to any prezzies'
-    end
-
-    scenario 'once a prezzy is created', js: true do
-      create_prezzy
-      wait_for_ajax
-      visit '/'
-      click_link 'View active prezzies'
-      expect(page).to have_link 'History of Liversedge'
-      click_link 'History of Liversedge'
-      expect(page).to have_content 'History of Liversedge'
-    end
-
-    scenario 'can see two prezzies', js: true do
-      create_prezzy
-      wait_for_ajax
-      visit '/'
-      create_prezzy 'History of Leeds'
-      wait_for_ajax
-      visit '/'
-      click_link 'View active prezzies'
-      expect(page).to have_link 'History of Liversedge'
-      expect(page).to have_link 'History of Leeds'
-      click_link 'History of Liversedge'
-      expect(page).to have_content 'History of Liversedge'
-      expect(page).not_to have_content 'History of Leeds'
+      click_link 'Sign out'
+      visit '/users/1'
+      expect(page).not_to have_content '@giftbox.ie'
+      expect(page).to have_content 'Please sign in to see your profile'
+      visit '/users/1582'
+      expect(page).not_to have_content '@giftbox.ie'
+      expect(page).to have_content 'Please sign in to see your profile'
     end
   end
 
-  # context 'when added as a contributor', js: true, focus: true do
-  #   before do
-  #     proxy.stub('/gifts/search')
-  #       .and_return(json: FORMATTED_RETURN)
-  #     user_signup
-  #     visit '/'
-  #     click_link 'Sign out'
-  #     user_signup 'user2@prezzy.ie'
-  #     visit '/gifts/new'
-  #     fill_in 'Title', with: 'Jade’s Graduation'
-  #     fill_in 'Recipient', with: 'Jade'
-  #     fill_in 'Recipient address', with: 'Somewhere'
-  #     fill_in 'Delivery date', with: '29/05/2015'
-  #     fill_in 'search_keyword', with: 'Linux'
-  #     click_button 'Search'
-  #     wait_for_ajax
-  #     find("#products").click_button("product_3")
-  #     wait_for_ajax
-  #     click_link 'Add a contributor'
-  #     fill_in 'Email', with: 'test@prezzy.ie'
-  #     click_button 'Create gift'
-  #     visit '/'
-  #     click_link 'Sign out'
-  #     user_signin
-  #   end
-  #
-  #   xscenario 'user can see prezzies that someone else has added them to' do
-  #     expect(page).to have_link 'Jade’s Graduation'
-  #   end
-  # end
+  context 'When user is signed in –' do
+    background { user_signup }
+
+    scenario 'user sees a button to view their profile' do
+      expect(page).to have_link 'View profile'
+    end
+
+    scenario 'user cannot see anyone else’s profiles' do
+      visit '/users/1582'
+      expect(page).to have_content 'You cannot view other people’s profiles'
+    end
+
+    context 'user navigates to their profile page –' do
+      background { click_link 'View profile' }
+
+      scenario 'user sees their email address' do
+        expect(page).to have_content 'user1@giftbox.ie'
+      end
+
+      scenario 'user sees an empty list if '\
+        'they are not contributing to anything' do
+        expect(page).to have_content 'Not contributing to any giftboxes'
+        expect(page).not_to have_link 'Joe’s Stag Do'
+      end
+    end
+
+    context 'user creates a giftbox –' do
+      background do
+        create_giftbox
+        wait_for_ajax
+      end
+
+      scenario 'user sees giftbox on profile page after creation', js: true do
+        click_link 'View profile'
+        expect(page).to have_link 'Joe’s Stag Do'
+        click_link 'Joe’s Stag Do'
+        expect(page).to have_content 'Joe’s Stag Do'
+      end
+
+      scenario 'user sees two giftboxes on profile page', js: true do
+        giftbox_details = {
+          title: 'Jade’s Graduation',
+          recipient: 'Jade',
+          address: '4 Station Drive, Gudnes Nowes',
+          delivery_date: '29/05/2015',
+          search_term: 'rainbow beanie',
+          contributors: [
+            'gus@giftbox.ie',
+            'dan@giftbox.ie',
+            'ici@giftbox.ie',
+            'ilya@giftbox.ie',
+            'joe@giftbox.ie',
+            'mark@giftbox.ie',
+            'rob@giftbox.ie',
+            'sam@giftbox.ie',
+            'dave@giftbox.ie',
+            'jord@giftbox.ie'
+          ]
+        }
+        create_giftbox giftbox_details
+        wait_for_ajax
+        click_link 'View profile'
+        expect(page).to have_link 'Joe’s Stag Do'
+        expect(page).to have_link 'Jade’s Graduation'
+        click_link 'Joe’s Stag Do'
+        expect(page).to have_content 'Joe’s Stag Do'
+        expect(page).not_to have_content 'Jade’s Graduation'
+      end
+    end
+  end
+
+  context 'When added as a contributor by another user –', js: true do
+    background do
+      user_signup
+      click_link 'Sign out'
+      user_signup 'user2@giftbox.ie'
+      giftbox_details = DEFAULT_GIFTBOX
+      giftbox_details[:contributors] = ['user1@giftbox.ie']
+      create_giftbox giftbox_details
+      click_link 'Sign out'
+      user_signin
+    end
+
+    scenario 'user sees giftboxes they can contribute to but did not create' do
+      expect(page).to have_link 'Joe’s Stag Do'
+    end
+  end
 end

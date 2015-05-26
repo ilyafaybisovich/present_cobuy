@@ -10,7 +10,7 @@
   <%= link_to 'Create gift', new_gift_path %>
 <% else %>
 
-<div class="user-sign">
+<div class="user_sign_in">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form">
       <div class="field">
@@ -38,3 +38,4 @@
 <%= render "devise/shared/links" %>
 </div>
 <% end %>
+

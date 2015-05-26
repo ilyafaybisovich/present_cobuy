@@ -1,21 +1,27 @@
 <% if user_signed_in? %>
-  <h1><%= @user.email %></h1>
+  <% if current_user.id.to_i == params[:id].to_i %> <!-- I don’t like this but don’t know what to do about it – Mark -->
+    <h1><%= @user.email %></h1>
 
-  <div class="container">
-    <div id="prezzies" class="row">
-      <% if @gifts.empty? %>
-        <p>Not contributing to any prezzies</p>
-      <% else %>
-        <ul>
-          <% @gifts.each do |gift| %>
-            <li>
-              <p><%= link_to gift.title, gift %></p>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
+    <div class="container">
+      <div id="giftboxes" class="row">
+        <% if @gifts.empty? %>
+          <p>Not contributing to any giftboxes</p>
+        <% else %>
+          <ul>
+            <% @gifts.each do |gift| %>
+              <li>
+                <p><%= link_to gift.title, gift %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="description">
+      You cannot view other people’s profiles.
+    </div>
+  <% end %>
 <% else %>
   <div class="description">
     Please sign in to see your profile.

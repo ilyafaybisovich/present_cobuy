@@ -47,7 +47,7 @@ end
 
 def add_contributors contributors
   contributors.each do |contributor|
-    find('div#Contributors a').trigger 'click'
+    find('.add_contributor').trigger 'click'
     all(:css, 'div.nested-fields input[type="email"]').last.set contributor
   end
 end

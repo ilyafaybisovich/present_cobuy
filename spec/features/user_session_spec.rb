@@ -18,7 +18,7 @@ feature 'User Session' do
       end
 
       scenario 'visitor can navigate to sign up page' do
-        click_link 'Sign up'
+        find('.sign-up-button').click
         expect(page).to have_content 'Sign up'
         expect(page).to have_css 'div.user_sign_up'
       end

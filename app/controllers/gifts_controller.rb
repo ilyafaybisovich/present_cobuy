@@ -25,17 +25,6 @@ class GiftsController < ApplicationController
     render json: format_search(amazon_search_results(params[:keyword]))
   end
 
-  private
-
-  def gift_params
-    params.require(:gift).permit :title, :recipient, :recipient_address,
-                                 :delivery_date, :item, :item_price,
-                                 :description, :item_image, :item_url,
-                                 contributors_attributes: [
-                                   :id, :email, :_destroy
-                                 ]
-  end
-
   def amazon_search_results keyword
     request = Vacuum.new 'GB'
     request.associate_tag = 'pridro02-20'
@@ -60,6 +49,17 @@ class GiftsController < ApplicationController
                  "price": extract_price(value)
       }
     end
+  end
+
+  private
+
+  def gift_params
+    params.require(:gift).permit :title, :recipient, :recipient_address,
+                                 :delivery_date, :item, :item_price,
+                                 :description, :item_image, :item_url,
+                                 contributors_attributes: [
+                                   :id, :email, :_destroy
+                                 ]
   end
 
   def extract_asin value

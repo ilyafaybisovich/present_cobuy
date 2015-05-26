@@ -7,7 +7,8 @@ feature 'Manage Giftbox', js: true do
     user_signup
     gift = Gift.create title: "Mum's Birthday",
                        recipient: "Mary",
-                       recipient_address: '15 Ada House, E2 2BB',
+                       ship_add1: '15 Ada House',
+                       ship_pcode: 'E2 2BB',
                        delivery_date: '2015-06-15',
                        item: '12345',
                        item_price: 600.0,

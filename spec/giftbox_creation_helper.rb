@@ -2,14 +2,22 @@ require 'mock_helper'
 
 DEFAULT_TITLE = 'Joe’s Stag Do'
 DEFAULT_RECIPIENT = 'Joe'
-DEFAULT_ADDRESS = '12 Main Street, Dunroamin'
+DEFAULT_SHIP_NAME = 'Dave'
+DEFAULT_SHIP_SURNAME = 'Smith'
+DEFAULT_SHIP_ADD1 = '12 Main Street'
+DEFAULT_SHIP_CITY = 'Dunroamin'
+DEFAULT_SHIP_PCODE = 'AB12 3CD'
 DEFAULT_DATE = '16/05/2027'
 DEFAULT_SEARCH = 'russian standard'
 DEFAULT_CONTRIBUTORS = []
 DEFAULT_GIFTBOX = {
   title: DEFAULT_TITLE,
   recipient: DEFAULT_RECIPIENT,
-  address: DEFAULT_ADDRESS,
+  ship_name: DEFAULT_SHIP_NAME,
+  ship_surname: DEFAULT_SHIP_SURNAME,
+  ship_add1: DEFAULT_SHIP_ADD1,
+  ship_city: DEFAULT_SHIP_CITY,
+  ship_pcode: DEFAULT_SHIP_PCODE,
   delivery_date: DEFAULT_DATE,
   search_term: DEFAULT_SEARCH,
   contributors: DEFAULT_CONTRIBUTORS
@@ -31,10 +39,14 @@ end
 private
 
 def fill_in_fields giftbox_hash
-  fill_in 'Title', with: giftbox_hash[:title]
+  fill_in 'Occasion', with: giftbox_hash[:title]
   fill_in 'Recipient', with: giftbox_hash[:recipient]
-  fill_in 'Recipient address', with: giftbox_hash[:address]
   fill_in 'Delivery date', with: giftbox_hash[:delivery_date]
+  fill_in 'Name', with: giftbox_hash[:ship_name]
+  fill_in 'Surname', with: giftbox_hash[:ship_surname]
+  fill_in 'Address', with: giftbox_hash[:ship_add1]
+  fill_in 'City', with: giftbox_hash[:ship_city]
+  fill_in 'Postcode', with: giftbox_hash[:ship_pcode]
   fill_in 'search_keyword', with: giftbox_hash[:search_term]
 end
 

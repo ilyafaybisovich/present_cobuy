@@ -1,25 +1,25 @@
 <%= form_for @gift do |f| %>
   <div class="form">
-    <%= f.label :occasion %>
+    <%= f.label :title, 'Occasion' %>
     <%= f.text_field :title, placeholder: "Mum's birthsday" %>
     <%= f.label :recipient%>
     <%= f.text_field :recipient, placeholder: "Bea Smith" %>
-     <%= f.label :delivery_date %>
+    <%= f.label :delivery_date %>
     <%= f.date_field :delivery_date %>
     <div id="addresss">
       <h3>Delivery Details</h3>
-      <%= f.label :name %>
+      <%= f.label :ship_name, 'Name' %>
       <%= f.text_field :ship_name, placeholder: "John" %>
-      <%= f.label :surname %>
+      <%= f.label :ship_surname, 'Surname'%>
       <%= f.text_field :ship_surname, placeholder: "Smith" %>
-      <%= f.label :address %>
+      <%= f.label :ship_add1, 'Address'%>
       <%= f.text_field :ship_add1, placeholder: "1, London Road" %>
       <%= f.text_field :ship_add2, placeholder: "Moordown" %>
-      <%= f.label :city %>
+      <%= f.label :ship_city, 'City'%>
       <%= f.text_field :ship_city, placeholder: "Reading" %>
-      <%= f.label :county %>
+      <%= f.label :ship_county, 'County'%>
       <%= f.text_field :ship_county, placeholder: "Berkshire" %>
-      <%= f.label :postcode %>
+      <%= f.label :ship_pcode, 'Postcode'%>
       <%= f.text_field :ship_pcode, placeholder: "RG2 3GB" %>
     </div>
 

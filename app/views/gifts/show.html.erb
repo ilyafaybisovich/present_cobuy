@@ -12,7 +12,7 @@
       <h3><%= @gift.recipient %></h3>
       <h4>Shipping Details</h4>
       <h4><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></h4>
-      <p><%= "#{@gift.ship_add1}, #{@gift.ship_add2}, #{@gift.ship_city}, #{@gift.ship_county}, #{@gift.ship_pcode}" %></p>
+      <p><%= @gift.address_string %></p>
       <p id="delivery_date"><%= @gift.delivery_date %></p>
       <p id="organiser"><%= @organiser %></p>
       <p><%= @gift.purchase_token.nil? ? 'Amazon order not placed' : "Your Amazon Order has been placed." %></p>
@@ -30,7 +30,6 @@
       <% @contributors.each do |contributor| %>
         <%= div_for contributor do %>
           <p><%= contributor.email %></p>
-          <%= image_tag "#{rand(1...4)}.png" %>
           <p id="paid">
             <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid" %>
           </p>

@@ -7,7 +7,7 @@ Development:
 [![Coverage Status](https://coveralls.io/repos/Gwasanaethau/present_cobuy/badge.svg?branch=develop)](https://coveralls.io/r/Gwasanaethau/present_cobuy?branch=develop)
 
 
-## «Present Cobuy» ##
+## Giftbox ##
 #### Make present headaches a thing of the past! ####
 
 ### Project Outline (as understood by the team before talking to client) ###
@@ -29,7 +29,6 @@ As a secretive member of the present-buying community
 So that the recipient is not aware of our plans
 I want to restrict access to my present-buying page
 ```
-
 
 #### Extended features ####
 
@@ -87,7 +86,6 @@ GET /users/:id () => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', ema
 PATCH /users/:id ( { email: 'me@changed.ie' } ) => { userID: 1, name: 'Joe', passwordDigest: 'fjkdshgfkj', email: 'me@changed.ie' }
 
 GET /users/:id/contributions () => { userID: 1, name: 'Joe', contributions: [ { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }, … ] }
-
 
 ### Models ###
 

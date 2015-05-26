@@ -5,8 +5,6 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'billy/rspec'
 require 'capybara/poltergeist'
-require 'helpers/wait_for_ajax_helper'
-require 'helpers/stripe_helper'
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.default_wait_time = 5

@@ -1,12 +1,12 @@
 <%= form_for @gift do |f| %>
   <div class="form">
     <%= f.label :title, 'Occasion' %>
-    <%= f.text_field :title, placeholder: "Mum's birthsday" %>
+    <%= f.text_field :title, placeholder: "Mum’s Birthday" %>
     <%= f.label :recipient%>
     <%= f.text_field :recipient, placeholder: "Bea Smith" %>
     <%= f.label :delivery_date %>
     <%= f.date_field :delivery_date %>
-    <div id="addresss">
+    <div id="address">
       <h3>Delivery Details</h3>
       <%= f.label :ship_name, 'Name' %>
       <%= f.text_field :ship_name, placeholder: "John" %>
@@ -39,6 +39,6 @@
     </div>
   </div>
   <div class="clearfix"></div>
-  <%= render 'search_gift'%>
+  <%= render 'search_gift' %>
   <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

@@ -1,4 +1,4 @@
-require 'helpers/session_helper'
+require 'session_helper'
 
 feature 'User Session' do
   context 'When not signed in –' do

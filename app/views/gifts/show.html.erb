@@ -13,7 +13,7 @@
       <p id="address"><%= @gift.recipient_address %></p>
       <p id="delivery_date"><%= @gift.delivery_date %></p>
       <p id="organiser"><%= @organiser %></p>
-      <p><%= "Your Amazon Order has been placed." unless @gift.purchase_token.nil? %><p>
+      <p><%= @gift.purchase_token.nil? ? 'Amazon order not placed' : "Your Amazon Order has been placed." %></p>
     </article>
 
     <article id="item" class="col-md-6">
@@ -30,8 +30,8 @@
           <p><%= contributor.email %></p>
           <!-- <%= button_to "Pay £#{number_with_precision(@gift.split_price.to_f, precision: 2)}", pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true %> -->
           <p id="paid">
-          <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid"%>
-          <p>
+            <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid" %>
+          </p>
         <% end %>
         <div class="<%= "hidden" unless contributor.token.nil? && contributor.current_user?(current_user) %>">
           <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>

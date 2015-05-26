@@ -1,4 +1,4 @@
-require 'helpers/mock_helper'
+require 'mock_helper'
 
 DEFAULT_TITLE = 'Joe’s Stag Do'
 DEFAULT_RECIPIENT = 'Joe'

@@ -1,4 +1,5 @@
 require 'helpers/session_helper'
+require 'helpers/stripe_helper'
 
 feature 'Manage Giftbox', js: true do
   background do
@@ -20,6 +21,7 @@ feature 'Manage Giftbox', js: true do
   context 'Organiser creates a giftbox –' do
 
     scenario 'organiser sees the giftbox title' do
+      sleep 5
       expect(page).to have_content "Mum's Birthday"
     end
 

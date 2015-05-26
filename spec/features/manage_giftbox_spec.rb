@@ -46,11 +46,8 @@ feature 'Manage Giftbox', js: true do
     end
 
     scenario 'organiser sees all contributors' do
-      # gift = Gift.first
-      # gift.contributors.create gift_id: 1, email: 'contributor1@giftbox.ie'
-      # visit '/gifts/1'
+      visit '/gifts/1'
       expect(page).to have_content 'user1@giftbox.ie'
-      # expect(page).to have_content 'contributor1@giftbox.ie'
     end
 
     scenario 'organiser sees a progress bar' do

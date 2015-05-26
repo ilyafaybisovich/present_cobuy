@@ -95,6 +95,7 @@ class ContributorsController < ApplicationController
                              body: zinc_object.to_json,
                              headers: { 'Content-Type' => 'application/json' })
     gift.purchase_token = response["request_id"]
+    sleep 5
     gift.save
   end
 end

@@ -33,6 +33,7 @@
       <p id="address"><%= @gift.recipient_address %></p>
       <p id="delivery_date"><%= @gift.delivery_date %></p>
       <p id="organiser"><%= @organiser %></p>
+      <p><%= "Your Amazon Order has been placed." unless @gift.purchase_token.nil? %><p>
     </article>
 
     <article id="item" class="col-md-6">

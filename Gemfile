@@ -15,6 +15,7 @@ gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'cocoon'
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'

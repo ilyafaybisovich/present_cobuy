@@ -33,4 +33,20 @@ RSpec.describe Gift, type: :model do
     gift = described_class.first
     expect(gift.percentage_complete).to eq 50
   end
+
+  it 'can respond with whether the contribution is complete' do
+    gift = described_class.create(item_price: 200.0)
+    gift.contributors.create(email: 'test@test.com', token: "ffndjfnrjfgnw")
+    gift.contributors.create(email: 'test2@test.com')
+    gift = described_class.first
+    expect(gift.all_contributed?).to be_falsy
+  end
+
+  it 'can respond with whether the contribution is complete' do
+    gift = described_class.create(item_price: 200.0)
+    gift.contributors.create(email: 'test@test.com', token: "ffndjfnrjfgnw")
+    gift.contributors.create(email: 'test2@test.com', token: "ffndjfnrjfgnw")
+    gift = described_class.first
+    expect(gift.all_contributed?).to be_truthy
+  end
 end

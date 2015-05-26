@@ -12,7 +12,8 @@ class ChargesController < ApplicationController
       email: 'example@stripe.com',
       card: params[:stripeToken])
 
-    # contributor.token = params[:stripeToken]
+    contributor.token = params[:stripeToken]
+    contributor.save
     # contributor.purchase_amount = @amount
 
     charge = Stripe::Charge.create(
@@ -24,6 +25,7 @@ class ChargesController < ApplicationController
     redirect_to pay_gift_contributor_path(gift, contributor)
 
   rescue Stripe::CardError => e
+    @contributor_token = nil
     flash[:error] = e.message
     redirect_to charges_path
   end

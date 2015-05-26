@@ -61,20 +61,18 @@ feature 'Manage Giftbox', js: true do
       expect(page.find('div.progress-bar').text).to eq '0%'
     end
 
-    scenario 'progress bar updates on payment', focus: true do
-      page.find('.stripe-button-el').click
-      stripe = all('iframe[name=stripe_checkout_app]').last
-      page.within_frame stripe do
-        fill_in 'email', with: 'test@test.com'
-        fill_in 'card_number', with: '4242 4242 4242 4242'
-        fill_in 'cc-exp', with: '12/18'
-        fill_in 'cc-csc', with: '123'
-        page.find('#submitButton').click
-      end
-      sleep 5
-      expect(page).to have_content '100%'
-      expect(page).to have_content 'Paid'
-      expect(page).not_to have_css '.stripe-button-el'
+    scenario 'progress bar updates on payment' do
+      stripe_payment
+      visit '/gifts/1'
+      expect(page).to have_content('100%')
+      expect(page).to have_content('Paid')
+      expect(page).not_to have_css('.stripe-button-el')
+    end
+
+    scenario 'action zinc.io payment on all purchases being made' do
+      stripe_payment
+      visit '/gifts/1'
+      expect(page).to have_content 'Your Amazon Order has been placed.'
     end
   end
 end

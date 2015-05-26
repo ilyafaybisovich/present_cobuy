@@ -1,5 +1,4 @@
 require 'session_helper'
-require 'wait_for_ajax_helper'
 require 'stripe_helper'
 
 feature 'Manage Giftbox', js: true do
@@ -23,6 +22,7 @@ feature 'Manage Giftbox', js: true do
   context 'Organiser creates a giftbox –' do
 
     scenario 'organiser sees the giftbox title' do
+      sleep 5
       expect(page).to have_content "Mum's Birthday"
     end
 

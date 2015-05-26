@@ -19,7 +19,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: @amount,
-      description: 'Prezzy Payment',
+      description: 'Giftbox Payment',
       currency: 'gbp')
 
     redirect_to pay_gift_contributor_path(gift, contributor)

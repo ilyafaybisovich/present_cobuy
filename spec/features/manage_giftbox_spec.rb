@@ -1,12 +1,14 @@
-require 'helpers/session_helper'
-require 'helpers/stripe_helper'
+require 'session_helper'
+require 'wait_for_ajax_helper'
+require 'stripe_helper'
 
 feature 'Manage Giftbox', js: true do
   background do
     user_signup
     gift = Gift.create title: "Mum's Birthday",
                        recipient: "Mary",
-                       recipient_address: '15 Ada House, E2 2BB',
+                       ship_add1: '15 Ada House',
+                       ship_pcode: 'E2 2BB',
                        delivery_date: '2015-06-15',
                        item: '12345',
                        item_price: 600.0,
@@ -45,7 +47,8 @@ feature 'Manage Giftbox', js: true do
       expect(page).to have_xpath '//img'
     end
 
-    scenario 'organiser sees all contributors', focus: :true do
+    scenario 'organiser sees all contributors' do
+      visit '/gifts/1'
       expect(page).to have_content 'user1@giftbox.ie'
     end
 

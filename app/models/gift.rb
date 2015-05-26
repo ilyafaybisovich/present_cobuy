@@ -27,4 +27,12 @@ class Gift < ActiveRecord::Base
     end
     self.contributors.count == contributed
   end
+
+  def address_string
+    address = [self.ship_add1, self.ship_add2, self.ship_city,
+               self.ship_county, self.ship_pcode]
+    address.compact!
+    address.delete("") unless address.nil?
+    address.nil? ? "" : address.join(', ')
+  end
 end

@@ -18,6 +18,7 @@ class ChargesController < ApplicationController
     contributor.save
     # contributor.purchase_amount = @amount
 
+
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: @amount,
@@ -27,7 +28,11 @@ class ChargesController < ApplicationController
     redirect_to pay_gift_contributor_path(gift, contributor)
 
   rescue Stripe::CardError => e
+    @contributor_token = nil
     flash[:error] = e.message
     redirect_to charges_path
   end
+
+
 end
+

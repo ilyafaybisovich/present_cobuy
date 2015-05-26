@@ -11,12 +11,18 @@ class Gift < ActiveRecord::Base
 
   def paid_contributors
     self.contributors.inject(0) do |sum, contributor|
-      (sum += 1) unless contributor.token.nil?
-      sum
+      contributor.token.nil? ? sum : sum += 1
     end
   end
 
   def percentage_complete
     ((paid_contributors.to_f / self.contributors.count) * 100).to_i
+  end
+
+  def all_contributed?
+    contributed = self.contributors.inject(0) do |sum, contributor|
+      contributor.token.nil? ? sum : sum += 1
+    end
+    self.contributors.count == contributed
   end
 end

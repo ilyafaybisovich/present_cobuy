@@ -71,10 +71,9 @@ feature 'managing a gift', js: true do
       expect(page).not_to have_css('.stripe-button-el')
     end
 
-    scenario 'action zinc.io payment' do
+    scenario 'action zinc.io payment on all purchases being made' do
       stripe_payment
       visit '/gifts/1'
-      click_button('Place order')
       expect(page).to have_content 'Your Amazon Order has been placed.'
     end
   end

@@ -28,14 +28,11 @@
   </div>
 
   <section class="row">
-    <button id="purchase">Place order</button>
-  </section>
-
-  <section class="row">
     <article id="recipient" class="col-md-6">
       <h2><%= @gift.recipient %></h2>
       <p><%= @gift.recipient_address %></p>
       <p><%= @gift.delivery_date %></p>
+      <p><%= "Your Amazon Order has been placed." unless @gift.purchase_token.nil? %><p>
     </article>
 
     <article id="item" class="col-md-6">

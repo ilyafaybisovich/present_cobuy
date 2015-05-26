@@ -43,9 +43,8 @@ feature 'Manage Giftbox', js: true do
       expect(page).to have_xpath '//img'
     end
 
-    scenario 'organiser sees all contributors' do
+    scenario 'organiser sees all contributors', focus: :true do
       expect(page).to have_content 'user1@giftbox.ie'
-      expect(page).to have_content 'contributor1@giftbox.ie'
     end
 
     scenario 'organiser sees a progress bar' do

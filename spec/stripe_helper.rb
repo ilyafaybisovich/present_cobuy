@@ -1,7 +1,6 @@
 def stripe_payment
   visit '/gifts/1'
   sleep(5)
-  expect(page).to have_content 'hola'
   page.find('.stripe-button-el').click
   stripe = all('iframe[name=stripe_checkout_app]').last
   page.within_frame stripe do

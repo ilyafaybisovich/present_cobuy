@@ -20,9 +20,17 @@ function currencyToFloat(currency){
 }
 
 $(document).ready(function(){
+  //=================== ajax spinner ==============================
+    $('#loadingDiv').hide();  // Hide it initially
+    $(document).ajaxStart(function() {
+          $('#loadingDiv').show();
+      });
+    $(document).ajaxStop(function() {
+          $('#loadingDiv').hide();
+      });
+
   // =================== amazon search ==============================
-  $('#amazon_search').click(function(event){
-    event.preventDefault();
+  $('#amazon_search').click('page:load', function(event){
     $.ajax({
       type: 'GET',
       url: "/gifts/search",
@@ -36,6 +44,7 @@ $(document).ready(function(){
         $(".amazon_error p").text("No Response from Amazon. Try Again.");
       }
     });
+    event.preventDefault();
   });
 
   // =================== select product 1 ==============================

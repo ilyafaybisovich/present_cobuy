@@ -33,7 +33,7 @@ feature 'User Page' do
     context 'user navigates to their profile page –' do
       background { click_link 'View profile' }
 
-      scenario 'user sees their username' do
+      scenario 'user sees their name' do
         expect(page).to have_content 'xOxOaMyRuLeZoXoX'
       end
 

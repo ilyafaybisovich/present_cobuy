@@ -1,4 +1,5 @@
 require 'support/mock_helper'
+require 'support/wait_for_ajax_helper'
 
 DEFAULT_OCCASION = 'Joe’s Stag Do'
 DEFAULT_RECIPIENT = 'Joe'
@@ -34,6 +35,7 @@ def prepare_giftbox giftbox_hash = DEFAULT_GIFTBOX
   fill_in_fields giftbox_hash
   select_product
   add_contributors giftbox_hash[:contributors]
+  wait_for_ajax
 end
 
 private

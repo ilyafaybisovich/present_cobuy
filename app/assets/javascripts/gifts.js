@@ -46,7 +46,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--1').text());
     $('#gift_item_url').val($('.product__link--1').attr("href"));
     $('#gift_item_image').val($('.product__image--1').attr("src"));
-    $('.added').text('Added a gift: '+ $('.product__title--1').text());
+    $('.added h4').text('Added a gift: '+ $('.product__title--1').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     $('#create-gift').removeClass('hidden');

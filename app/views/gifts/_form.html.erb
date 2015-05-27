@@ -1,12 +1,14 @@
 <%= form_for @gift do |f| %>
   <div class="form">
-    <%= f.label :title, 'Occasion' %>
-    <%= f.text_field :title, placeholder: "Mum's birthsday" %>
-    <%= f.label :recipient%>
-    <%= f.text_field :recipient, placeholder: "Bea Smith" %>
-    <%= f.label :delivery_date %>
-    <%= f.date_field :delivery_date %>
-    <div id="addresss">
+    <section class="new-gift-details">
+      <%= f.label :title, 'Occasion' %>
+      <%= f.text_field :title, placeholder: "Mum's birthsday" %>
+      <%= f.label :recipient%>
+      <%= f.text_field :recipient, placeholder: "Bea Smith" %>
+      <%= f.label :delivery_date %>
+      <%= f.date_field :delivery_date %>
+    </section>
+    <section id="addresss" class="new-gift-details">
       <h3>Delivery Details</h3>
       <%= f.label :ship_name, 'Name' %>
       <%= f.text_field :ship_name, placeholder: "John" %>
@@ -21,7 +23,7 @@
       <%= f.text_field :ship_county, placeholder: "Berkshire" %>
       <%= f.label :ship_pcode, 'Postcode'%>
       <%= f.text_field :ship_pcode, placeholder: "RG2 3GB" %>
-    </div>
+    </section>
 
     <!-- Hidden Fields -->
     <%= f.text_field :item, class: "hidden" %>
@@ -29,16 +31,28 @@
     <%= f.text_field :description, class: "hidden" %>
     <%= f.text_field :item_image, class: "hidden" %>
     <%= f.text_field :item_url, class: "hidden" %>
-    <%= f.fields_for :contributors do |contributor_form| %>
-      <%= render 'contributor_fields', f: contributor_form  %>
-    <% end %>
+    <section class="new-gift-details">
+      <%= f.fields_for :contributors do |contributor_form| %>
+        <%= render 'contributor_fields', f: contributor_form  %>
+      <% end %>
 
-    <div id="contributors" class="gift-block">
-      <h3>Contributors</h3>
-      <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor button dark-blue' %></h4>
-    </div>
+      <div id="add-contributors">
+        <h3>Contributors</h3>
+        <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor button dark-blue' %></h4>
+      </div>
+    </section>
   </div>
+
   <div class="clearfix"></div>
-  <%= render 'search_gift'%>
+  <section id="search-gift">
+    <div class="form">
+      <label><h3>Search for a gift</h3></label>
+      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
+      <button id="amazon_search">Search</button>
+    </div>
+    <div class="clearfix"></div>
+    <%= render 'select_gift' %>
+  </section>
+
   <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

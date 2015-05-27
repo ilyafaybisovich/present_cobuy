@@ -3,6 +3,7 @@ function loaddata(data){
     $('#products').hide();
     $(".amazon_error p").text("No Products Found");
   } else {
+    $(".amazon_error p").text("");
     $('#products').fadeIn(200);
     for(var i = 0; i < 3; i++) {
       $('.product__title--' + (i+1)).text(data[i].title);

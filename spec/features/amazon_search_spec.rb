@@ -1,6 +1,6 @@
-require 'session_helper'
-require 'mock_helper'
-require 'wait_for_ajax_helper'
+require 'support/session_helper'
+require 'support/mock_helper'
+require 'support/wait_for_ajax_helper'
 
 feature 'Amazon Search' do
   context 'When user is not signed in –' do

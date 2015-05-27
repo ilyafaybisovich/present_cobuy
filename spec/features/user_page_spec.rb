@@ -1,6 +1,6 @@
-require 'session_helper'
-require 'giftbox_creation_helper'
-require 'wait_for_ajax_helper'
+require 'support/session_helper'
+require 'support/giftbox_creation_helper'
+require 'support/wait_for_ajax_helper'
 
 feature 'User Page' do
   context 'When user is not signed in –' do

@@ -1,14 +1,14 @@
-.new-gift-details, #search-gift form{
+.new-gift-details {
   padding: 2em 0;
   border-top: 2px solid #12b4b4;
 }
 
-.new-gift-details:nth-of-type(1) {
-  border: none;
+#search-gift{
+  padding: 2em 0;
 }
 
-#products {
-  display: none;
+.added {
+  padding: 2em 0;
 }
 
 .hidden {
@@ -27,27 +27,48 @@
   display: none;
 }
 
+#add-contributors a:hover {
+  border-bottom: none;
+}
 
 #add-contributors .nested-fields input[placeholder="Email"]{
   margin-bottom: 0.2em;
 }
 
 #products {
+  display: none;
   letter-spacing: -0.05em;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: rgb(40, 40, 40);
-  font-family: freight-text-pro, Georgia, Times, 'Times New Roman', serif;
-  font-weight: normal;
+  font-weight: 600;
+  letter-spacing: 0.16rem;
+  line-height: 110%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.display-products{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+   -webkit-align-items: flex-end;
+  align-items: flex-end;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+#products .product-child{
+  padding: 0.5em 0;
 }
 
 #products .title {
-  display: block;
-  min-height: 3em;
+  text-align: left;
 }
 
 #products .title a{
-  font-size: 1em;
 }
 
 #products .col-md-4{
@@ -56,7 +77,8 @@
   text-align: center;
 }
 
-#products .last{
-  border: none;
+#create-gift {
+  width: 100%;
 }
+
 

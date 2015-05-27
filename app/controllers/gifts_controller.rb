@@ -18,7 +18,7 @@ class GiftsController < ApplicationController
   def show
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
-    @organiser = User.find(@gift.user_id).email
+    @organiser = User.find @gift.user_id
   end
 
   def search

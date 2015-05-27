@@ -142,6 +142,10 @@ a:hover.button, .button:hover {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 #wrap, #wrap .navbar {
   width: 100%;
   background-color: #00c8c8;

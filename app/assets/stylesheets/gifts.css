@@ -3,16 +3,62 @@
   border-top: 2px solid #12b4b4;
 }
 
-#search-gift{
+#search-gift {
   padding: 2em 0;
 }
 
-.added {
+#search-gift h4{
   padding: 2em 0;
 }
 
-.hidden {
+#search-gift .form {
+  margin: 0;
+}
+
+#products {
   display: none;
+  letter-spacing: -0.05em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(40, 40, 40);
+  font-weight: 600;
+  letter-spacing: 0.16rem;
+  line-height: 110%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#products .col-md-4{
+  min-height: 350px;
+  margin-top: 2em;
+}
+
+#products .product-child{
+  width: 90%;
+  position: absolute;
+}
+
+#products .product-child:nth-of-type(1) {
+  top: 0;
+}
+
+#products .product-child:nth-of-type(2) {
+  top: 5em;
+}
+
+#products .product-child:nth-of-type(3) {
+  bottom: 4em;
+}
+
+#products .product-child:nth-of-type(4){
+  bottom: 0;
+}
+
+#products .title {
+  text-align: center;
+}
+
+#products .title a{
 }
 
 #add-contributors .nested-fields{
@@ -35,47 +81,7 @@
   margin-bottom: 0.2em;
 }
 
-#products {
-  display: none;
-  letter-spacing: -0.05em;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  color: rgb(40, 40, 40);
-  font-weight: 600;
-  letter-spacing: 0.16rem;
-  line-height: 110%;
-  font-size: 1rem;
-  text-align: center;
-}
 
-.display-products{
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-   -webkit-align-items: flex-end;
-  align-items: flex-end;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-#products .product-child{
-  padding: 0.5em 0;
-}
-
-#products .title {
-  text-align: left;
-}
-
-#products .title a{
-}
-
-#products .col-md-4{
-  padding: 0 1em;
-  border-right: 2px solid #12b4b4;
-  text-align: center;
-}
 
 #create-gift {
   width: 100%;

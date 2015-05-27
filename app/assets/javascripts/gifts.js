@@ -1,7 +1,6 @@
 function loaddata(data){
   if(jQuery.isEmptyObject(data)) {
     $('#products').hide();
-    $('#products').addClass('display-products');
     $(".amazon_error p").text("No Products Found");
   } else {
     $('#products').fadeIn(200);
@@ -12,7 +11,6 @@ function loaddata(data){
       $('.product__price--' + (i+1)).text(data[i].price);
       $('#product-asin-' + (i+1)).text(data[i].asin);
       if(data[i].price === "") { $('#product_' + (i+1)).hide(); }
-      $('#products').addClass('display-products');
     }
   }
 }
@@ -48,7 +46,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--1').text());
     $('#gift_item_url').val($('.product__link--1').attr("href"));
     $('#gift_item_image').val($('.product__image--1').attr("src"));
-    $('.added h4w').text('Added a gift: '+ $('.product__title--1').text());
+    $('.added').html('<h4>Gift added:</h4><h3>' + $('.product__title--1').text()) + '</h3>';
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     $('#create-gift').removeClass('hidden');

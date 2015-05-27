@@ -64,7 +64,7 @@ feature 'User Page' do
 
       scenario 'user sees two giftboxes on profile page' do
         giftbox_details = {
-          title: 'Jade’s Graduation',
+          occasion: 'Jade’s Graduation',
           recipient: 'Jade',
           address: '4 Station Drive, Gudnes Nowes',
           delivery_date: '29/05/2015',

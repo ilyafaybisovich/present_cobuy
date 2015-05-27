@@ -11,7 +11,7 @@ DEFAULT_DATE = '16/05/2027'
 DEFAULT_SEARCH = 'russian standard'
 DEFAULT_CONTRIBUTORS = []
 DEFAULT_GIFTBOX = {
-  title: DEFAULT_OCCASION,
+  occasion: DEFAULT_OCCASION,
   recipient: DEFAULT_RECIPIENT,
   ship_name: DEFAULT_SHIP_NAME,
   ship_surname: DEFAULT_SHIP_SURNAME,
@@ -45,7 +45,7 @@ def fill_in_fields giftbox_hash
 end
 
 def fill_in_giftbox_details giftbox_hash
-  fill_in 'Occasion', with: giftbox_hash[:title]
+  fill_in 'Occasion', with: giftbox_hash[:occasion]
   fill_in 'Recipient', with: giftbox_hash[:recipient]
   fill_in 'Delivery date', with: giftbox_hash[:delivery_date]
 end

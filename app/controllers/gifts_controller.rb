@@ -71,7 +71,7 @@ class GiftsController < ApplicationController
   end
 
   def extract_image value
-    ((h = value['MediumImage']) && h['URL']).to_s
+    ((h = value['LargeImage']) && h['URL']).to_s
   end
 
   def extract_url_path value

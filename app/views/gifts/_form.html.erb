@@ -1,4 +1,15 @@
 <%= form_for @gift do |f| %>
+  <section id="search-gift">
+    <div class="form">
+      <label><h3>Search for a gift</h3></label>
+      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
+      <button id="amazon_search">Search</button>
+      <div class="added"><h3></h3></div>
+      <img class="amazon_image" src="">
+    </div>
+    <div class="clearfix"></div>
+    <%= render 'select_gift' %>
+  </section>
   <div class="form">
     <section class="new-gift-details">
       <%= f.label :title, 'Occasion' %>
@@ -44,15 +55,6 @@
   </div>
 
   <div class="clearfix"></div>
-  <section id="search-gift">
-    <div class="form">
-      <label><h3>Search for a gift</h3></label>
-      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
-      <button id="amazon_search">Search</button>
-    </div>
-    <div class="clearfix"></div>
-    <%= render 'select_gift' %>
-  </section>
 
   <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

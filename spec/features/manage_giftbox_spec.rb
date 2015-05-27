@@ -1,6 +1,5 @@
-require 'session_helper'
-require 'wait_for_ajax_helper'
-require 'stripe_helper'
+require 'support/session_helper'
+require 'support/stripe_helper'
 
 feature 'Manage Giftbox', js: true do
   background do

@@ -1,6 +1,6 @@
-require 'session_helper'
-require 'giftbox_creation_helper'
-require 'wait_for_ajax_helper'
+require 'support/session_helper'
+require 'support/giftbox_creation_helper'
+require 'support/wait_for_ajax_helper'
 
 feature 'Create Giftbox' do
   context 'When user is not signed in –' do
@@ -36,13 +36,17 @@ feature 'Create Giftbox' do
         expect(page).to have_content 'Joe'
         expect(page).to have_content '12 Main Street, Dunroamin'
         expect(page).to have_content '2027-05-16'
-        expect(page).to have_css 'p#organiser', text: 'user1@giftbox.ie'
+        expect(page).to have_css 'div.organiser-child', text: 'user1@giftbox.ie'
+        expect(page).to have_css 'div.organiser-child', text: 'xOxOaMyRuLeZoXoX'
       end
 
       scenario 'organiser is also a contributor', js: true do
         create_giftbox
         wait_for_ajax
-        expect(page).to have_css 'div#contributors', text: 'user1@giftbox.ie'
+        expect(page).to have_css 'div.contributor-child',
+                                 text: 'user1@giftbox.ie'
+        expect(page).to have_css 'div.contributor-child',
+                                 text: 'xOxOaMyRuLeZoXoX'
       end
 
       scenario 'additional contributors can be added to giftbox', js: true do

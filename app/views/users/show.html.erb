@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if current_user.id.to_i == params[:id].to_i %> <!-- I don’t like this but don’t know what to do about it – Mark -->
-    <h3>Welcome <%= "Rob" %>, you are invited to contribute to:</h3>
+    <h3>Welcome <%= @user.name %>, you are invited to contribute to:</h3>
     <h4 class="user" >User: <%= @user.email %></h4>
     <div class="container">
       <div id="giftboxes" class="row col-md-10 col-md-offset-1">

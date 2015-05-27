@@ -33,6 +33,10 @@ feature 'User Page' do
     context 'user navigates to their profile page –' do
       background { click_link 'View profile' }
 
+      scenario 'user sees their name' do
+        expect(page).to have_content 'xOxOaMyRuLeZoXoX'
+      end
+
       scenario 'user sees their email address' do
         expect(page).to have_content 'user1@giftbox.ie'
       end
@@ -44,13 +48,13 @@ feature 'User Page' do
       end
     end
 
-    context 'user creates a giftbox –' do
+    context 'user creates a giftbox –', js: true do
       background do
         create_giftbox
         wait_for_ajax
       end
 
-      scenario 'user sees giftbox on profile page after creation', js: true do
+      scenario 'user sees giftbox on profile page after creation' do
         sleep 1
         click_link 'View profile'
         expect(page).to have_link 'Joe’s Stag Do'
@@ -58,9 +62,9 @@ feature 'User Page' do
         expect(page).to have_content 'Joe’s Stag Do'
       end
 
-      scenario 'user sees two giftboxes on profile page', js: true do
+      scenario 'user sees two giftboxes on profile page' do
         giftbox_details = {
-          title: 'Jade’s Graduation',
+          occasion: 'Jade’s Graduation',
           recipient: 'Jade',
           address: '4 Station Drive, Gudnes Nowes',
           delivery_date: '29/05/2015',
@@ -94,6 +98,19 @@ feature 'User Page' do
   context 'When added as a contributor by another user –', js: true do
     background do
       user_signup
+    end
+
+    scenario 'user sees giftboxes they were added to before signing up' do
+      giftbox_details = DEFAULT_GIFTBOX
+      giftbox_details[:contributors] = ['user2@giftbox.ie']
+      create_giftbox giftbox_details
+      click_link 'Sign out'
+      user_signup 'user2@giftbox.ie'
+      click_link 'View profile'
+      expect(page).to have_link 'Joe’s Stag Do'
+    end
+
+    scenario 'user sees giftboxes they can contribute to but did not create' do
       click_link 'Sign out'
       user_signup 'user2@giftbox.ie'
       giftbox_details = DEFAULT_GIFTBOX
@@ -101,9 +118,6 @@ feature 'User Page' do
       create_giftbox giftbox_details
       click_link 'Sign out'
       user_signin
-    end
-
-    scenario 'user sees giftboxes they can contribute to but did not create' do
       expect(page).to have_link 'Joe’s Stag Do'
     end
   end

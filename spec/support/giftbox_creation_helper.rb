@@ -1,6 +1,7 @@
 require 'support/mock_helper'
+require 'support/wait_for_ajax_helper'
 
-DEFAULT_TITLE = 'Joe’s Stag Do'
+DEFAULT_OCCASION = 'Joe’s Stag Do'
 DEFAULT_RECIPIENT = 'Joe'
 DEFAULT_SHIP_NAME = 'Dave'
 DEFAULT_SHIP_SURNAME = 'Smith'
@@ -11,7 +12,7 @@ DEFAULT_DATE = '16/05/2027'
 DEFAULT_SEARCH = 'russian standard'
 DEFAULT_CONTRIBUTORS = []
 DEFAULT_GIFTBOX = {
-  title: DEFAULT_TITLE,
+  occasion: DEFAULT_OCCASION,
   recipient: DEFAULT_RECIPIENT,
   ship_name: DEFAULT_SHIP_NAME,
   ship_surname: DEFAULT_SHIP_SURNAME,
@@ -34,20 +35,29 @@ def prepare_giftbox giftbox_hash = DEFAULT_GIFTBOX
   fill_in_fields giftbox_hash
   select_product
   add_contributors giftbox_hash[:contributors]
+  wait_for_ajax
 end
 
 private
 
 def fill_in_fields giftbox_hash
-  fill_in 'Occasion', with: giftbox_hash[:title]
+  fill_in_giftbox_details giftbox_hash
+  fill_in_shipping_details giftbox_hash
+  fill_in 'search_keyword', with: giftbox_hash[:search_term]
+end
+
+def fill_in_giftbox_details giftbox_hash
+  fill_in 'Occasion', with: giftbox_hash[:occasion]
   fill_in 'Recipient', with: giftbox_hash[:recipient]
   fill_in 'Delivery date', with: giftbox_hash[:delivery_date]
+end
+
+def fill_in_shipping_details giftbox_hash
   fill_in 'Name', with: giftbox_hash[:ship_name]
   fill_in 'Surname', with: giftbox_hash[:ship_surname]
   fill_in 'Address', with: giftbox_hash[:ship_add1]
   fill_in 'City', with: giftbox_hash[:ship_city]
   fill_in 'Postcode', with: giftbox_hash[:ship_pcode]
-  fill_in 'search_keyword', with: giftbox_hash[:search_term]
 end
 
 def select_product

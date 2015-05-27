@@ -41,7 +41,8 @@
       <%= image_tag "avatar-#{rand(1..4)}.jpg", alt: 'avatar', width: 100, height: 100 %>
     </div>
     <div class="organiser-child">
-      <%= @organiser %>
+      <%= @organiser.name %>
+      <%= @organiser.email %>
     </div>
   </section>
 
@@ -53,6 +54,7 @@
         <%= image_tag "avatar-#{rand(1..4)}.jpg", alt: 'avatar', width: 100, height: 100 %>
       </div>
       <div class="contributor-child">
+        <%= User.find(contributor.id).name if User.exists? contributor.id %>
         <%= contributor.email %>
       </div>
       <div class="contributor-child">

@@ -78,6 +78,15 @@ form {
    font-style: italic;
 }
 
+.close {
+  width: auto;
+  margin: 0;
+}
+
+#flash_notice {
+
+}
+
 button, .button {
   display: block;
   position: relative;

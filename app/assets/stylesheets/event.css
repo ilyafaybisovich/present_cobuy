@@ -23,9 +23,12 @@
   display: block;
 }
 
-#recipient {
+#event-details {
+  margin-bottom: 2em;
+}
+
+#event-details .col-md-6 {
   display: block;
-  margin-top: 2em;
 }
 
 #recipient h4 {
@@ -87,6 +90,10 @@
 
 #contributors .contributor .contributor-child, #organiser .organiser-child{
   margin-right: 1em;
+}
+
+#contributors .contributor .avatar{
+  width: 75px;
 }
 
 #contributors .contributor:nth-of-type(1){

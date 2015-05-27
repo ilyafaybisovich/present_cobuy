@@ -51,6 +51,7 @@ feature 'User Page' do
       end
 
       scenario 'user sees giftbox on profile page after creation', js: true do
+        sleep 1
         click_link 'View profile'
         expect(page).to have_link 'Joe’s Stag Do'
         click_link 'Joe’s Stag Do'
@@ -79,6 +80,7 @@ feature 'User Page' do
         }
         create_giftbox giftbox_details
         wait_for_ajax
+        sleep 1
         click_link 'View profile'
         expect(page).to have_link 'Joe’s Stag Do'
         expect(page).to have_link 'Jade’s Graduation'

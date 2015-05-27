@@ -1,21 +1,28 @@
 <% if user_signed_in? %>
   <% if current_user.id.to_i == params[:id].to_i %> <!-- I don’t like this but don’t know what to do about it – Mark -->
-    <h1><%= @user.email %></h1>
-
+    <h3>Welcome <%= "Rob" %>, you are invited to contribute to:</h3>
+    <h4 class="user" >User: <%= @user.email %></h4>
     <div class="container">
-      <div id="giftboxes" class="row">
+      <div id="giftboxes" class="row col-md-10 col-md-offset-1">
         <% if @gifts.empty? %>
           <p>Not contributing to any giftboxes</p>
         <% else %>
-          <ul>
+          <ul class="list-group">
             <% @gifts.each do |gift| %>
               <li>
-                <p><%= link_to gift.title, gift %></p>
+                <a href="/gifts/<%= gift.id %>" class= "list-group-item text-as-button <%= "#{gift.all_contributed? ? "list-group-item-success" : "list-group-item-danger"}"%>">
+                <span class="badge"><%= gift.all_contributed? ? "Funded!" : "Awaiting Contribution" %></span>
+                <%= gift.title %>
+                </a>
               </li>
             <% end %>
           </ul>
         <% end %>
       </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <h4 class="text-centre">or ...</h4>
+      <%= link_to 'Start a new gift-box', new_gift_path, class: "button dark-blue text-centre", data: { no_turbolink: true } %>
     </div>
   <% else %>
     <div class="description">

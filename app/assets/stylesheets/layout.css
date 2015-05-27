@@ -18,6 +18,7 @@ h1, h2, h3, h4, .headline {
 }
 
 h3 {
+  margin-bottom: .5em;
   font-size: 2rem;
 }
 
@@ -26,7 +27,6 @@ h4{
 }
 
 p {
-  margin: 1em 0;
   line-height: 140%;
 }
 
@@ -48,7 +48,7 @@ form {
   position: relative;
   display: inline-block;
   padding: 0.96rem 0 0.96rem 1rem;
-  margin: 0.3rem 0.3rem 0.3rem 0;
+  margin: 0.3rem 0.3rem 1rem 0;
   border: none;
   font-size: 1.2em;
   font-weight: 500;
@@ -128,7 +128,6 @@ a.button {
   margin-top: 2em;
   margin-right: 0;
   font-size: 0.7em;
-  text-align: center;
 }
 
 a:hover.button, .button:hover {
@@ -149,7 +148,7 @@ a:hover.button, .button:hover {
   background-image: url("noise.png"),-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, color-stop(0%, rgba(0, 210, 190, 0.5)), color-stop(100%, rgba(0, 190, 210, 0.5)));
 }
 
-#wrap section {
+#wrap .content-area {
   box-sizing: border-box;
   width: 100%;
   margin: 0;

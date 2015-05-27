@@ -1,6 +1,26 @@
+#gift-status {
+  padding: 3em 0;
+}
+
 #event .progress{
   display: block;
-  margin: 3em 0;
+}
+
+.progress{
+  padding: 0;
+}
+
+.status{
+  text-transform: uppercase;
+  font-size: 17px;
+  float: left;
+  color: #666;
+}
+
+.status strong {
+  font-weight: 400;
+  font-family: 'Avenir LT W01 55 Roman';
+  display: block;
 }
 
 #recipient {
@@ -25,19 +45,30 @@
 }
 
 #item {
+  padding: 0;
+  padding-right: 2em;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   -webkit-flex-flow: column wrap;
   flex-flow: column wrap;
+  letter-spacing: -0.05em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(40, 40, 40);
+  font-weight: 600;
+  letter-spacing: 0.16rem;
+  line-height: 110%;
+  font-size: 1rem;
+  text-align: center;
 }
 
 #item .item-child{
   margin-bottom: 1em;
 }
 
-#contributors .contributor, #organiser{
+#contributors .contributor{
   width: 100%;
   -webkit-align-items: center;
   align-items: center;

@@ -33,6 +33,10 @@ feature 'User Page' do
     context 'user navigates to their profile page –' do
       background { click_link 'View profile' }
 
+      scenario 'user sees their username' do
+        expect(page).to have_content 'xOxOaMyRuLeZoXoX'
+      end
+
       scenario 'user sees their email address' do
         expect(page).to have_content 'user1@giftbox.ie'
       end

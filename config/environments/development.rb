@@ -18,7 +18,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.rbgwomatics.co.uk',
+    address: 'smtp.rbgeomatics.co.uk',
     domain: 'rbgeomatics.co.uk',
     user_name: 'makers_academy_test@rbgeomatics.co.uk',
     password: ENV['EMAIL_SECRET'],

@@ -3,13 +3,17 @@
   padding: 20px 0;
 }
 
+#wrap .headline h1{
+  font-size: 3.4rem;
+}
+
 #wrap .description{
   position: static;
   display: block;
   float: none;
-  margin: 1em 0;
   white-space: normal;
   color: #faf8f6;
+  font-size: 2rem;
 }
 
 #wrap .user-sign {

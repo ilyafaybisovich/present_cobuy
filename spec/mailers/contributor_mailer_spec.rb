@@ -11,7 +11,7 @@ RSpec.describe ContributorMailer, type: :mailer do
 
     expect(mail.subject).to match 'You can make this happen!'
     expect(mail.to).to eq ['rob@rbgeomatics.co.uk']
-    expect(mail.from).to eq ['makers_academy_test@rbgeomatics.co.uk']
+    expect(mail.from).to eq ['gifts@ronin-giftbox.co.uk']
   end
 
   it 'renders the body' do

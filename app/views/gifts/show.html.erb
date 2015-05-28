@@ -22,7 +22,7 @@
               <h4>Shipping Details</h4>
               <p><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></p>
               <p><%= @gift.address_string %></p>
-              <p id="delivery_date"><%= @gift.delivery_date %></p>
+              <p id="delivery_date"><%= @gift.delivery_date.strftime("%d/%m/%Y") %></p>
             </div>
           </article>
 
@@ -55,7 +55,7 @@
             TARGET
           </div>
           <div class="status col-sm-4">
-            <strong>7</strong>
+            <strong><%= @days_left %></strong>
             Days left
           </div>
         </div>
@@ -71,7 +71,9 @@
         <%= image_tag "avatar-#{rand(1..4)}.jpg", alt: 'avatar', width: 100, height: 100 %>
       </div>
       <div class="contributor-child">
-        <h3><%= User.find(contributor.id).name if User.exists? contributor.id %></h3>
+        <% if User.find_by email: contributor.email %>
+          <h3><%= User.find_by(email: contributor.email).name %></h3>
+        <% end %>
         <h4><%= contributor.email %><h4>
       </div>
       <div class="contributor-child">
@@ -83,6 +85,7 @@
         <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-currency="gbp"
               data-description="Prezzy Contribution"
               data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"
               data-currency="gbp"></script>

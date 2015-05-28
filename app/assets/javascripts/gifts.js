@@ -104,7 +104,7 @@ $(document).ready(function(){
     $('#gift_description').val($('.product__title--3').text());
     $('#gift_item_url').val($('.product__link--3').attr("href"));
     $('#gift_item_image').val($('.product__image--3').attr("src"));
-     $('.added').html('<h4>Gift added:</h4><h3>' + $('.product__title--1').text()) + '</h3>';
+    $('.added').html('<h4>Gift added:</h4><h3>' + $('.product__title--1').text()) + '</h3>';
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
     $('#create-gift').removeClass('hidden');

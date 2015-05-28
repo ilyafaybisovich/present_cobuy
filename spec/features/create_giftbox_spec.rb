@@ -35,7 +35,7 @@ feature 'Create Giftbox' do
         expect(page).to have_content 'Joe’s Stag Do'
         expect(page).to have_content 'Joe'
         expect(page).to have_content '12 Main Street, Dunroamin'
-        expect(page).to have_content '2027-05-16'
+        expect(page).to have_content '16/05/2027'
         expect(page).to have_css 'div.organiser-child', text: 'user1@giftbox.ie'
         expect(page).to have_css 'div.organiser-child', text: 'xOxOaMyRuLeZoXoX'
       end

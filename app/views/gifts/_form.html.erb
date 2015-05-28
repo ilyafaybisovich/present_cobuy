@@ -3,7 +3,7 @@
     <div class="form">
       <label><h3>Search for a gift</h3></label>
       <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
-       <button id="amazon_search" type="button">Search</button>
+      <button id="amazon_search" type="button">Search</button>
       <div id="loadingDiv"><%= image_tag 'spinner.gif' %></div>
       <div class="added"></div>
       <div class="amazon_error">
@@ -13,7 +13,6 @@
     <div class="clearfix"></div>
     <%= render 'select_gift' %>
   </section>
-
   <div class="form">
     <section class="new-gift-details">
       <%= f.label :title, 'Occasion' %>
@@ -58,7 +57,7 @@
     </section>
   </div>
 
-  <div class="clearfix"></div>
 
+  <div class="clearfix"></div>
   <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

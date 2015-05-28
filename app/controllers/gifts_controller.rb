@@ -70,7 +70,7 @@ class GiftsController < ApplicationController
   end
 
   def extract_image value
-    ((h = value['LargeImage']) && h['URL']).to_s
+    ((h = value['LargeImage']) && h['URL'].sub('http://ecx.images-amazon.com/', 'https://images-na.ssl-images-amazon.com/')).to_s
   end
 
   def extract_url_path value

@@ -1,0 +1,150 @@
+footer {
+  width: 100%;
+  background-color: #282828;
+  background-image: url("noise_less.png");
+  color: #faf8f6;
+  position: relative;
+  z-index: 10;
+  -moz-box-shadow: 0px 0px 5px 1px rgba(40, 40, 40, 0.7);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(40, 40, 40, 0.7);
+  box-shadow: 0px 0px 5px 1px rgba(40, 40, 40, 0.7);
+}
+
+footer .text-area {
+  max-width: none;
+  width: 90%;
+  margin: 0 auto;
+}
+
+footer #links-container {
+  width: 100%;
+  border-bottom: 1px solid #00c8c8;
+  display: inline-block;
+  vertical-align: baseline;
+  padding: 0.7em 0;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  line-height: 150%;
+}
+
+footer #colophon {
+  padding: 2em 0;
+  font-size: 1rem;
+}
+
+footer #links-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+footer #links-container li {
+  display: inline-block;
+  padding: 0.2em 0;
+  padding-right: 2em;
+  font-size: 0.7em;
+  margin: 0;
+}
+footer #links-container a {
+  transition: color 0.3s ease;
+}
+
+footer #colophon {
+  width: 100%;
+  padding: 2em 0 1em 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+
+footer #colophon .item{
+  width: 50%;
+}
+
+footer #colophon ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer #colophon li {
+  padding: 0.3em 0;
+  margin: 0;
+}
+
+footer #colophon #logo-and-motto{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+footer #colophon #logo-and-motto #logo {
+  max-width: 6em;
+}
+
+footer #colophon #logo-and-motto #logo img {
+  width: 100%;
+}
+
+footer #colophon #logo-and-motto #motto {
+  position: relative;
+  bottom: 0.16em;
+}
+
+footer #colophon #logo-and-motto #motto span {
+  display: block;
+}
+
+footer #colophon #logo-and-motto #motto #next-way, footer #colophon #logo-and-motto #motto #for-gift {
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 0.2em 0;
+}
+
+footer #colophon #logo-and-motto #motto #contribute {
+  font-family: "freight-text-pro","Georgia","Times","Times New Roman",serif;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  position: relative;
+  bottom: 0.15em;
+}
+
+footer #colophon #company-information {
+  color: #757575;
+  position: relative;
+  bottom: 0.16em;
+  text-align: right;
+
+}
+
+footer #colophon #company-information a {
+  transition: color 0.3s ease;
+}

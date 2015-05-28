@@ -1,6 +1,5 @@
 --color
 --require spec_helper
 --require rails_helper
---require login_helper
 --require database_cleaner_helper
 --format documentation

@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524105442) do
+ActiveRecord::Schema.define(version: 20150527152115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contributors", force: :cascade do |t|
     t.integer  "gift_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "email"
-    t.float    "split_price"
     t.string   "token"
   end
 
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150524105442) do
     t.date     "delivery_date"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "contributor_id"
     t.string   "item"
     t.float    "item_price"
     t.text     "description"
@@ -42,6 +40,14 @@ ActiveRecord::Schema.define(version: 20150524105442) do
     t.string   "item_image"
     t.text     "item_url"
     t.integer  "user_id"
+    t.string   "ship_name"
+    t.string   "ship_surname"
+    t.string   "ship_add1"
+    t.string   "ship_add2"
+    t.string   "ship_pcode"
+    t.string   "ship_city"
+    t.string   "ship_county"
+    t.string   "purchase_token"
   end
 
   add_index "gifts", ["user_id"], name: "index_gifts_on_user_id", using: :btree
@@ -59,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150524105442) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

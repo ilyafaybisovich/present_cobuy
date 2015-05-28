@@ -1,0 +1,65 @@
+#event .progress{
+  display: block;
+  margin: 3em 0;
+}
+
+#recipient {
+  display: block;
+  margin-top: 2em;
+}
+
+#recipient h4 {
+  margin-bottom: 1em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #faf8f6;
+}
+
+#item, #organiser, #contributors .contributor {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#item {
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+}
+
+#item .item-child{
+  margin-bottom: 1em;
+}
+
+#contributors .contributor, #organiser{
+  width: 100%;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding: 1em 0;
+  border-top: 2px solid #12b4b4;
+}
+
+#organiser{
+  margin-bottom: 3em;
+  border: none;
+}
+
+#contributors .contributor .contributor-child, #organiser .organiser-child{
+  margin-right: 1em;
+}
+
+#contributors .contributor:nth-of-type(1){
+  border: none;
+}
+
+

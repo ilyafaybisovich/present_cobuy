@@ -15,64 +15,77 @@ class GiftsController < ApplicationController
     redirect_to "/gifts/#{@gift.id}"
   end
 
-  def index
-    @gifts = Gift.all
-  end
-
   def show
-    @gift = Gift.find(params[:id])
+    @gift = Gift.find params[:id]
     @contributors = @gift.contributors
-  end
-
-  def gift_params
-    params.require(:gift).permit :title,
-                                 :recipient,
-                                 :recipient_address,
-                                 :delivery_date,
-                                 :item,
-                                 :item_price,
-                                 :description,
-                                 :item_image,
-                                 :item_url,
-                                 contributors_attributes: [
-                                   :id,
-                                   :email,
-                                   :_destroy
-                                 ]
+    @organiser = User.find @gift.user_id
   end
 
   def search
     render json: format_search(amazon_search_results(params[:keyword]))
   end
 
-  def amazon_search_results(keyword)
-    request = Vacuum.new('GB')
+  def amazon_search_results keyword
+    request = Vacuum.new 'GB'
     request.associate_tag = 'pridro02-20'
     response = request.item_search(
       query: {
-        'Keywords' => keyword,
-        'SearchIndex' => 'All',
-        'Condition' => 'New',
-        'Operation' => 'ItemSearch',
+        'Keywords' => keyword, 'SearchIndex' => 'All',
+        'Condition' => 'New', 'Operation' => 'ItemSearch',
         'ResponseGroup' => 'Images,ItemAttributes,OfferSummary'
       }
     )
     response_hash = response.to_h
   end
 
-  def format_search(response_hash)
-    if response_hash['ItemSearchResponse']['Items'].key?('Item')
-      items = response_hash['ItemSearchResponse']['Items']['Item']
-      return items.inject([]) do |array, value|
-               array << { "asin": (value.key?('ASIN') ? value['ASIN'] : nil).to_s,
-                          "image": ((h = value['MediumImage']) && h['URL']).to_s,
-                          "url_path": (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil).to_s,
-                          "title": ((h = value['ItemAttributes']) && (h['Title'])).to_s,
-                          "price": ((h = value['OfferSummary']) && (j = h['LowestNewPrice']) && (j['FormattedPrice'])).to_s
-                         }
-             end
-    else
-      return {}
+  def format_search response_hash
+    return {} unless response_hash['ItemSearchResponse']['Items'].key? 'Item'
+    items = response_hash['ItemSearchResponse']['Items']['Item']
+    items.inject([]) do |array, value|
+      array << { "asin": extract_asin(value),
+                 "image": extract_image(value),
+                 "url_path": extract_url_path(value),
+                 "title": extract_title(value),
+                 "price": extract_price(value)
+      }
     end
+  end
+
+  private
+
+  def gift_params
+    params.require(:gift).permit :title, :recipient,
+                                 :delivery_date, :item, :item_price,
+                                 :description, :item_image, :item_url,
+                                 :ship_name, :ship_surname, :ship_add1,
+                                 :ship_add2, :ship_city, :ship_county,
+                                 :ship_pcode,
+                                 contributors_attributes: [
+                                   :id, :email, :_destroy
+                                 ]
+  end
+
+  def extract_asin value
+    (value.key?('ASIN') ? value['ASIN'] : nil).to_s
+  end
+
+  def extract_image value
+    ((h = value['MediumImage']) && h['URL']).to_s
+  end
+
+  def extract_url_path value
+    (value.key?('DetailPageURL') ? value['DetailPageURL'] : nil).to_s
+  end
+
+  def extract_title value
+    ((h = value['ItemAttributes']) && (h['Title'])).to_s
+  end
+
+  def extract_price value
+    (
+      (h = value['OfferSummary']) &&
+      (j = h['LowestNewPrice']) &&
+      (j['FormattedPrice'])
+    ).to_s
   end
 end

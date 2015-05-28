@@ -1,0 +1,58 @@
+.new-gift-details, #search-gift form{
+  padding: 2em 0;
+  border-top: 2px solid #12b4b4;
+}
+
+.new-gift-details:nth-of-type(1) {
+  border: none;
+}
+
+#products {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#add-contributors .nested-fields{
+  margin-bottom: 1.5em;
+}
+
+#add-contributors .nested-fields:nth-of-type(1) {
+  padding-top: 1em;
+}
+
+#add-contributors label{
+  display: none;
+}
+
+
+#add-contributors .nested-fields input[placeholder="Email"]{
+  margin-bottom: 0.2em;
+}
+
+#products {
+  letter-spacing: -0.05em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(40, 40, 40);
+  font-family: freight-text-pro, Georgia, Times, 'Times New Roman', serif;
+  font-weight: normal;
+}
+
+#products .title {
+  display: block;
+  min-height: 3em;
+}
+
+#products .col-md-4{
+  padding: 0 1em;
+  border-right: 2px solid #12b4b4;
+  text-align: center;
+}
+
+#products .last{
+  border: none;
+}
+

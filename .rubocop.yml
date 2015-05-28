@@ -78,5 +78,4 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/**/*'
-    - 'spec/hash_helper.rb'
-    - 'spec/mock_helper.rb'
+    - 'spec/support/mock_helper.rb'

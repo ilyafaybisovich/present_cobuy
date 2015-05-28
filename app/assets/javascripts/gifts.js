@@ -20,8 +20,17 @@ function currencyToFloat(currency){
 }
 
 $(document).ready(function(){
+  //=================== ajax spinner ==============================
+    $('#loadingDiv').hide();  // Hide it initially
+    $(document).ajaxStart(function() {
+          $('#loadingDiv').show();
+      });
+    $(document).ajaxStop(function() {
+          $('#loadingDiv').hide();
+      });
+
   // =================== amazon search ==============================
-  $('#amazon_search').click(function(){
+  $('#amazon_search').click('page:load', function(event){
     $.ajax({
       type: 'GET',
       url: "/gifts/search",
@@ -35,42 +44,49 @@ $(document).ready(function(){
         $(".amazon_error p").text("No Response from Amazon. Try Again.");
       }
     });
+    event.preventDefault();
   });
 
   // =================== select product 1 ==============================
-  $('#product_1').click(function(){
+  $('#product_1').click(function(event){
+    event.preventDefault();
     $('#gift_item').val($('#product-asin-1').text());
     $('#gift_item_price').val(currencyToFloat($('.product__price--1').text()));
     $('#gift_description').val($('.product__title--1').text());
     $('#gift_item_url').val($('.product__link--1').attr("href"));
     $('#gift_item_image').val($('.product__image--1').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--1').text());
+    $('.added').text('Added a gift: '+ $('.product__title--1').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
   // =================== select product 2 ==============================
-  $('#product_2').click(function(){
+  $('#product_2').click(function(event){
+    event.preventDefault();
     $('#gift_item').val($('#product-asin-2').text());
     $('#gift_item_price').val(currencyToFloat($('.product__price--2').text()));
     $('#gift_description').val($('.product__title--2').text());
     $('#gift_item_url').val($('.product__link--2').attr("href"));
     $('#gift_item_image').val($('.product__image--2').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--2').text());
+    $('.added').text('Added a gift: '+ $('.product__title--2').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
   // =================== select product 3 ==============================
-  $('#product_3').click(function(){
+  $('#product_3').click(function(event){
+    event.preventDefault();
     $('#gift_item').val($('#product-asin-3').text());
     $('#gift_item_price').val(currencyToFloat($('.product__price--3').text()));
     $('#gift_description').val($('.product__title--3').text());
     $('#gift_item_url').val($('.product__link--3').attr("href"));
     $('#gift_item_image').val($('.product__image--3').attr("src"));
-    $('.added').text('Added a Gift: '+ $('.product__title--3').text());
+    $('.added').text('Added a gift: '+ $('.product__title--3').text());
     $('#products').fadeOut(200, function(){
       $('.added').fadeIn(400);
+    $('#create-gift').removeClass('hidden');
     });
   });
 });

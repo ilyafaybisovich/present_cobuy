@@ -26,6 +26,7 @@ DEFAULT_GIFTBOX = {
 
 def create_giftbox giftbox_hash = DEFAULT_GIFTBOX
   prepare_giftbox giftbox_hash
+  sleep 1
   find('input[type="submit"]').trigger 'click'
 end
 

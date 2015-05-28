@@ -1,0 +1,18 @@
+.user {
+  margin-bottom: 1em;
+}
+
+.text-as-button {
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  line-height: 150%;
+  font-size: 1rem;
+}
+
+.text-centre {
+  text-align: center;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}

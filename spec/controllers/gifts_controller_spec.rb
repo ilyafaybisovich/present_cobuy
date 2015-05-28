@@ -1,4 +1,4 @@
-require 'mock_helper'
+require 'support/mock_helper'
 
 RSpec.describe GiftsController, type: :controller do
   context 'Receives a response from Amazon –' do

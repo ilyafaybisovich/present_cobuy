@@ -1,5 +1,5 @@
 class ContributorMailer < ApplicationMailer
-  default from: 'makers_academy_test@rbgeomatics.co.uk'
+  default from: 'gifts@ronin-giftbox.co.uk'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #

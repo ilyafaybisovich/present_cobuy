@@ -1,60 +1,66 @@
 <div id="event" class="container">
   <h1><%= @gift.title %></h1>
   <section id="gift-status" class="row">
-    <article id="item" class="col-md-6">
-      <div class="item-child">
-        <a href=<%= @gift.item_url %>><%= @gift.description %></a>
-      </div>
-      <div class="item-child">
-        <img src=<%= @gift.item_image %> />
-      </div>
-      <div class="item-child">
-        <p><%= "£#{@gift.item_price}" %></p>
-      </div>
-    </article>
+    <div id="gift-status-container">
+      <article id="item" class="col-md-6">
+        <div id="item-name"class="item-child">
+          <a href=<%= @gift.item_url %>><%= @gift.description %></a>
+        </div>
+        <div class="item-child">
+          <img src=<%= @gift.item_image %> />
+        </div>
+        <!-- <div class="item-child">
+          <p><%= "£#{@gift.item_price}" %></p>
+        </div> -->
+      </article>
 
-    <article class="col-md-6">
-      <section id="event-details" class="row">
-        <article id="recipient" class="col-md-6">
-          <h3><%= @gift.recipient %></h3>
-          <div id="shipping-address">
-            <h4>Shipping Details</h4>
-            <p><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></p>
-            <p><%= @gift.address_string %></p>
-            <p id="delivery_date"><%= @gift.delivery_date %></p>
-            <p><%= @gift.purchase_token.nil? ? 'Amazon order not placed' : "Your Amazon Order has been placed." %></p>
+      <article class="col-md-6">
+        <section id="event-details" class="row">
+          <article id="recipient" class="col-md-6">
+            <h3><%= @gift.recipient %></h3>
+            <div id="shipping-address">
+              <h4>Shipping Details</h4>
+              <p><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></p>
+              <p><%= @gift.address_string %></p>
+              <p id="delivery_date"><%= @gift.delivery_date %></p>
+            </div>
+          </article>
+
+          <article id="organiser" class="col-md-6">
+            <h3>Organiser</h3>
+            <div class="organiser-child">
+              <h4><%= @organiser.name %></h4>
+              <h5><%= @organiser.email %><h5>
+            </div>
+          </article>
+        </section>
+
+        <div id="status-order">
+          <%= @gift.purchase_token.nil? ? 'Amazon order not placed' : "Your Amazon Order has been placed." %>
+        </div>
+
+        <div class="progress row">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<%= @gift.percentage_complete %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= @gift.percentage_complete %>%">
+            <%= @gift.percentage_complete %>%
           </div>
-        </article>
+        </div>
 
-        <article id="organiser" class="col-md-6">
-          <h3>Organiser</h3>
-          <div class="organiser-child">
-            <%= @organiser.name %>
-            <%= @organiser.email %>
+        <div class="process-status row">
+          <div class="status col-sm-4">
+            <strong><%= @gift.paid_contributors %></strong>
+            Backers
           </div>
-        </article>
-      </section>
-
-      <div class="progress row">
-        <div class="progress-bar" role="progressbar" aria-valuenow="<%= @gift.percentage_complete %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= @gift.percentage_complete %>%">
-          <%= @gift.percentage_complete %>%
+          <div class="status col-sm-4">
+            <strong>£<%= @gift.item_price %></strong>
+            TARGET
+          </div>
+          <div class="status col-sm-4">
+            <strong>7</strong>
+            Days left
+          </div>
         </div>
-      </div>
-      <div class="process-status row">
-        <div class="status col-sm-4">
-          <strong><%= @gift.paid_contributors %></strong>
-          'Backers'
-        </div>
-        <div class="status col-sm-4">
-          <strong><%= @gift.item_price %></strong>
-          <span>TARGET</span>
-        </div>
-        <div class"status col-sm-4">
-          <strong>7</strong>
-          "Days left"
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
   <section id="contributors" class="row">
@@ -65,8 +71,8 @@
         <%= image_tag "avatar-#{rand(1..4)}.jpg", alt: 'avatar', width: 100, height: 100 %>
       </div>
       <div class="contributor-child">
-        <%= User.find(contributor.id).name if User.exists? contributor.id %>
-        <%= contributor.email %>
+        <h3><%= User.find(contributor.id).name if User.exists? contributor.id %></h3>
+        <h4><%= contributor.email %><h4>
       </div>
       <div class="contributor-child">
         <p id="paid"><%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid" %>
@@ -79,7 +85,8 @@
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-currency="gbp"
               data-description="Prezzy Contribution"
-              data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"></script>
+              data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"
+              data-currency="gbp"></script>
       </div>
       <% end %>
     <% end %>

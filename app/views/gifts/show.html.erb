@@ -77,6 +77,7 @@
         <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-currency="gbp"
               data-description="Prezzy Contribution"
               data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"></script>
       </div>

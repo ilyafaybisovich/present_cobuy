@@ -28,10 +28,10 @@ RSpec.describe GiftsController, type: :controller do
       expect(formatted_result[0][:asin]).to eq 'B008BEYEL8'
     end
 
-    it 'returns the correct value for an image path' do
+    it 'returns the correct value for an image path', focus: true do
       formatted_result = subject.format_search AMAZON_SEARCH_HASH
       expect(formatted_result[1][:image]).to eq(
-        'http://ecx.images-amazon.com/images/I/31bMAM%2BtIDL._SL160_.jpg')
+        'https://images-na.ssl-images-amazon.com/images/I/31bMAM%2BtIDL._SL160_.jpg')
     end
 
     it 'returns the correct value for a URL path' do

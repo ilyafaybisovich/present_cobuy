@@ -84,7 +84,8 @@
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Prezzy Contribution"
-              data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"></script>
+              data-amount="<%= (number_with_precision((@gift.split_price.to_f* 100), precision: 2)) %>"
+              data-currency="gbp"></script>
       </div>
       <% end %>
     <% end %>

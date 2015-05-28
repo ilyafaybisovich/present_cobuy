@@ -32,6 +32,7 @@ $(document).ready(function(){
 
   // =================== amazon search ==============================
   $('#amazon_search').click('page:load', function(event){
+    event.preventDefault();
     $.ajax({
       type: 'GET',
       url: "/gifts/search",
@@ -45,7 +46,25 @@ $(document).ready(function(){
         $(".amazon_error p").text("No Response from Amazon. Try Again.");
       }
     });
-    event.preventDefault();
+  });
+
+  $('#search_keyword').keypress(function(event){
+    if(event.which == 13) {
+      event.preventDefault();
+      $.ajax({
+        type: 'GET',
+        url: "/gifts/search",
+        data: {
+          keyword: $('#search_keyword').val()
+        },
+        success: function(data){
+          loaddata(data);
+        },
+        error: function(){
+          $(".amazon_error p").text("No Response from Amazon. Try Again.");
+        }
+      });
+    }
   });
 
   // =================== select product 1 ==============================

@@ -66,10 +66,10 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.rbgeomatics.co.uk',
+    address: 'smtp.livemail.co.uk',
     port: 587,
-    domain: 'rbgeomatics.co.uk',
-    user_name: 'makers_academy_test@rbgeomatics.co.uk',
+    domain: 'ronin-giftbox.co.uk',
+    user_name: 'gifts@ronin-giftbox.co.uk',
     password: ENV['EMAIL_SECRET'],
     authentication: 'plain',
     enable_starttls_auto: true

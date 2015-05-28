@@ -48,7 +48,8 @@ feature 'Manage Giftbox', js: true do
 
     scenario 'organiser sees all contributors' do
       visit '/gifts/1'
-      expect(page).to have_content 'user1@giftbox.ie'
+      expect(page).to have_css 'section#contributors', text: 'user1@giftbox.ie'
+      expect(page).to have_css 'section#contributors', text: 'xOxOaMyRuLeZoXoX'
     end
 
     scenario 'organiser sees a progress bar' do

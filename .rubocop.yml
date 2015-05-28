@@ -79,3 +79,4 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'spec/support/mock_helper.rb'
+    - 'app/controllers/contributors_controller.rb'

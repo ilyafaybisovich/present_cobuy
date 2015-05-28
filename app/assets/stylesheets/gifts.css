@@ -1,6 +1,18 @@
+.stripe-btn {
+  margin-top: 0em;
+}
+
+.stripe-button-el {
+  text-align: center;
+}
+
 .new-gift-details {
   padding: 2em 0;
   border-top: 2px solid #12b4b4;
+}
+
+#paid {
+  font-size: 1.6rem;
 }
 
 #search-gift {

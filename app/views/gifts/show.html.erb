@@ -22,7 +22,7 @@
               <h4>Shipping Details</h4>
               <p><%= "#{@gift.ship_name} #{@gift.ship_surname}" %></p>
               <p><%= @gift.address_string %></p>
-              <p id="delivery_date"><%= @gift.delivery_date %></p>
+              <p id="delivery_date"><%= @gift.delivery_date.strftime("%m/%d/%Y") %></p>
             </div>
           </article>
 
@@ -55,7 +55,7 @@
             TARGET
           </div>
           <div class="status col-sm-4">
-            <strong>7</strong>
+            <strong><%= @days_left %></strong>
             Days left
           </div>
         </div>

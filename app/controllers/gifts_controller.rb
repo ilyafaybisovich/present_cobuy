@@ -19,6 +19,7 @@ class GiftsController < ApplicationController
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id
+    @days_left = (@gift.delivery_date - DateTime.now).to_i
   end
 
   def search

@@ -2,7 +2,7 @@ require File.expand_path('../config/application', __FILE__)
 # require 'rubocop/rake_task'
 
 # RuboCop::RakeTask.new :cop
-#
+
 # task default: [:cop]
 Rails.application.load_tasks
 

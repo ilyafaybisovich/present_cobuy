@@ -39,7 +39,7 @@ feature 'Manage Giftbox', js: true do
       gift.contributors.create gift_id: 1, email: 'contributor2@giftbox.ie'
       visit '/gifts/1'
       expect(page).to have_content '£300.00 to Pay'
-      expect(page).not_to have_content 'Paid'
+      expect(page).not_to have_content '£300.00 Paid'
     end
 
     scenario 'organiser sees the item image' do

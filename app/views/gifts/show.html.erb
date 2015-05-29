@@ -78,7 +78,7 @@
         </div>
 
         <div class="contributor-child">
-          <div class="payment to-paid">
+          <div class="payment">
             <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} Paid" %>
           </div>
         </div>

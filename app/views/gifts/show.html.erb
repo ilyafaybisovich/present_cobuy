@@ -84,7 +84,7 @@
         </div>
       <% end %>
       <div class="<%= "hidden" unless contributor.token.nil? && contributor.current_user?(current_user) %>">
-        <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do, class: "stripe-btn" %>
+        <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, class: "stripe-btn", remote: true do %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-currency="gbp"

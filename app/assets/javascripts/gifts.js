@@ -21,21 +21,12 @@ function currencyToFloat(currency){
 }
 
 $(document).ready(function(){
-  // if($('#paid').is(':contains("to Pay")').css('color', '#FA2282');
-  $('.payment:contains("Paid")').each(function() {
+
+  //=================== pay, to pay colors ==============================
+    $('.payment:contains("Paid")').each(function() {
     $(this).removeClass("to-pay");
     $(this).addClass("paid");
   });
-  //   var ourText = $(this);
-  //   if(ourText.match('£25.02 to Pay')) {
-  //     $(this).css('color', 'red');
-  //   };
-  // });
-  // $('#paid .entry').each(function() {
-  //  if($(this).is(':contains("to Pay")')) {
-  //       $(this).css('color', 'red');
-  //   }
-  // });
 
   //=================== ajax spinner ==============================
     $('#loadingDiv').hide();  // Hide it initially

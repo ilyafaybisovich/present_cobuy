@@ -76,6 +76,7 @@
 }
 
 #item {
+  padding-right: 3em;
   -webkit-align-items: center;
   align-items: center;
   -webkit-justify-content: flex-start;

@@ -72,9 +72,9 @@
       </div>
       <div class="contributor-child">
         <% if User.find_by email: contributor.email %>
-          <h3><%= User.find_by(email: contributor.email).name %></h3>
+          <h4><%= User.find_by(email: contributor.email).name %></h4>
         <% end %>
-        <h4><%= contributor.email %><h4>
+        <h5><%= contributor.email %><h5>
       </div>
       <div class="contributor-child">
         <p id="paid"><%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "Paid" %>

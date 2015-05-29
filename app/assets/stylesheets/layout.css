@@ -24,7 +24,11 @@ h3 {
 }
 
 h4{
-  font-size: 1rem;
+  font-size: 1.5rem;
+}
+
+h5{
+  font-size: 1.2rem;
 }
 
 p {
@@ -163,6 +167,7 @@ a.button {
 
 #wrap #content-area{
   width: 90%;
+  margin: 3em;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;

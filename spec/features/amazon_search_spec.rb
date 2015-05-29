@@ -48,7 +48,7 @@ feature 'Amazon Search' do
       wait_for_ajax
       click_button 'product_1'
       wait_for_ajax
-      expect(page).to have_content 'Added a gift:'
+      expect(page).to have_content 'Gift added:'
     end
 
     context 'before performing a search –' do

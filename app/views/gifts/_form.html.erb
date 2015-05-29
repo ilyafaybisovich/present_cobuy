@@ -1,8 +1,22 @@
 <%= form_for @gift do |f| %>
+  <section id="search-gift">
+    <div class="form">
+      <label><h3>Search for a gift</h3></label>
+      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
+      <button id="amazon_search" type="button">Search</button>
+      <div id="loadingDiv"><%= image_tag 'spinner.gif' %></div>
+      <div class="added"></div>
+      <div class="amazon_error">
+        <p></p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <%= render 'select_gift' %>
+  </section>
   <div class="form">
     <section class="new-gift-details">
       <%= f.label :title, 'Occasion' %>
-      <%= f.text_field :title, placeholder: "Mum's birthsday" %>
+      <%= f.text_field :title, placeholder: "Mum's birthday" %>
       <%= f.label :recipient%>
       <%= f.text_field :recipient, placeholder: "Bea Smith" %>
       <%= f.label :delivery_date %>
@@ -43,19 +57,7 @@
     </section>
   </div>
 
+
   <div class="clearfix"></div>
-
-  <section id="search-gift">
-    <div class="form">
-      <label><h3>Search for a gift</h3></label>
-      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
-      <button id="amazon_search" type="button">Search</button>
-      <div id="loadingDiv"><%= image_tag 'spinner.gif' %></div>
-    </div>
-    <div class="clearfix"></div>
-    <%= render 'select_gift' %>
-    <p class="added"></p>
-  </section>
-
   <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
 <% end %>

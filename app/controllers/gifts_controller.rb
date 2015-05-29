@@ -19,6 +19,8 @@ class GiftsController < ApplicationController
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id
+    days_count = (@gift.delivery_date - DateTime.now).to_i
+    @days_left = days_count < 0 ? '0' : days_count
   end
 
   def search
@@ -70,7 +72,9 @@ class GiftsController < ApplicationController
   end
 
   def extract_image value
-    ((h = value['MediumImage']) && h['URL']).to_s
+    ((h = value['MediumImage']) && h['URL'].sub(
+      'http://ecx.images-amazon.com/',
+      'https://images-na.ssl-images-amazon.com/')).to_s
   end
 
   def extract_url_path value

@@ -16,11 +16,11 @@ class ContributorsController < ApplicationController
     flash[:error] = e.message
   end
 
+  private
+
   def contributor_params
     params.permit :stripeToken, :stripeTokenType, :stripeEmail, :gift_id, :id
   end
-
-  private
 
   def create_stripe_customer(contributor, email, token)
     customer = Stripe::Customer.create(
@@ -31,17 +31,16 @@ class ContributorsController < ApplicationController
   end
 
   def stripe_payments(gift)
-    if gift.all_contributed?
-      gift.contributors.each do |contributor|
-        charge = Stripe::Charge.create(
-          customer: contributor.token,
-          amount: @amount,
-          description: 'Giftbox Payment',
-          currency: 'gbp')
-      end
-      # contributor.purchase_amount = @amount
-      zinc_post(gift)
+    return unless gift.all_contributed?
+    gift.contributors.each do |contributor|
+      charge = Stripe::Charge.create(
+        customer: contributor.token,
+        amount: @amount,
+        description: 'Giftbox Payment',
+        currency: 'gbp')
     end
+    # contributor.purchase_amount = @amount
+    zinc_post(gift)
   end
 
   def zinc_post(gift)
@@ -49,7 +48,7 @@ class ContributorsController < ApplicationController
       client_token: ENV['ZINC_CLIENT_TOKEN'],
       retailer: "amazon_uk",
       products: [{ product_id: gift.item, quantity: 1 }],
-      maxprice: 0, #needs to be set to gift.item_price on live
+      maxprice: 0, # needs to be set to gift.item_price on live
       shipping_address: {
         first_name: gift.ship_name,
         last_name: gift.ship_surname,

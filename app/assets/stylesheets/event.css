@@ -1,11 +1,62 @@
-#event .progress{
-  display: block;
+#gift-status {
   margin: 3em 0;
+  background: rgba(0, 0, 0, .2)
 }
 
-#recipient {
+#gift-status #gift-status-container {
+  overflow: hidden;
+  padding: 2em;
+}
+
+#status-order {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#event .progress, #event .progress-bar {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+#event .progress{
   display: block;
-  margin-top: 2em;
+  padding: 0;
+  background-color: #faf8f6;
+  border: 1px solid #027f7f;
+}
+
+#event .progress-bar {
+  min-width: 2em;
+  width: 2%;
+  background-color: #00c8c8;
+}
+
+.status{
+  text-transform: uppercase;
+  font-size: 17px;
+  float: left;
+  color: rgba(40, 40, 40, 0.6);
+  text-align: center;
+}
+
+.status strong {
+  margin-bottom: .3em;
+  font-weight: 600;
+  color: rgba(40, 40, 40, 0.9);
+  font-family: 'Avenir LT W01 55 Roman';
+  display: block;
+}
+
+#event-details {
+  margin-bottom: 2em;
+}
+
+#event-details .col-md-6 {
+  display: block;
 }
 
 #recipient h4 {
@@ -27,17 +78,27 @@
 #item {
   -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   -webkit-flex-flow: column wrap;
   flex-flow: column wrap;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-weight: 600;
+
 }
 
 #item .item-child{
   margin-bottom: 1em;
 }
 
-#contributors .contributor, #organiser{
+#item #item-name {
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+#contributors .contributor{
   width: 100%;
   -webkit-align-items: center;
   align-items: center;
@@ -58,8 +119,10 @@
   margin-right: 1em;
 }
 
+#contributors .contributor .avatar{
+  width: 75px;
+}
+
 #contributors .contributor:nth-of-type(1){
   border: none;
 }
-
-

@@ -7,7 +7,7 @@ feature 'User Session' do
 
       scenario 'visitor sees tag-line, sign in form and sign up button' do
         expect(page).to have_content(
-          'Make present headaches a thing of the past'
+          'Make present-buying headaches a thing of the past'
         )
         expect(page).to have_css 'div.user_sign_in'
         expect(page).to have_link 'Sign up'
@@ -65,7 +65,7 @@ feature 'User Session' do
         click_link 'Sign out'
         expect(page).to have_content 'Signed out successfully.'
         expect(page).to have_content(
-          'Make present headaches a thing of the past'
+          'Make present-buying headaches a thing of the past'
         )
         expect(page).to have_css 'div.user_sign_in'
         expect(page).to have_link 'Sign up'

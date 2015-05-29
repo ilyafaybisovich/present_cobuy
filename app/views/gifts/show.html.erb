@@ -76,6 +76,7 @@
           <% end %>
           <h5><%= contributor.email %></h5>
         </div>
+
         <div class="contributor-child">
           <div class="payment to-paid">
             <%= contributor.token.nil? ? "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} to Pay" : "£#{number_with_precision(@gift.split_price.to_f, precision: 2)} Paid" %>
@@ -83,7 +84,7 @@
         </div>
       <% end %>
       <div class="<%= "hidden" unless contributor.token.nil? && contributor.current_user?(current_user) %>">
-        <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do %>
+        <%= form_tag pay_gift_contributor_path(@gift, contributor), method: :patch, remote: true do, class: "stripe-btn" %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-currency="gbp"

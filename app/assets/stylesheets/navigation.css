@@ -1,0 +1,60 @@
+#wrap .navbar {
+  margin: 0;
+  background-color: transparent;
+}
+
+#wrap #menu-container{
+  width: 70%;
+  padding: 0;
+}
+
+#wrap #menu {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+ /* -webkit-align-items: baseline;
+  align-items: flex-end;*/
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+#wrap #menu a{
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  line-height: 150%;
+  font-size: 1rem;
+  color: rgba(40, 40, 40, 0.5);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+#wrap #menu a:hover{
+  color: #282828;
+  border-bottom: 1px solid #EFF6F4;
+}
+
+#wrap #menu .home a{
+  margin-right: 1.5em;
+}
+
+#wrap #menu .menu-child{
+  padding: 0;
+  padding-top: 1em;
+}
+
+#wrap #menu .menu-child:last-child{
+  text-align: right;
+}
+
+#wrap #menu .menu-child:last-child a{
+  margin-left: 1em;
+}

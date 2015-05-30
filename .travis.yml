@@ -1,0 +1,9 @@
+language: ruby
+cache: bundler
+rvm: '2.2.1'
+script:
+  - RAILS_ENV=test bundle exec rake db:create
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - bundle exec rspec spec
+addons:
+  postgresql: "9.3"

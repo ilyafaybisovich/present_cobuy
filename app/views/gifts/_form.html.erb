@@ -1,0 +1,63 @@
+<%= form_for @gift do |f| %>
+  <section id="search-gift">
+    <div class="form">
+      <label><h3>Search for a gift</h3></label>
+      <input type="text" name="search_keyword" id="search_keyword" placeholder="Bicycle" />
+      <button id="amazon_search" type="button">Search</button>
+      <div id="loadingDiv"><%= image_tag 'spinner.gif' %></div>
+      <div class="added"></div>
+      <div class="amazon_error">
+        <p></p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <%= render 'select_gift' %>
+  </section>
+  <div class="form">
+    <section class="new-gift-details">
+      <%= f.label :title, 'Occasion' %>
+      <%= f.text_field :title, placeholder: "Mum's birthday" %>
+      <%= f.label :recipient%>
+      <%= f.text_field :recipient, placeholder: "Bea Smith" %>
+      <%= f.label :delivery_date %>
+      <%= f.date_field :delivery_date %>
+    </section>
+    <section id="addresss" class="new-gift-details">
+      <h3>Delivery Details</h3>
+      <%= f.label :ship_name, 'Name' %>
+      <%= f.text_field :ship_name, placeholder: "John" %>
+      <%= f.label :ship_surname, 'Surname'%>
+      <%= f.text_field :ship_surname, placeholder: "Smith" %>
+      <%= f.label :ship_add1, 'Address'%>
+      <%= f.text_field :ship_add1, placeholder: "1, London Road" %>
+      <%= f.text_field :ship_add2, placeholder: "Moordown" %>
+      <%= f.label :ship_city, 'City'%>
+      <%= f.text_field :ship_city, placeholder: "Reading" %>
+      <%= f.label :ship_county, 'County'%>
+      <%= f.text_field :ship_county, placeholder: "Berkshire" %>
+      <%= f.label :ship_pcode, 'Postcode'%>
+      <%= f.text_field :ship_pcode, placeholder: "RG2 3GB" %>
+    </section>
+
+    <!-- Hidden Fields -->
+    <%= f.text_field :item, class: "hidden" %>
+    <%= f.text_field :item_price, class: "hidden"%>
+    <%= f.text_field :description, class: "hidden" %>
+    <%= f.text_field :item_image, class: "hidden" %>
+    <%= f.text_field :item_url, class: "hidden" %>
+    <section class="new-gift-details">
+      <%= f.fields_for :contributors do |contributor_form| %>
+        <%= render 'contributor_fields', f: contributor_form  %>
+      <% end %>
+
+      <div id="add-contributors">
+        <h3>Contributors</h3>
+        <h4><%= link_to_add_association "Add a contributor", f, :contributors, class: 'add_contributor button dark-blue' %></h4>
+      </div>
+    </section>
+  </div>
+
+
+  <div class="clearfix"></div>
+  <%= f.submit 'Create a giftbox', id: 'create-gift', class: 'button dark-blue hidden' %>
+<% end %>

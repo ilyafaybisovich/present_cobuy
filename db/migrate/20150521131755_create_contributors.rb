@@ -1,0 +1,9 @@
+class CreateContributors < ActiveRecord::Migration
+  def change
+    create_table :contributors do |t|
+      t.belongs_to :gift, index: true, foreign_key: true
+
+      t.timestamps null: false
+    end
+  end
+end

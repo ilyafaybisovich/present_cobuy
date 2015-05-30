@@ -1,19 +1,16 @@
-## «Present Cobuy» ##
+Master:
+[![Build Status](https://travis-ci.org/Gwasanaethau/present_cobuy.svg?branch=master)](https://travis-ci.org/Gwasanaethau/present_cobuy)
+[![Coverage Status](https://coveralls.io/repos/Gwasanaethau/present_cobuy/badge.svg?branch=master)](https://coveralls.io/r/Gwasanaethau/present_cobuy?branch=master)
+
+Development:
+[![Build Status](https://travis-ci.org/Gwasanaethau/present_cobuy.svg?branch=develop)](https://travis-ci.org/Gwasanaethau/present_cobuy)
+[![Coverage Status](https://coveralls.io/repos/Gwasanaethau/present_cobuy/badge.svg?branch=develop)](https://coveralls.io/r/Gwasanaethau/present_cobuy?branch=develop)
+
+
+## Giftbox ##
 #### Make present headaches a thing of the past! ####
 
-===============
-Project Outline (as understood by the team before talking to client)
-===============
-
-===============
-Roadmap
-===============
-
-- Sign up & sign in
-- Create a gift
-- Invite contributors
-- Contributors can contribute
-- Purchase actioned on last contribution (MVP1)
+### Project Outline (as understood by the team before talking to client) ###
 
 ```
 As an efficient friend
@@ -33,9 +30,7 @@ So that the recipient is not aware of our plans
 I want to restrict access to my present-buying page
 ```
 
-
-Extended features
------------------
+#### Extended features ####
 
 ```
 As a good friend
@@ -47,9 +42,7 @@ So that I don’t have to deal with the complexity
 I want the app to be able to manage purchase including postage
 ```
 
-===============
-Questions for the client
-===============
+### Questions for the client ###
 
 * How is the present chosen? Does it come from a wishlist, a search, and so on?
 * How do you want to invite people?
@@ -57,9 +50,7 @@ Questions for the client
 * Is the cost split evenly or is the contribution amount arbitrary?
 * Final payment options: use Zinc.io (automated purchase) or trust one of the group with the money (with a possible voting process to decide who to trust)?
 
-===============
-Technologies
-===============
+### Technologies ###
 
 * Ruby on Rails with the stripe gem as we’re probably interacting with just one API?
 * Angular front-end as this will give us more functionality?
@@ -67,16 +58,12 @@ Technologies
 * PostgreSQL?
 * Security technologies to be researched as we’re dealing with card details.
 
-===============
-Overview
-===============
+### Overview ###
 
 * Wireframe! Get a rough idea of what the user will want to do and how they’re going to do it before we attempt to start building feature tests and adding functionality.
 * Defining the API early on is essential as this allows the project to be split up and worked on separately with full understanding of how the parts will interact. Required to integrate the parts later on without headaches.
 
-===============
-API Routes
-===============
+### API Routes ###
 
 GET /gifts () => { gifts: [ giftID: 1, items: [ { amazonID: 1, cost: 3.00 }, … ], title: 'Dan’s 30th Birthday', costCovered: 1.00, recipient: 'Dan', organizer: 'Rob', contributers: [ contributionID: 1, … ], … ] }
 
@@ -100,11 +87,16 @@ PATCH /users/:id ( { email: 'me@changed.ie' } ) => { userID: 1, name: 'Joe', pas
 
 GET /users/:id/contributions () => { userID: 1, name: 'Joe', contributions: [ { contributionID: 1, giftID: 1, userID: 1, token: 'jhjdsgfhsjdgfsdjhs', amount: 2.00 }, … ] }
 
-
-===============
-Models
-===============
+### Models ###
 
 - Gifts => has users(contributers) through contributions, belongs to users(as organizers)
 - Users => has many gifts(as contributers and organizers)
 - Contributions => belongs to gifts and belongs to users
+
+### Roadmap ###
+
+- Sign up & sign in
+- Create a gift
+- Invite contributors
+- Contributors can contribute
+- Purchase actioned on last contribution (MVP1)

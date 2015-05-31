@@ -22,12 +22,6 @@ function currencyToFloat(currency){
 
 $(document).ready(function(){
 
-  //=================== pay, to pay colors ==============================
-    $('.payment:contains("Paid")').each(function() {
-      $(this).removeClass("to-pay");
-      $(this).addClass("paid");
-    });
-
   //=================== ajax spinner ==============================
     $('#loadingDiv').hide();  // Hide it initially
     $(document).ajaxStart(function() {

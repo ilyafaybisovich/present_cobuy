@@ -1,5 +1,5 @@
-<% if Gift.exists? id: [params[:id]] %>
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <% if Gift.exists? id: [params[:id]] %>
     <div id="event" class="container">
       <h1><%= @gift.title %></h1>
       <section id="gift-status" class="row">
@@ -100,11 +100,11 @@
     </div>
   <% else %>
     <div class="description">
-      Please sign in to view this giftbox.
+      This giftbox does not exist (yet).
     </div>
   <% end %>
 <% else %>
   <div class="description">
-    This giftbox does not exist (yet).
+    Please sign in to view this giftbox.
   </div>
 <% end %>

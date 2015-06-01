@@ -16,6 +16,7 @@ class GiftsController < ApplicationController
   end
 
   def show
+    return unless user_signed_in?
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id

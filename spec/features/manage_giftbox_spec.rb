@@ -12,7 +12,7 @@ feature 'Manage Giftbox', js: true do
                        item: '12345',
                        item_price: 600.0,
                        description: 'MacBook Pro',
-                       item_image: 'http://prezzy.com/macbook.jpg',
+                       item_image: 'http://www.ronin-giftbox.co.uk/macbook.jpg',
                        item_url: 'http://amazon.co.uk/macbook',
                        user_id: 1
     gift.contributors.create gift_id: 1, email: 'user1@giftbox.ie'
@@ -39,7 +39,7 @@ feature 'Manage Giftbox', js: true do
       gift.contributors.create gift_id: 1, email: 'contributor2@giftbox.ie'
       visit '/gifts/1'
       expect(page).to have_content '£300.00 to Pay'
-      expect(page).not_to have_content 'Paid'
+      expect(page).not_to have_content '£300.00 Paid'
     end
 
     scenario 'organiser sees the item image' do

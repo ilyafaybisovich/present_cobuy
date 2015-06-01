@@ -21,6 +21,7 @@ function currencyToFloat(currency){
 }
 
 $(document).ready(function(){
+
   //=================== ajax spinner ==============================
     $('#loadingDiv').hide();  // Hide it initially
     $(document).ajaxStart(function() {

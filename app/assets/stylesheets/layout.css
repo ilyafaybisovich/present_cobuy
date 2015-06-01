@@ -184,7 +184,7 @@ a.button {
 }
 
 #wrap .blurb {
-  margin-top: -2em;
+  width: 100%;
 }
 
 #wrap .logo img, footer img {

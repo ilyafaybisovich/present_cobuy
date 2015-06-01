@@ -21,8 +21,7 @@ class GiftsController < ApplicationController
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id
-    days_count = (@gift.delivery_date - DateTime.now).to_i
-    @days_left = days_count < 0 ? '0' : days_count
+    @days_left = days_left
   end
 
   def search
@@ -56,6 +55,11 @@ class GiftsController < ApplicationController
   end
 
   private
+
+  def days_left
+    days_count = (@gift.delivery_date - DateTime.now).to_i
+    days_count < 0 ? 0 : days_count
+  end
 
   def gift_params
     params.require(:gift).permit :title, :recipient,

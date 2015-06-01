@@ -119,6 +119,7 @@ feature 'Manage Giftbox', js: true do
       expect(page).not_to have_content '£300.00 to Pay'
       expect(page).not_to have_content '£300.00 Paid'
       expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'user2@giftbox.ie'
       expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
       expect(page).not_to have_css '.progress-bar'
       expect(page).to have_content 'You cannot view other people’s giftboxes'

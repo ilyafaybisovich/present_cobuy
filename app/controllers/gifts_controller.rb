@@ -22,6 +22,13 @@ class GiftsController < ApplicationController
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id
     @days_left = days_left
+    @current_user_giftbox = current_user_giftbox?
+  end
+
+  def current_user_giftbox?
+    @contributors.any? do |contributor|
+      contributor.email == current_user.email
+    end
   end
 
   def search

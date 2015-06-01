@@ -22,20 +22,6 @@ function currencyToFloat(currency){
 
 $(document).ready(function(){
 
-  //=================== pay, to pay colors ==============================
-    // $('.payment:contains("Paid")').each(function() {
-    //   $(this).removeClass("to-pay");
-    //   $(this).addClass("paid");
-    // });
-
-    $('.payment').each(function(){
-      if($(this).is(':contains("Paid")')){
-        $(this).addClass('paid');
-      } else if ($(this).is(':contains("to Pay")')) {
-        $(this).addClass('to-pay');
-      }
-    });
-
   //=================== ajax spinner ==============================
     $('#loadingDiv').hide();  // Hide it initially
     $(document).ajaxStart(function() {

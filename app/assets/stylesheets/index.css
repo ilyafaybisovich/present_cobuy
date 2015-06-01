@@ -1,0 +1,33 @@
+
+#wrap .headline {
+  padding: 20px 0;
+}
+
+#wrap .headline h1{
+  font-size: 3.4rem;
+}
+
+#wrap .description{
+  position: static;
+  display: block;
+  float: none;
+  white-space: normal;
+  color: #faf8f6;
+  font-size: 2rem;
+}
+
+#wrap .user-sign {
+  padding-bottom: 1em;
+}
+
+#wrap #secondary-link{
+  width: 30%;
+}
+
+#wrap #secondary-link a {
+  display: block;
+  margin-bottom: 1em;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+

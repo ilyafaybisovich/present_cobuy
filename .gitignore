@@ -2,4 +2,9 @@
 /log/*
 !/log/.keep
 /tmp
-Gemfile.lock
+/config/initializers/vacuum.rb
+/config/initializers/email.rb
+/config/initializers/zinc.rb
+/config/initializers/keys_for_stripe.rb
+/coverage
+/**/.DS_Store

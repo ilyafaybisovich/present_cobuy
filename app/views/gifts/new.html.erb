@@ -1,0 +1,9 @@
+<div id="new-gift" class="container">
+  <% if user_signed_in? %>
+    <%= render 'form' %>
+  <% else %>
+    <p>Please sign in to create a giftbox</p>
+    <%= link_to 'Sign in', new_user_session_path %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+</div>

@@ -16,6 +16,14 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.rbgeomatics.co.uk',
+    domain: 'rbgeomatics.co.uk',
+    user_name: 'makers_academy_test@rbgeomatics.co.uk',
+    password: ENV['EMAIL_SECRET'],
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

@@ -1,0 +1,172 @@
+#gift-status {
+  margin: 3em 0;
+  background: rgba(0, 0, 0, .2)
+}
+
+#gift-status #gift-status-container {
+  overflow: hidden;
+  padding: 2em;
+}
+
+#status-order {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#event .progress, #event .progress-bar {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+#event .progress{
+  display: block;
+  padding: 0;
+  background-color: #faf8f6;
+  border: 1px solid #027f7f;
+}
+
+#event .progress-bar {
+  min-width: 2em;
+  width: 2%;
+  background-color: #00c8c8;
+}
+
+.status{
+  text-transform: uppercase;
+  font-size: 17px;
+  float: left;
+  color: rgba(40, 40, 40, 0.6);
+  text-align: center;
+}
+
+.status strong {
+  margin-bottom: .3em;
+  font-weight: 600;
+  color: rgba(40, 40, 40, 0.9);
+  font-family: 'Avenir LT W01 55 Roman';
+  display: block;
+}
+
+#event-details {
+  margin-bottom: 2em;
+}
+
+#event-details .col-md-6 {
+  display: block;
+}
+
+#recipient h4 {
+  margin-bottom: 1em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #faf8f6;
+}
+#organiser{
+  margin-bottom: 3em;
+  border: none;
+}
+
+#item, #organiser, #contributors .contributor, #contributors .email-payment-status {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#item {
+  padding-right: 3em;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-weight: 600;
+
+}
+
+#item .item-child{
+  margin-bottom: 1em;
+}
+
+#item #item-name {
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: "Brandon Text","Gill Sans","Gill Sans MT","Futura","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+#contributors .contributor{
+  width: 100%;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding: 1em 0;
+  border-top: 2px solid #12b4b4;
+}
+
+#contributors .contributor .contributor-child, #organiser .organiser-child{
+  margin-right: 1em;
+}
+
+#contributors .contributor .avatar{
+  width: 75px;
+}
+
+#contributors .contributor:nth-of-type(1){
+  border: none;
+}
+
+#contributors .contributor .contributor-child:nth-of-type(2) {
+  width: 40%;
+}
+
+/*#contributors .email-payment-status{
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}*/
+
+#contributors .contributor-email{
+  width: 400px;
+}
+
+#contributors .payment {
+  width:  300px;
+  padding: .5em;
+  padding-right: 1.5em;
+  text-align: right;
+  font-size: 1.6rem;
+  color: #faf8f6;
+  /*text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);*/
+  border-corner-shape: bevel;
+  border-radius: 0 999px 0 999px;
+  background: rgba(0, 0, 0, .2)
+  /*background: #FFA500;*/
+}
+
+#contributors .to-paid {
+  color: #FFA500;
+  /*text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+}
+
+#contributors .paid{
+  color: #5DD649;
+}
+
+
+
+
+
+

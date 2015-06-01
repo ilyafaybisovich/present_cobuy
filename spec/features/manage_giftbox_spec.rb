@@ -20,7 +20,6 @@ feature 'Manage Giftbox', js: true do
   end
 
   context 'Organiser creates a giftbox –' do
-
     scenario 'organiser sees the giftbox title' do
       sleep 5
       expect(page).to have_content "Mum's Birthday"
@@ -77,6 +76,48 @@ feature 'Manage Giftbox', js: true do
       stripe_payment
       visit '/gifts/1'
       expect(page).to have_content 'Your Amazon Order has been placed.'
+    end
+  end
+
+  context 'User is not signed in –' do
+    scenario 'user cannot see existing giftbox' do
+      click_link 'Sign out'
+      visit '/gifts/1'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'Please sign in to view this giftbox'
+    end
+  end
+
+  context 'At any time –' do
+    scenario 'user cannot navigate to a non-existant giftbox' do
+      visit '/gifts/1582'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'This giftbox does not exist (yet)'
+      click_link 'Sign out'
+      visit '/gifts/1582'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'This giftbox does not exist (yet)'
     end
   end
 end

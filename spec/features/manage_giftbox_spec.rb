@@ -95,7 +95,7 @@ feature 'Manage Giftbox', js: true do
     end
   end
 
-  context 'At any time –' do
+  context 'User is signed in –' do
     scenario 'user cannot navigate to a non-existant giftbox' do
       visit '/gifts/1582'
       expect(page).not_to have_content "Mum's Birthday"
@@ -107,6 +107,21 @@ feature 'Manage Giftbox', js: true do
       expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
       expect(page).not_to have_css '.progress-bar'
       expect(page).to have_content 'This giftbox does not exist (yet)'
+    end
+
+    scenario 'user cannot see giftbox they do not contrbute to' do
+      click_link 'Sign out'
+      user_signup 'user2@giftbox.ie'
+      visit '/gifts/1'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'You cannot view other people’s giftboxes'
     end
   end
 end

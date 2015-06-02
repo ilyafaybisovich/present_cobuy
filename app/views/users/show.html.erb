@@ -19,11 +19,12 @@
           </ul>
         <% end %>
       </div>
+      <div class="col-md-6 col-md-offset-3">
+        <h4 class="text-centre">or …</h4>
+        <%= link_to 'Start a new gift-box', new_gift_path, class: "button dark-blue text-centre", data: { no_turbolink: true } %>
+      </div>
     </div>
-    <div class="col-md-6 col-md-offset-3">
-      <h4 class="text-centre">or ...</h4>
-      <%= link_to 'Start a new gift-box', new_gift_path, class: "button dark-blue text-centre", data: { no_turbolink: true } %>
-    </div>
+
   <% else %>
     <div class="description">
       You cannot view other people’s profiles.

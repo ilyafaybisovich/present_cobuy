@@ -12,7 +12,7 @@ feature 'Manage Giftbox', js: true do
                        item: '12345',
                        item_price: 600.0,
                        description: 'MacBook Pro',
-                       item_image: 'http://prezzy.com/macbook.jpg',
+                       item_image: 'http://www.ronin-giftbox.co.uk/macbook.jpg',
                        item_url: 'http://amazon.co.uk/macbook',
                        user_id: 1
     gift.contributors.create gift_id: 1, email: 'user1@giftbox.ie'
@@ -20,7 +20,6 @@ feature 'Manage Giftbox', js: true do
   end
 
   context 'Organiser creates a giftbox –' do
-
     scenario 'organiser sees the giftbox title' do
       sleep 5
       expect(page).to have_content "Mum's Birthday"
@@ -39,7 +38,7 @@ feature 'Manage Giftbox', js: true do
       gift.contributors.create gift_id: 1, email: 'contributor2@giftbox.ie'
       visit '/gifts/1'
       expect(page).to have_content '£300.00 to Pay'
-      expect(page).not_to have_content 'Paid'
+      expect(page).not_to have_content '£300.00 Paid'
     end
 
     scenario 'organiser sees the item image' do
@@ -77,6 +76,53 @@ feature 'Manage Giftbox', js: true do
       stripe_payment
       visit '/gifts/1'
       expect(page).to have_content 'Your Amazon Order has been placed.'
+    end
+  end
+
+  context 'User is not signed in –' do
+    scenario 'user cannot see existing giftbox' do
+      click_link 'Sign out'
+      visit '/gifts/1'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'Please sign in to view this giftbox'
+    end
+  end
+
+  context 'User is signed in –' do
+    scenario 'user cannot navigate to a non-existant giftbox' do
+      visit '/gifts/1582'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'This giftbox does not exist (yet)'
+    end
+
+    scenario 'user cannot see giftbox they do not contrbute to' do
+      click_link 'Sign out'
+      user_signup 'user2@giftbox.ie'
+      visit '/gifts/1'
+      expect(page).not_to have_content "Mum's Birthday"
+      expect(page).not_to have_content '15 Ada House, E2 2BB'
+      expect(page).not_to have_content 'MacBook Pro'
+      expect(page).not_to have_content '£300.00 to Pay'
+      expect(page).not_to have_content '£300.00 Paid'
+      expect(page).not_to have_content 'user1@giftbox.ie'
+      expect(page).not_to have_content 'user2@giftbox.ie'
+      expect(page).not_to have_content 'xOxOaMyRuLeZoXoX'
+      expect(page).not_to have_css '.progress-bar'
+      expect(page).to have_content 'You cannot view other people’s giftboxes'
     end
   end
 end

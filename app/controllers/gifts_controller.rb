@@ -16,11 +16,19 @@ class GiftsController < ApplicationController
   end
 
   def show
+    return unless Gift.exists? id: [params[:id]]
+    return unless user_signed_in?
     @gift = Gift.find params[:id]
     @contributors = @gift.contributors
     @organiser = User.find @gift.user_id
-    days_count = (@gift.delivery_date - DateTime.now).to_i
-    @days_left = days_count < 0 ? '0' : days_count
+    @days_left = days_left
+    @current_user_giftbox = current_user_giftbox?
+  end
+
+  def current_user_giftbox?
+    @contributors.any? do |contributor|
+      contributor.email == current_user.email
+    end
   end
 
   def search
@@ -54,6 +62,11 @@ class GiftsController < ApplicationController
   end
 
   private
+
+  def days_left
+    days_count = (@gift.delivery_date - DateTime.now).to_i
+    days_count < 0 ? 0 : days_count
+  end
 
   def gift_params
     params.require(:gift).permit :title, :recipient,

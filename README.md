@@ -11,29 +11,29 @@ Development:
 
 [www.ronin-giftbox.co.uk](https://www.ronin-giftbox.co.uk)
 
-A final project at Makers Academy, for a team of Ronin students carried out between 18-29 June 2015. The team comprised of [Iciar](https://github.com/Icicleta), [Ilya](https://github.com/ilyafaybisovich), [Mark](https://github.com/Gwasanaethau) and [Rob](https://github.com/RBGeomaticsRob).
+Giftbox is a final project for a team of Ronin students carried out between 18-29 May 2015 at Makers Academy. The team comprised of [Iciar](https://github.com/Icicleta), [Ilya](https://github.com/ilyafaybisovich), [Mark](https://github.com/Gwasanaethau) and [Rob](https://github.com/RBGeomaticsRob).
 
-The whole project was designed and implemented by the team of 4 working remotley using Google Hangouts and Github to remotely pair. The project was implemented using an agile BDD approach, with full test-driven development throughout.
+The whole project was designed and implemented by the team of 4 working remotely using Google Hangouts and Github. The project was implemented using a pair-programming agile BDD approach, with full test-driven development throughout.
 
 Giftbox is a collaborative service to allow groups to collectively purchase gifts for an individual. A simple process allows the user to select a gift, add contributers, take payments and automatically make the purchase and ship on receiving the last contribution.
 
-The project was [presented](https://www.dropbox.com/s/rzkvuqnnk3z3fvo/Presentation.key?dl=0) on 29 June at Makers Academy Graduation.
+The project was [presented](https://www.dropbox.com/s/rzkvuqnnk3z3fvo/Presentation.key?dl=0) on 29 May at the Makers Academy Graduation.
 
-Appoach
+##### Approach #####
 
 The team initially met with the client and crafted a set of user stories to better understand the clients requirement. Using these the team then crafted a MVP roadmap being aware of the basic domain design upfront, but letting the specifics of this emerge as the project developed.
 
 The group split this MVP roadmaps down into tickets and used a Trello [kanban board](https://trello.com/b/earxI39d/giftbox) to manage the work processes, working in pairs to complete each ticket requirement. Meeting for twice daily standups to check on progress and blockages to the team, including a focus on current test coverage and status.
 
-Rob blogged some further details of the progress of the project [here](http://rbgeomaticsrob.github.io/)
+Rob [blogged](http://rbgeomaticsrob.github.io/) some further details of the progress of the project.
 
 ### Giftbox - Making present headaches a thing of the past! ###
 
 ### User Stories ###
 
 ```
-As an cost-aware friend
-So that I don't end up covering other peoples costs
+As a cost-aware friend
+So that I don’t end up covering other peoples costs
 I want an app that encourages a group to collaborate
 
 As the group coordinator
@@ -50,7 +50,7 @@ I want to restrict access to my present-buying page
 
 As a time-limited friend
 So that I don’t have to deal with the complexity
-I want the app to be able to manage purchase including despatch
+I want the app to be able to manage purchasing (including dispatch)
 ```
 
 ### Technologies ###
@@ -68,14 +68,18 @@ Testing
 - Puffing Billy
 
 CI
-- Travis
+- [Travis](https://travis-ci.org)
+- [Coveralls](https://coveralls.io)
+
+Hosting
+- [Heroku](https://www.heroku.com)
 
 Security
 - The production domain is setup with SSL for compliance with Stripe.
 
 ### Models (EDUF) ###
 
-- Gifts => has users(contributers) through contributions, belongs to users(as organizers)
+- Gifts => has users(contributers) through contributions; belongs to users(as organizers)
 - Users => has many gifts(as contributers and organizers)
 - Contributions => belongs to gifts and belongs to users
 
@@ -140,6 +144,11 @@ Manage Giftbox
     progress bar at 0% before any payments
     progress bar updates on payment
     action zinc.io payment on all purchases being made
+  User is not signed in –
+    user cannot see existing giftbox
+  User is signed in –
+    user cannot navigate to a non-existant giftbox
+    user cannot see giftbox they do not contribute to
 
 User Page
   When user is not signed in –

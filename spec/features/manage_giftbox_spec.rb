@@ -109,7 +109,7 @@ feature 'Manage Giftbox', js: true do
       expect(page).to have_content 'This giftbox does not exist (yet)'
     end
 
-    scenario 'user cannot see giftbox they do not contrbute to' do
+    scenario 'user cannot see giftbox they do not contribute to' do
       click_link 'Sign out'
       user_signup 'user2@giftbox.ie'
       visit '/gifts/1'
